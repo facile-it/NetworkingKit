@@ -11,6 +11,12 @@
 		AA54A1B22011F25100FE4478 /* NetworkingKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA54A1B12011F25100FE4478 /* NetworkingKitTests.swift */; };
 		AA54A1B42011F25100FE4478 /* NetworkingKit.h in Headers */ = {isa = PBXBuildFile; fileRef = AA54A1A62011F25100FE4478 /* NetworkingKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA91B4BA20122DFA00603E3C /* NetworkingKit_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = AA91B4AC20122DFA00603E3C /* NetworkingKit_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA91B4F9201232ED00603E3C /* SwiftCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA91B4F6201232EC00603E3C /* SwiftCheck.framework */; };
+		AA91B4FA201232ED00603E3C /* FunctionalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA91B4F7201232ED00603E3C /* FunctionalKit.framework */; };
+		AA91B4FB201232ED00603E3C /* Abstract.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA91B4F8201232ED00603E3C /* Abstract.framework */; };
+		AA91B5002012332600603E3C /* FunctionalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA91B4FD2012332500603E3C /* FunctionalKit.framework */; };
+		AA91B5012012332600603E3C /* Abstract.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA91B4FE2012332500603E3C /* Abstract.framework */; };
+		AA91B5022012332600603E3C /* SwiftCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA91B4FF2012332600603E3C /* SwiftCheck.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +45,12 @@
 		AA91B4D620122F3500603E3C /* PathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathTests.swift; sourceTree = "<group>"; };
 		AA91B4D720122F3500603E3C /* JSONObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONObjectTests.swift; sourceTree = "<group>"; };
 		AA91B4D820122F3500603E3C /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		AA91B4F6201232EC00603E3C /* SwiftCheck.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftCheck.framework; path = Carthage/Build/Mac/SwiftCheck.framework; sourceTree = "<group>"; };
+		AA91B4F7201232ED00603E3C /* FunctionalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FunctionalKit.framework; path = Carthage/Build/Mac/FunctionalKit.framework; sourceTree = "<group>"; };
+		AA91B4F8201232ED00603E3C /* Abstract.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Abstract.framework; path = Carthage/Build/Mac/Abstract.framework; sourceTree = "<group>"; };
+		AA91B4FD2012332500603E3C /* FunctionalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FunctionalKit.framework; path = Carthage/Build/iOS/FunctionalKit.framework; sourceTree = "<group>"; };
+		AA91B4FE2012332500603E3C /* Abstract.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Abstract.framework; path = Carthage/Build/iOS/Abstract.framework; sourceTree = "<group>"; };
+		AA91B4FF2012332600603E3C /* SwiftCheck.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftCheck.framework; path = Carthage/Build/iOS/SwiftCheck.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +58,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA91B4F9201232ED00603E3C /* SwiftCheck.framework in Frameworks */,
+				AA91B4FA201232ED00603E3C /* FunctionalKit.framework in Frameworks */,
+				AA91B4FB201232ED00603E3C /* Abstract.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +76,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA91B5002012332600603E3C /* FunctionalKit.framework in Frameworks */,
+				AA91B5012012332600603E3C /* Abstract.framework in Frameworks */,
+				AA91B5022012332600603E3C /* SwiftCheck.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +92,7 @@
 				AA54A1B02011F25100FE4478 /* NetworkingKitTests */,
 				AA91B4AB20122DFA00603E3C /* NetworkingKit-iOS */,
 				AA54A1A42011F25100FE4478 /* Products */,
+				AA91B4F5201232EC00603E3C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,6 +153,35 @@
 				AA91B4D820122F3500603E3C /* Tools.swift */,
 			);
 			path = JSONObjectTests;
+			sourceTree = "<group>";
+		};
+		AA91B4F5201232EC00603E3C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA91B5032012332B00603E3C /* iOS */,
+				AA91B4FC2012330800603E3C /* macOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AA91B4FC2012330800603E3C /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				AA91B4F8201232ED00603E3C /* Abstract.framework */,
+				AA91B4F7201232ED00603E3C /* FunctionalKit.framework */,
+				AA91B4F6201232EC00603E3C /* SwiftCheck.framework */,
+			);
+			name = macOS;
+			sourceTree = "<group>";
+		};
+		AA91B5032012332B00603E3C /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				AA91B4FE2012332500603E3C /* Abstract.framework */,
+				AA91B4FD2012332500603E3C /* FunctionalKit.framework */,
+				AA91B4FF2012332600603E3C /* SwiftCheck.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -438,6 +486,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = NetworkingKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -461,6 +513,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = NetworkingKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -508,6 +564,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "NetworkingKit-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
@@ -532,6 +592,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "NetworkingKit-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
