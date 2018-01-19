@@ -33,6 +33,12 @@
 		AA91B4AA20122DFA00603E3C /* NetworkingKit_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkingKit_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA91B4AC20122DFA00603E3C /* NetworkingKit_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingKit_iOS.h; sourceTree = "<group>"; };
 		AA91B4AD20122DFA00603E3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA91B4CB20122ED200603E3C /* JSONObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONObject.swift; sourceTree = "<group>"; };
+		AA91B4CC20122ED200603E3C /* PathTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathTo.swift; sourceTree = "<group>"; };
+		AA91B4CD20122ED200603E3C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		AA91B4D620122F3500603E3C /* PathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathTests.swift; sourceTree = "<group>"; };
+		AA91B4D720122F3500603E3C /* JSONObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONObjectTests.swift; sourceTree = "<group>"; };
+		AA91B4D820122F3500603E3C /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,7 @@
 		AA54A1A52011F25100FE4478 /* NetworkingKit */ = {
 			isa = PBXGroup;
 			children = (
+				AA91B4CA20122EC900603E3C /* JSONObject */,
 				AA54A1A62011F25100FE4478 /* NetworkingKit.h */,
 				AA54A1A72011F25100FE4478 /* Info.plist */,
 			);
@@ -93,6 +100,7 @@
 		AA54A1B02011F25100FE4478 /* NetworkingKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				AA91B4D520122F3500603E3C /* JSONObjectTests */,
 				AA54A1B12011F25100FE4478 /* NetworkingKitTests.swift */,
 				AA54A1B32011F25100FE4478 /* Info.plist */,
 			);
@@ -106,6 +114,26 @@
 				AA91B4AD20122DFA00603E3C /* Info.plist */,
 			);
 			path = "NetworkingKit-iOS";
+			sourceTree = "<group>";
+		};
+		AA91B4CA20122EC900603E3C /* JSONObject */ = {
+			isa = PBXGroup;
+			children = (
+				AA91B4CD20122ED200603E3C /* Extensions.swift */,
+				AA91B4CB20122ED200603E3C /* JSONObject.swift */,
+				AA91B4CC20122ED200603E3C /* PathTo.swift */,
+			);
+			path = JSONObject;
+			sourceTree = "<group>";
+		};
+		AA91B4D520122F3500603E3C /* JSONObjectTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA91B4D720122F3500603E3C /* JSONObjectTests.swift */,
+				AA91B4D620122F3500603E3C /* PathTests.swift */,
+				AA91B4D820122F3500603E3C /* Tools.swift */,
+			);
+			path = JSONObjectTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +224,7 @@
 				TargetAttributes = {
 					AA54A1A22011F25100FE4478 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					AA54A1AB2011F25100FE4478 = {
@@ -204,6 +233,7 @@
 					};
 					AA91B4A920122DFA00603E3C = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -400,6 +430,7 @@
 		AA54A1B82011F25100FE4478 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -414,6 +445,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = it.facile.NetworkingKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -421,6 +453,7 @@
 		AA54A1B92011F25100FE4478 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -468,6 +501,7 @@
 		AA91B4BB20122DFA00603E3C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -482,6 +516,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -490,6 +525,7 @@
 		AA91B4BC20122DFA00603E3C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
