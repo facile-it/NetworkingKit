@@ -10,6 +10,7 @@
 		AA54A1AD2011F25100FE4478 /* NetworkingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA54A1A32011F25100FE4478 /* NetworkingKit.framework */; };
 		AA54A1B22011F25100FE4478 /* NetworkingKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA54A1B12011F25100FE4478 /* NetworkingKitTests.swift */; };
 		AA54A1B42011F25100FE4478 /* NetworkingKit.h in Headers */ = {isa = PBXBuildFile; fileRef = AA54A1A62011F25100FE4478 /* NetworkingKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA91B4BA20122DFA00603E3C /* NetworkingKit_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = AA91B4AC20122DFA00603E3C /* NetworkingKit_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,9 @@
 		AA54A1AC2011F25100FE4478 /* NetworkingKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkingKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA54A1B12011F25100FE4478 /* NetworkingKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingKitTests.swift; sourceTree = "<group>"; };
 		AA54A1B32011F25100FE4478 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA91B4AA20122DFA00603E3C /* NetworkingKit_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkingKit_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA91B4AC20122DFA00603E3C /* NetworkingKit_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingKit_iOS.h; sourceTree = "<group>"; };
+		AA91B4AD20122DFA00603E3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AA91B4A620122DFA00603E3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -55,6 +66,7 @@
 			children = (
 				AA54A1A52011F25100FE4478 /* NetworkingKit */,
 				AA54A1B02011F25100FE4478 /* NetworkingKitTests */,
+				AA91B4AB20122DFA00603E3C /* NetworkingKit-iOS */,
 				AA54A1A42011F25100FE4478 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,6 +76,7 @@
 			children = (
 				AA54A1A32011F25100FE4478 /* NetworkingKit.framework */,
 				AA54A1AC2011F25100FE4478 /* NetworkingKitTests.xctest */,
+				AA91B4AA20122DFA00603E3C /* NetworkingKit_iOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,6 +99,15 @@
 			path = NetworkingKitTests;
 			sourceTree = "<group>";
 		};
+		AA91B4AB20122DFA00603E3C /* NetworkingKit-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				AA91B4AC20122DFA00603E3C /* NetworkingKit_iOS.h */,
+				AA91B4AD20122DFA00603E3C /* Info.plist */,
+			);
+			path = "NetworkingKit-iOS";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -94,6 +116,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA54A1B42011F25100FE4478 /* NetworkingKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA91B4A720122DFA00603E3C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA91B4BA20122DFA00603E3C /* NetworkingKit_iOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +166,24 @@
 			productReference = AA54A1AC2011F25100FE4478 /* NetworkingKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		AA91B4A920122DFA00603E3C /* NetworkingKit-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA91B4BF20122DFA00603E3C /* Build configuration list for PBXNativeTarget "NetworkingKit-iOS" */;
+			buildPhases = (
+				AA91B4A520122DFA00603E3C /* Sources */,
+				AA91B4A620122DFA00603E3C /* Frameworks */,
+				AA91B4A720122DFA00603E3C /* Headers */,
+				AA91B4A820122DFA00603E3C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "NetworkingKit-iOS";
+			productName = "NetworkingKit-iOS";
+			productReference = AA91B4AA20122DFA00603E3C /* NetworkingKit_iOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -154,6 +202,10 @@
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
+					AA91B4A920122DFA00603E3C = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = AA54A19D2011F25100FE4478 /* Build configuration list for PBXProject "NetworkingKit" */;
@@ -168,6 +220,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				AA91B4A920122DFA00603E3C /* NetworkingKit-iOS */,
 				AA54A1A22011F25100FE4478 /* NetworkingKit */,
 				AA54A1AB2011F25100FE4478 /* NetworkingKitTests */,
 			);
@@ -189,6 +242,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AA91B4A820122DFA00603E3C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -204,6 +264,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA54A1B22011F25100FE4478 /* NetworkingKitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA91B4A520122DFA00603E3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +465,51 @@
 			};
 			name = Release;
 		};
+		AA91B4BB20122DFA00603E3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "NetworkingKit-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "it.facile.NetworkingKit-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AA91B4BC20122DFA00603E3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "NetworkingKit-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "it.facile.NetworkingKit-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -424,6 +536,15 @@
 			buildConfigurations = (
 				AA54A1BB2011F25100FE4478 /* Debug */,
 				AA54A1BC2011F25100FE4478 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA91B4BF20122DFA00603E3C /* Build configuration list for PBXNativeTarget "NetworkingKit-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA91B4BB20122DFA00603E3C /* Debug */,
+				AA91B4BC20122DFA00603E3C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
