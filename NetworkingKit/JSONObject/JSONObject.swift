@@ -1,73 +1,27 @@
 import Abstract
 import FunctionalKit
 
-extension Array {
-    func isEqual(to other: [Element], considering predicate: (Element,Element) -> Bool) -> Bool {
-        guard count == other.count else { return false }
-        for (index,element) in enumerated() {
-            if predicate(element,other[index]) == false {
-                return false
-            }
+public enum JSONError: Error, CustomStringConvertible {
+    case serialization(NSError)
+    case invalidTopLevelObject
+    case nonJSONType
+    
+    public var description: String {
+        switch self {
+        case .serialization(let error):
+            return error.localizedDescription
+        case .invalidTopLevelObject:
+            return "Invalid top level object"
+        case .nonJSONType:
+            return "Object is not a JSON type"
         }
-        return true
     }
 }
 
-extension Dictionary {
-    func isEqual(to other: [Key:Value], considering predicate: (Value,Value) -> Bool) -> Bool {
-        guard self.count == other.count else { return false }
-        for key in keys {
-            let selfValue = self[key]
-            let otherValue = other[key]
-            switch (selfValue,otherValue) {
-            case (.some,.none):
-                return false
-            case (.none,.some):
-                return false
-            case let (.some(failure),.some(success)):
-                if predicate(failure,success) == false {
-                    return false
-                }
-            default:
-                break
-            }
-        }
-        return true
-    }
-}
+public typealias JSONResult<T> = Result<JSONError, T>
 
 public protocol JSONNumber {
     var toNSNumber: NSNumber { get }
-}
-
-extension Int: JSONNumber {
-    public var toNSNumber: NSNumber {
-        return NSNumber(value: self)
-    }
-}
-
-extension UInt: JSONNumber {
-    public var toNSNumber: NSNumber {
-        return NSNumber(value: self)
-    }
-}
-
-extension Float: JSONNumber {
-    public var toNSNumber: NSNumber {
-        return NSNumber(value: self)
-    }
-}
-
-extension Double: JSONNumber {
-    public var toNSNumber: NSNumber {
-        return NSNumber(value: self)
-    }
-}
-
-extension NSNumber: JSONNumber {
-    public var toNSNumber: NSNumber {
-        return self
-    }
 }
 
 public enum JSONObject {
@@ -78,45 +32,80 @@ public enum JSONObject {
     case array([JSONObject])
     case dict([String:JSONObject])
     
-    public static func with(_ object: Any?) -> JSONObject {
-        
-        guard let object = object else { return .null }
-        
+//    public static func with(_ object: Any) -> JSONObject {
+//
+//        switch object {
+//        case is NSNull:
+//            return .null
+//        case is Int:
+//            return .number(object as! JSONNumber)
+//        case is UInt:
+//            return .number(object as! JSONNumber)
+//        case is Float:
+//            return .number(object as! JSONNumber)
+//        case is Double:
+//            return .number(object as! JSONNumber)
+//        case is Bool:
+//            return .bool(object as! Bool)
+//        case is String:
+//            return .string(object as! String)
+//        case is [Any]:
+//            return .array((object as! [Any]).map(JSONObject.with))
+//        case is [String:Any]:
+//            return .dict((object as! [String:Any])
+//                .map { ($0,JSONObject.with($1)) }
+//                .reduce([:]) {
+//                    var m_accumulation = $0
+//                    m_accumulation[$1.0] = $1.1
+//                    return m_accumulation
+//            })
+//        default:
+//            return .null
+//        }
+//    }
+    
+    public static func with(_ object: Any) -> JSONResult<JSONObject> {
         switch object {
         case is NSNull:
-            return .null
+            return .success(.null)
         case is Int:
-            return .number(object as! JSONNumber)
+            return .success(.number(object as! JSONNumber))
         case is UInt:
-            return .number(object as! JSONNumber)
+            return .success(.number(object as! JSONNumber))
         case is Float:
-            return .number(object as! JSONNumber)
+            return .success(.number(object as! JSONNumber))
         case is Double:
-            return .number(object as! JSONNumber)
+            return .success(.number(object as! JSONNumber))
         case is Bool:
-            return .bool(object as! Bool)
+            return .success(.bool(object as! Bool))
         case is String:
-            return .string(object as! String)
+            return .success(.string(object as! String))
         case is [Any]:
-            return .array((object as! [Any]).map(JSONObject.with))
+            return (object as! [Any])
+                .traverse(JSONObject.with)
+                .map(JSONObject.array)
         case is [String:Any]:
-            return .dict((object as! [String:Any])
-                .map { ($0,JSONObject.with($1)) }
-                .reduce([:]) {
-                    var m_accumulation = $0
-                    m_accumulation[$1.0] = $1.1
-                    return m_accumulation
-            })
+            return (object as! [String:Any])
+                .mapValues(JSONObject.with)
+                .map { ($0,$1) }
+                .traverse { (tuple) -> JSONResult<(String,JSONObject)> in
+                    let (key,result) = tuple
+                    return result.map{ (key,$0) } }
+                .map { JSONObject.dict($0
+                    .reduce([:]) {
+                        var m_accumulation = $0
+                        m_accumulation[$1.0] = $1.1
+                        return m_accumulation})}
         default:
-            return .null
+            return .failure(.nonJSONType)
         }
     }
     
     public static func optDict(key: String, value: Any?) -> JSONObject {
         return value
-            .map { .with($0) }
-            .flatMap { $0 != .null ? $0 : nil }
-            .map { .dict([key : $0]) }
+            .map(JSONObject.with)?
+            .fold(onSuccess: { JSONObject.dict([key : $0]) },
+                  onFailure: { _ in JSONObject.null })
             ?? .null
     }
     
@@ -209,18 +198,12 @@ extension JSONObject: Monoid {
     }
 }
 
-extension JSONSerialization {
-    public static func data(with object: JSONObject) throws -> Data {
-        let topLevelObject = object.getTopLevel
-        guard JSONSerialization.isValidJSONObject(topLevelObject) else {
-            throw NSError(
-                domain: "JSONSerialization",
-                code: 0,
-                userInfo: [NSLocalizedDescriptionKey : "Invalid JSON object",
-                           "OriginalJSONObject" : object,
-                           "GotTopLevelObject" : topLevelObject])
-        }
-        return try JSONSerialization.data(withJSONObject: topLevelObject)
-    }
+public protocol JSONObjectConvertible {
+    var toJSONObject: JSONObject { get }
 }
 
+extension JSONObjectConvertible {
+    public func serializeJSONObject() -> JSONResult<Data> {
+        return JSONSerialization.data(with: toJSONObject)
+    }
+}

@@ -6,23 +6,16 @@ import Abstract
 public struct Serialize {
 	public static var toJSON: (Any) -> ClientResult<Data> {
 		return { object in
-			do {
-				return try .success(JSONSerialization.data(with: JSONObject.with(object)))
-			}
-			catch let error as NSError {
-				return .failure(ClientError.serialization(.toJSON(error)))
-			}
+            return JSONObject.with(object)
+                .flatMap(JSONSerialization.data)
+                .mapError { _ in ClientError.serialization(.toJSON) }
 		}
 	}
 
 	public static var fromJSONObject: (JSONObject) -> ClientResult<Data> {
 		return { object in
-			do {
-				return try .success(JSONSerialization.data(with: object))
-			}
-			catch let error as NSError {
-				return .failure(ClientError.serialization(.toJSON(error)))
-			}
+            return JSONSerialization.data(with: object)
+                .mapError { _ in ClientError.serialization(.toJSON) }
 		}
 	}
 

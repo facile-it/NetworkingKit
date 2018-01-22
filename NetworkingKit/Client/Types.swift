@@ -128,7 +128,10 @@ public struct ConnectionInfo: Monoid, Equatable {
             let requestHTTPHeaders = originalRequest?.allHTTPHeaderFields?.map { JSONObject.dict([$0 : .string($1)]) }.reduce(.empty, <>)
             
             let bodyString1 = bodyStringRepresentation.map(JSONObject.string)
-            let bodyString2 = (originalRequest?.httpBody).flatMap { (try? JSONSerialization.jsonObject(with: $0, options: .allowFragments)).map(JSONObject.with) }
+            let bodyString2 = (originalRequest?.httpBody).flatMap { (try? JSONSerialization.jsonObject(with: $0, options: .allowFragments))
+                .map(JSONObject.with)?
+                .fold(onSuccess: f.identity,
+                      onFailure: { _ in nil }) }
             let bodyString3 = (originalRequest?.httpBody).flatMap { String(data: $0, encoding: String.Encoding.utf8).map(JSONObject.string) }
             
             let requestBodyStringRepresentation: JSONObject? = bodyString1 ?? bodyString2 ?? bodyString3
@@ -181,17 +184,24 @@ public struct ConnectionInfo: Monoid, Equatable {
             let connError: JSONObject? = connectionError.map { JSONObject.dict([
                 "Code" : .number($0.code),
                 "Domain" : .string($0.domain),
-                "UserInfo" : .with($0.userInfo)])
+                "UserInfo" : JSONObject.with($0.userInfo)
+                    .fold(onSuccess: f.identity,
+                          onFailure: { _ in .null })])
             }
             let responseStatusCode: JSONObject? = (serverResponse?.statusCode).map(JSONObject.number)
             let responseHTTPHeaders: JSONObject? = serverResponse?.allHeaderFields
                 .map { (key: AnyHashable, value: Any) -> JSONObject in
                     guard let key = key.base as? String else { return JSONObject.null }
-                    return JSONObject.dict([key : .with(value)])
+                    return JSONObject.dict([key : JSONObject.with(value)
+                        .fold(onSuccess: f.identity,
+                              onFailure: { _ in .null })])
                 }
                 .reduce(.empty, <>)
             let responseBody: JSONObject? = serverOutput
-                .flatMap { (try? JSONSerialization.jsonObject(with: $0, options: .allowFragments)).map(JSONObject.with)
+                .flatMap { (try? JSONSerialization.jsonObject(with: $0, options: .allowFragments))
+                    .map(JSONObject.with)?
+                    .fold(onSuccess: f.identity,
+                          onFailure: { _ in nil })
                     ?? String(data: $0, encoding: String.Encoding.utf8).map(JSONObject.string)
             }
             let downloadedFileURLString: JSONObject? = (downloadedFileURL?.absoluteString).map(JSONObject.string)
@@ -337,7 +347,7 @@ public struct HTTPResponse<Output> {
 //: ------------------------
 
 public enum SerializationError: CustomStringConvertible {
-	case toJSON(NSError)
+	case toJSON
 	case toFormURLEncoded
 
 	public var description: String {
@@ -353,8 +363,11 @@ public enum SerializationError: CustomStringConvertible {
 
 	public var getNSError: NSError {
 		switch self {
-		case .toJSON(let error):
-			return error
+		case .toJSON:
+            return NSError(
+                domain: SerializationError.errorDomain,
+                code: 0,
+                userInfo: [NSLocalizedDescriptionKey :  "Cannot serialize into JSON"])
 		case .toFormURLEncoded:
 			return NSError(
 				domain: SerializationError.errorDomain,
