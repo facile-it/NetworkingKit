@@ -6,3 +6,7 @@ xcode_sdk: macosx10.13
 
 script:
   - xcodebuild clean build test -project "NetworkingKit.xcodeproj" -scheme "NetworkingKit" -destination 'generic/platform=macOS'
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+  
