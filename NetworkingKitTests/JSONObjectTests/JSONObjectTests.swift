@@ -1,6 +1,6 @@
 import XCTest
 import SwiftCheck
-@testable import JSONObject
+@testable import NetworkingKit
 import Abstract
 
 class JSONObjectSpec: XCTestCase {

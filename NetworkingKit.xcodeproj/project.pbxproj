@@ -23,6 +23,15 @@
 		AAE4AD572015D70200070EC4 /* FunctionalKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA91B4F7201232ED00603E3C /* FunctionalKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AAE4AD582015D70400070EC4 /* Abstract.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA91B4F8201232ED00603E3C /* Abstract.framework */; };
 		AAE4AD592015D70400070EC4 /* FunctionalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA91B4F7201232ED00603E3C /* FunctionalKit.framework */; };
+		AAE4AD5A2015D77500070EC4 /* JSONObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91B4D720122F3500603E3C /* JSONObjectTests.swift */; };
+		AAE4AD5B2015D77500070EC4 /* PathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91B4D620122F3500603E3C /* PathTests.swift */; };
+		AAE4AD5C2015D77500070EC4 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91B4D820122F3500603E3C /* Tools.swift */; };
+		AAE4AD5D2015D7AF00070EC4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91B4CD20122ED200603E3C /* Extensions.swift */; };
+		AAE4AD5E2015D7AF00070EC4 /* JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91B4CB20122ED200603E3C /* JSONObject.swift */; };
+		AAE4AD5F2015D7AF00070EC4 /* PathTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91B4CC20122ED200603E3C /* PathTo.swift */; };
+		AAE4AD602015D7AF00070EC4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91B4CD20122ED200603E3C /* Extensions.swift */; };
+		AAE4AD612015D7AF00070EC4 /* JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91B4CB20122ED200603E3C /* JSONObject.swift */; };
+		AAE4AD622015D7AF00070EC4 /* PathTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91B4CC20122ED200603E3C /* PathTo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -359,6 +368,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAE4AD5E2015D7AF00070EC4 /* JSONObject.swift in Sources */,
+				AAE4AD5F2015D7AF00070EC4 /* PathTo.swift in Sources */,
+				AAE4AD5D2015D7AF00070EC4 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,7 +378,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAE4AD5B2015D77500070EC4 /* PathTests.swift in Sources */,
+				AAE4AD5A2015D77500070EC4 /* JSONObjectTests.swift in Sources */,
 				AA54A1B22011F25100FE4478 /* NetworkingKitTests.swift in Sources */,
+				AAE4AD5C2015D77500070EC4 /* Tools.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +389,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAE4AD612015D7AF00070EC4 /* JSONObject.swift in Sources */,
+				AAE4AD622015D7AF00070EC4 /* PathTo.swift in Sources */,
+				AAE4AD602015D7AF00070EC4 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,6 +574,7 @@
 		AA54A1BB2011F25100FE4478 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -573,6 +592,7 @@
 		AA54A1BC2011F25100FE4478 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (

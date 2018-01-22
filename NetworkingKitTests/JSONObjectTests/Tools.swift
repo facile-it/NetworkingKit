@@ -1,5 +1,5 @@
 import Foundation
-import JSONObject
+import NetworkingKit
 import SwiftCheck
 
 extension JSONObject {

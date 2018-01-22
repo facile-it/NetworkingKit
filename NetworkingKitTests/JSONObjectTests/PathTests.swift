@@ -1,5 +1,5 @@
 import XCTest
-@testable import JSONObject
+@testable import NetworkingKit
 import SwiftCheck
 import Abstract
 
