@@ -17,6 +17,12 @@
 		AA91B5002012332600603E3C /* FunctionalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA91B4FD2012332500603E3C /* FunctionalKit.framework */; };
 		AA91B5012012332600603E3C /* Abstract.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA91B4FE2012332500603E3C /* Abstract.framework */; };
 		AA91B5022012332600603E3C /* SwiftCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA91B4FF2012332600603E3C /* SwiftCheck.framework */; };
+		AAE4AD542015D6E300070EC4 /* SwiftCheck.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA91B4F6201232EC00603E3C /* SwiftCheck.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AAE4AD552015D6E800070EC4 /* SwiftCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA91B4F6201232EC00603E3C /* SwiftCheck.framework */; };
+		AAE4AD562015D70200070EC4 /* Abstract.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA91B4F8201232ED00603E3C /* Abstract.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AAE4AD572015D70200070EC4 /* FunctionalKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA91B4F7201232ED00603E3C /* FunctionalKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AAE4AD582015D70400070EC4 /* Abstract.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA91B4F8201232ED00603E3C /* Abstract.framework */; };
+		AAE4AD592015D70400070EC4 /* FunctionalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA91B4F7201232ED00603E3C /* FunctionalKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +34,21 @@
 			remoteInfo = NetworkingKit;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AAE4AD532015D6D300070EC4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AAE4AD562015D70200070EC4 /* Abstract.framework in CopyFiles */,
+				AAE4AD572015D70200070EC4 /* FunctionalKit.framework in CopyFiles */,
+				AAE4AD542015D6E300070EC4 /* SwiftCheck.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AA54A1A32011F25100FE4478 /* NetworkingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +90,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA54A1AD2011F25100FE4478 /* NetworkingKit.framework in Frameworks */,
+				AAE4AD552015D6E800070EC4 /* SwiftCheck.framework in Frameworks */,
+				AAE4AD582015D70400070EC4 /* Abstract.framework in Frameworks */,
+				AAE4AD592015D70400070EC4 /* FunctionalKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +255,7 @@
 				AA54A1A82011F25100FE4478 /* Sources */,
 				AA54A1A92011F25100FE4478 /* Frameworks */,
 				AA54A1AA2011F25100FE4478 /* Resources */,
+				AAE4AD532015D6D300070EC4 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -533,6 +558,10 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = NetworkingKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = it.facile.NetworkingKitTests;
@@ -546,6 +575,10 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = NetworkingKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = it.facile.NetworkingKitTests;
