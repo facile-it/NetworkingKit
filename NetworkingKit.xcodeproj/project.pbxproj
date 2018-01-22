@@ -25,14 +25,30 @@
 		AAE4AD5A2015D77500070EC4 /* JSONObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91B4D720122F3500603E3C /* JSONObjectTests.swift */; };
 		AAE4AD5B2015D77500070EC4 /* PathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91B4D620122F3500603E3C /* PathTests.swift */; };
 		AAE4AD5C2015D77500070EC4 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91B4D820122F3500603E3C /* Tools.swift */; };
-		AAE4AD5D2015D7AF00070EC4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91B4CD20122ED200603E3C /* Extensions.swift */; };
+		AAE4AD5D2015D7AF00070EC4 /* JSONObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91B4CD20122ED200603E3C /* JSONObjectExtensions.swift */; };
 		AAE4AD5E2015D7AF00070EC4 /* JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91B4CB20122ED200603E3C /* JSONObject.swift */; };
 		AAE4AD5F2015D7AF00070EC4 /* PathTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91B4CC20122ED200603E3C /* PathTo.swift */; };
-		AAE4AD602015D7AF00070EC4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91B4CD20122ED200603E3C /* Extensions.swift */; };
+		AAE4AD602015D7AF00070EC4 /* JSONObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91B4CD20122ED200603E3C /* JSONObjectExtensions.swift */; };
 		AAE4AD612015D7AF00070EC4 /* JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91B4CB20122ED200603E3C /* JSONObject.swift */; };
 		AAE4AD622015D7AF00070EC4 /* PathTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91B4CC20122ED200603E3C /* PathTo.swift */; };
 		AAE4AD642015DC9000070EC4 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE4AD632015DC8F00070EC4 /* Nimble.framework */; };
 		AAE4AD652015DC9500070EC4 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AAE4AD632015DC8F00070EC4 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AAE4AD6F2015DDA300070EC4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE4AD692015DDA200070EC4 /* Extensions.swift */; };
+		AAE4AD702015DDA300070EC4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE4AD692015DDA200070EC4 /* Extensions.swift */; };
+		AAE4AD712015DDA300070EC4 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE4AD6A2015DDA200070EC4 /* Types.swift */; };
+		AAE4AD722015DDA300070EC4 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE4AD6A2015DDA200070EC4 /* Types.swift */; };
+		AAE4AD732015DDA300070EC4 /* Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE4AD6B2015DDA200070EC4 /* Serialization.swift */; };
+		AAE4AD742015DDA300070EC4 /* Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE4AD6B2015DDA200070EC4 /* Serialization.swift */; };
+		AAE4AD752015DDA300070EC4 /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE4AD6C2015DDA200070EC4 /* Parsing.swift */; };
+		AAE4AD762015DDA300070EC4 /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE4AD6C2015DDA200070EC4 /* Parsing.swift */; };
+		AAE4AD772015DDA300070EC4 /* Utilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE4AD6D2015DDA300070EC4 /* Utilites.swift */; };
+		AAE4AD782015DDA300070EC4 /* Utilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE4AD6D2015DDA300070EC4 /* Utilites.swift */; };
+		AAE4AD792015DDA300070EC4 /* Multipart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE4AD6E2015DDA300070EC4 /* Multipart.swift */; };
+		AAE4AD7A2015DDA300070EC4 /* Multipart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE4AD6E2015DDA300070EC4 /* Multipart.swift */; };
+		AAE4AD7F2015DE0500070EC4 /* SerializeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE4AD7B2015DE0400070EC4 /* SerializeTests.swift */; };
+		AAE4AD802015DE0500070EC4 /* MultipartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE4AD7C2015DE0500070EC4 /* MultipartTests.swift */; };
+		AAE4AD812015DE0500070EC4 /* ConnectionInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE4AD7D2015DE0500070EC4 /* ConnectionInfoTests.swift */; };
+		AAE4AD822015DE0500070EC4 /* TestTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE4AD7E2015DE0500070EC4 /* TestTools.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +89,7 @@
 		AA91B4AD20122DFA00603E3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA91B4CB20122ED200603E3C /* JSONObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONObject.swift; sourceTree = "<group>"; };
 		AA91B4CC20122ED200603E3C /* PathTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathTo.swift; sourceTree = "<group>"; };
-		AA91B4CD20122ED200603E3C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		AA91B4CD20122ED200603E3C /* JSONObjectExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONObjectExtensions.swift; sourceTree = "<group>"; };
 		AA91B4D620122F3500603E3C /* PathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathTests.swift; sourceTree = "<group>"; };
 		AA91B4D720122F3500603E3C /* JSONObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONObjectTests.swift; sourceTree = "<group>"; };
 		AA91B4D820122F3500603E3C /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
@@ -85,6 +101,16 @@
 		AA91B4FF2012332600603E3C /* SwiftCheck.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftCheck.framework; path = Carthage/Build/iOS/SwiftCheck.framework; sourceTree = "<group>"; };
 		AAE4AD632015DC8F00070EC4 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 		AAE4AD662015DCB600070EC4 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		AAE4AD692015DDA200070EC4 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		AAE4AD6A2015DDA200070EC4 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		AAE4AD6B2015DDA200070EC4 /* Serialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serialization.swift; sourceTree = "<group>"; };
+		AAE4AD6C2015DDA200070EC4 /* Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parsing.swift; sourceTree = "<group>"; };
+		AAE4AD6D2015DDA300070EC4 /* Utilites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilites.swift; sourceTree = "<group>"; };
+		AAE4AD6E2015DDA300070EC4 /* Multipart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Multipart.swift; sourceTree = "<group>"; };
+		AAE4AD7B2015DE0400070EC4 /* SerializeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializeTests.swift; sourceTree = "<group>"; };
+		AAE4AD7C2015DE0500070EC4 /* MultipartTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipartTests.swift; sourceTree = "<group>"; };
+		AAE4AD7D2015DE0500070EC4 /* ConnectionInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionInfoTests.swift; sourceTree = "<group>"; };
+		AAE4AD7E2015DE0500070EC4 /* TestTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTools.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +172,7 @@
 		AA54A1A52011F25100FE4478 /* NetworkingKit */ = {
 			isa = PBXGroup;
 			children = (
+				AAE4AD672015DD5500070EC4 /* Client */,
 				AA91B4CA20122EC900603E3C /* JSONObject */,
 				AA54A1A62011F25100FE4478 /* NetworkingKit.h */,
 				AA54A1A72011F25100FE4478 /* Info.plist */,
@@ -156,6 +183,7 @@
 		AA54A1B02011F25100FE4478 /* NetworkingKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				AAE4AD682015DD5B00070EC4 /* Client */,
 				AA91B4D520122F3500603E3C /* JSONObjectTests */,
 				AA54A1B12011F25100FE4478 /* NetworkingKitTests.swift */,
 				AA54A1B32011F25100FE4478 /* Info.plist */,
@@ -175,7 +203,7 @@
 		AA91B4CA20122EC900603E3C /* JSONObject */ = {
 			isa = PBXGroup;
 			children = (
-				AA91B4CD20122ED200603E3C /* Extensions.swift */,
+				AA91B4CD20122ED200603E3C /* JSONObjectExtensions.swift */,
 				AA91B4CB20122ED200603E3C /* JSONObject.swift */,
 				AA91B4CC20122ED200603E3C /* PathTo.swift */,
 			);
@@ -221,6 +249,30 @@
 				AA91B4FF2012332600603E3C /* SwiftCheck.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		AAE4AD672015DD5500070EC4 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				AAE4AD692015DDA200070EC4 /* Extensions.swift */,
+				AAE4AD6E2015DDA300070EC4 /* Multipart.swift */,
+				AAE4AD6C2015DDA200070EC4 /* Parsing.swift */,
+				AAE4AD6B2015DDA200070EC4 /* Serialization.swift */,
+				AAE4AD6A2015DDA200070EC4 /* Types.swift */,
+				AAE4AD6D2015DDA300070EC4 /* Utilites.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		AAE4AD682015DD5B00070EC4 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				AAE4AD7D2015DE0500070EC4 /* ConnectionInfoTests.swift */,
+				AAE4AD7C2015DE0500070EC4 /* MultipartTests.swift */,
+				AAE4AD7B2015DE0400070EC4 /* SerializeTests.swift */,
+				AAE4AD7E2015DE0500070EC4 /* TestTools.swift */,
+			);
+			path = Client;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,9 +426,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAE4AD7A2015DDA300070EC4 /* Multipart.swift in Sources */,
+				AAE4AD762015DDA300070EC4 /* Parsing.swift in Sources */,
 				AAE4AD5E2015D7AF00070EC4 /* JSONObject.swift in Sources */,
 				AAE4AD5F2015D7AF00070EC4 /* PathTo.swift in Sources */,
-				AAE4AD5D2015D7AF00070EC4 /* Extensions.swift in Sources */,
+				AAE4AD5D2015D7AF00070EC4 /* JSONObjectExtensions.swift in Sources */,
+				AAE4AD782015DDA300070EC4 /* Utilites.swift in Sources */,
+				AAE4AD722015DDA300070EC4 /* Types.swift in Sources */,
+				AAE4AD742015DDA300070EC4 /* Serialization.swift in Sources */,
+				AAE4AD702015DDA300070EC4 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,10 +442,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAE4AD802015DE0500070EC4 /* MultipartTests.swift in Sources */,
 				AAE4AD5B2015D77500070EC4 /* PathTests.swift in Sources */,
+				AAE4AD7F2015DE0500070EC4 /* SerializeTests.swift in Sources */,
+				AAE4AD822015DE0500070EC4 /* TestTools.swift in Sources */,
 				AAE4AD5A2015D77500070EC4 /* JSONObjectTests.swift in Sources */,
 				AA54A1B22011F25100FE4478 /* NetworkingKitTests.swift in Sources */,
 				AAE4AD5C2015D77500070EC4 /* Tools.swift in Sources */,
+				AAE4AD812015DE0500070EC4 /* ConnectionInfoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,9 +457,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAE4AD792015DDA300070EC4 /* Multipart.swift in Sources */,
+				AAE4AD752015DDA300070EC4 /* Parsing.swift in Sources */,
 				AAE4AD612015D7AF00070EC4 /* JSONObject.swift in Sources */,
 				AAE4AD622015D7AF00070EC4 /* PathTo.swift in Sources */,
-				AAE4AD602015D7AF00070EC4 /* Extensions.swift in Sources */,
+				AAE4AD602015D7AF00070EC4 /* JSONObjectExtensions.swift in Sources */,
+				AAE4AD772015DDA300070EC4 /* Utilites.swift in Sources */,
+				AAE4AD712015DDA300070EC4 /* Types.swift in Sources */,
+				AAE4AD732015DDA300070EC4 /* Serialization.swift in Sources */,
+				AAE4AD6F2015DDA300070EC4 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
