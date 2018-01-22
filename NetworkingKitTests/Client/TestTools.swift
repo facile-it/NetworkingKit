@@ -32,24 +32,44 @@ extension Gen where A: OptionalType, A.ParameterType: Arbitrary {
 
 extension ConnectionInfo: Arbitrary {
 	public static var arbitrary: Gen<ConnectionInfo> {
-		let optionalArbitraryURLComponents = URLStringGenerator.get.map(URLComponents.init)
-		let optionalArbitraryURLRequest = URLStringGenerator.get.map { (string: String) -> URLRequest? in URL.init(string: string).map { (url: URL) -> URLRequest in URLRequest.init(url: url) } }
-		let optionalArbitraryURLResponse = URLStringGenerator.get.map { URL(string: $0).map { HTTPURLResponse(url: $0, mimeType: nil, expectedContentLength: 0, textEncodingName: nil) } }
-		let optionalArbitraryServerOutput = OptionalOf<String>.arbitrary.map { $0.getOptional.flatMap { $0.data(using: .utf8, allowLossyConversion: true) }}
-		let optionalArbitraryDownloadedFileURL = URLStringGenerator.get.map { URL.init(string: $0) }
 
 		return Gen<ConnectionInfo>.compose {
 			ConnectionInfo.init(
-				connectionName: $0.generate(),
-				urlComponents: $0.generate(using: optionalArbitraryURLComponents),
-				originalRequest: $0.generate(using: optionalArbitraryURLRequest),
-				bodyStringRepresentation: $0.generate(),
-				connectionError: NSError(domain: $0.generate(), code: $0.generate(), userInfo: nil),
-				serverResponse: $0.generate(using: optionalArbitraryURLResponse),
-				serverOutput: $0.generate(using: optionalArbitraryServerOutput),
-				downloadedFileURL: $0.generate(using: optionalArbitraryDownloadedFileURL))
+                connectionName: $0.generate(),
+                request: $0.generate(),
+                response: $0.generate())
 		}
 	}
+}
+
+extension ConnectionInfo.Request: Arbitrary {
+    public static var arbitrary: Gen<ConnectionInfo.Request> {
+        let optionalArbitraryURLComponents = URLStringGenerator.get.map(URLComponents.init)
+        let optionalArbitraryURLRequest = URLStringGenerator.get.map { (string: String) -> URLRequest? in URL.init(string: string).map { (url: URL) -> URLRequest in URLRequest.init(url: url) } }
+        
+        return Gen<ConnectionInfo.Request>.compose {
+            ConnectionInfo.Request.init(
+                urlComponents: $0.generate(using: optionalArbitraryURLComponents),
+                originalRequest: $0.generate(using: optionalArbitraryURLRequest),
+                bodyStringRepresentation: $0.generate())
+        }
+    }
+}
+
+extension ConnectionInfo.Response: Arbitrary {
+    public static var arbitrary: Gen<ConnectionInfo.Response> {
+        let optionalArbitraryURLResponse = URLStringGenerator.get.map { URL(string: $0).map { HTTPURLResponse(url: $0, mimeType: nil, expectedContentLength: 0, textEncodingName: nil) } }
+        let optionalArbitraryServerOutput = OptionalOf<String>.arbitrary.map { $0.getOptional.flatMap { $0.data(using: .utf8, allowLossyConversion: true) }}
+        let optionalArbitraryDownloadedFileURL = URLStringGenerator.get.map { URL.init(string: $0) }
+        
+        return Gen<ConnectionInfo.Response>.compose {
+            ConnectionInfo.Response.init(
+                connectionError: NSError(domain: $0.generate(), code: $0.generate(), userInfo: nil),
+                serverResponse: $0.generate(using: optionalArbitraryURLResponse),
+                serverOutput: $0.generate(using: optionalArbitraryServerOutput),
+                downloadedFileURL: $0.generate(using: optionalArbitraryDownloadedFileURL))
+        }
+    }
 }
 
 extension CheckerArguments {
