@@ -16,7 +16,6 @@
 		AA91B4FB201232ED00603E3C /* Abstract.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA91B4F8201232ED00603E3C /* Abstract.framework */; };
 		AA91B5002012332600603E3C /* FunctionalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA91B4FD2012332500603E3C /* FunctionalKit.framework */; };
 		AA91B5012012332600603E3C /* Abstract.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA91B4FE2012332500603E3C /* Abstract.framework */; };
-		AA91B5022012332600603E3C /* SwiftCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA91B4FF2012332600603E3C /* SwiftCheck.framework */; };
 		AAE4AD542015D6E300070EC4 /* SwiftCheck.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA91B4F6201232EC00603E3C /* SwiftCheck.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AAE4AD552015D6E800070EC4 /* SwiftCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA91B4F6201232EC00603E3C /* SwiftCheck.framework */; };
 		AAE4AD562015D70200070EC4 /* Abstract.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA91B4F8201232ED00603E3C /* Abstract.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -32,6 +31,8 @@
 		AAE4AD602015D7AF00070EC4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91B4CD20122ED200603E3C /* Extensions.swift */; };
 		AAE4AD612015D7AF00070EC4 /* JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91B4CB20122ED200603E3C /* JSONObject.swift */; };
 		AAE4AD622015D7AF00070EC4 /* PathTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91B4CC20122ED200603E3C /* PathTo.swift */; };
+		AAE4AD642015DC9000070EC4 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE4AD632015DC8F00070EC4 /* Nimble.framework */; };
+		AAE4AD652015DC9500070EC4 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AAE4AD632015DC8F00070EC4 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				AAE4AD652015DC9500070EC4 /* Nimble.framework in CopyFiles */,
 				AAE4AD562015D70200070EC4 /* Abstract.framework in CopyFiles */,
 				AAE4AD572015D70200070EC4 /* FunctionalKit.framework in CopyFiles */,
 				AAE4AD542015D6E300070EC4 /* SwiftCheck.framework in CopyFiles */,
@@ -81,6 +83,8 @@
 		AA91B4FD2012332500603E3C /* FunctionalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FunctionalKit.framework; path = Carthage/Build/iOS/FunctionalKit.framework; sourceTree = "<group>"; };
 		AA91B4FE2012332500603E3C /* Abstract.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Abstract.framework; path = Carthage/Build/iOS/Abstract.framework; sourceTree = "<group>"; };
 		AA91B4FF2012332600603E3C /* SwiftCheck.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftCheck.framework; path = Carthage/Build/iOS/SwiftCheck.framework; sourceTree = "<group>"; };
+		AAE4AD632015DC8F00070EC4 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
+		AAE4AD662015DCB600070EC4 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAE4AD642015DC9000070EC4 /* Nimble.framework in Frameworks */,
 				AA54A1AD2011F25100FE4478 /* NetworkingKit.framework in Frameworks */,
 				AAE4AD552015D6E800070EC4 /* SwiftCheck.framework in Frameworks */,
 				AAE4AD582015D70400070EC4 /* Abstract.framework in Frameworks */,
@@ -111,7 +116,6 @@
 			files = (
 				AA91B5002012332600603E3C /* FunctionalKit.framework in Frameworks */,
 				AA91B5012012332600603E3C /* Abstract.framework in Frameworks */,
-				AA91B5022012332600603E3C /* SwiftCheck.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +204,7 @@
 		AA91B4FC2012330800603E3C /* macOS */ = {
 			isa = PBXGroup;
 			children = (
+				AAE4AD632015DC8F00070EC4 /* Nimble.framework */,
 				AA91B4F8201232ED00603E3C /* Abstract.framework */,
 				AA91B4F7201232ED00603E3C /* FunctionalKit.framework */,
 				AA91B4F6201232EC00603E3C /* SwiftCheck.framework */,
@@ -210,6 +215,7 @@
 		AA91B5032012332B00603E3C /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				AAE4AD662015DCB600070EC4 /* Nimble.framework */,
 				AA91B4FE2012332500603E3C /* Abstract.framework */,
 				AA91B4FD2012332500603E3C /* FunctionalKit.framework */,
 				AA91B4FF2012332600603E3C /* SwiftCheck.framework */,

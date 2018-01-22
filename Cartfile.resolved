@@ -1,3 +1,4 @@
+github "Quick/Nimble" "v7.0.3"
 github "facile-it/FunctionalKit" "0.3.0"
 github "trill-lang/FileCheck" "0.0.5"
 github "typelift/Abstract" "0.0.2"
