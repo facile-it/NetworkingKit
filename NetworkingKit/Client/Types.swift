@@ -117,15 +117,34 @@ public struct ConnectionInfo: Monoid, Equatable, JSONObjectConvertible {
         }
         
         public var toJSONObject: JSONObject {
-            let requestURLScheme: JSONObject? = urlComponents?.scheme.map(JSONObject.string)
-            let requestURLHost: JSONObject? = urlComponents?.host.map(JSONObject.string)
-            let requestURLPort: JSONObject? = urlComponents?.port.map(JSONObject.number)
-            let requestURLPath: JSONObject? = (urlComponents?.path).map(JSONObject.string)
-            let requestURLQueryString: JSONObject? = urlComponents?.query.map(JSONObject.string)
-            let requestURLFullString: JSONObject? = (originalRequest?.url?.absoluteString.removingPercentEncoding).map(JSONObject.string)
-            let requestHTTPMethod: JSONObject? = originalRequest?.httpMethod.map(JSONObject.string)
-            let requestHTTPHeaders = originalRequest?.allHTTPHeaderFields?.map { JSONObject.dict([$0 : .string($1)]) }.reduce(.empty, <>)
+            let val1 = Product("Request URL Scheme",
+                               urlComponents.flatMap { $0.scheme }.map(JSONObject.string))
+            let val2 = Product("Request URL Host",
+                               urlComponents.flatMap { $0.host }.map(JSONObject.string))
+            let val3 = Product("Request URL Port",
+                               urlComponents.flatMap { $0.port }.map(JSONObject.number))
+            let val4 = Product("Request URL Path",
+                               urlComponents.map { JSONObject.string($0.path) })
+            let val5 = Product("Request URL Query String",
+                               urlComponents.flatMap { $0.query }.map(JSONObject.string))
+            let val6 = Product("Request URL Full String",
+                               originalRequest.flatMap { $0.url }.flatMap { $0.absoluteString.removingPercentEncoding }.map(JSONObject.string))
+            let val7 = Product("Request HTTP Method",
+                               originalRequest.flatMap { $0.httpMethod }.map(JSONObject.string))
+            let val8 = Product("Request HTTP Headers",
+                               originalRequest.flatMap { $0.allHTTPHeaderFields }?.mapValues(JSONObject.string).map { JSONObject.dict([$0.key:$0.value]) }.reduce(.empty,<>))
+            let val9 = Product("Request Body String Representation",
+                               self.requestBodyStringRepresentation(bodyStringRepresentation: bodyStringRepresentation, originalRequest: originalRequest))
+            let val10 = Product("Request Body Byte Length",
+                                originalRequest.flatMap { $0.httpBody }.map{ JSONObject.number($0.count) })
             
+            return [val1,val2,val3,val4,val5,val6,val7,val8,val9,val10]
+                .map { $0.mapSecond { optJSON in optJSON.get(or: .null) }}
+                .map { JSONObject.dict([$0.first:$0.second]) }
+                |> JSONObject.array
+        }
+        
+        private func requestBodyStringRepresentation(bodyStringRepresentation: String?, originalRequest: URLRequest?) -> JSONObject? {
             let bodyString1 = bodyStringRepresentation.map(JSONObject.string)
             let bodyString2 = (originalRequest?.httpBody).flatMap { (try? JSONSerialization.jsonObject(with: $0, options: .allowFragments))
                 .map(JSONObject.with)?
@@ -133,20 +152,7 @@ public struct ConnectionInfo: Monoid, Equatable, JSONObjectConvertible {
                       onFailure: { _ in nil }) }
             let bodyString3 = (originalRequest?.httpBody).flatMap { String(data: $0, encoding: String.Encoding.utf8).map(JSONObject.string) }
             
-            let requestBodyStringRepresentation: JSONObject? = bodyString1 ?? bodyString2 ?? bodyString3
-            let requestBodyByteLength: JSONObject? = originalRequest?.httpBody.map { $0.count }.map(JSONObject.number)
-            
-            return JSONObject.array([
-                .dict(["Request URL Scheme" : requestURLScheme.get(or: .null)]),
-                .dict(["Request URL Host" : requestURLHost.get(or: .null)]),
-                .dict(["Request URL Port" : requestURLPort.get(or: .null)]),
-                .dict(["Request URL Path" : requestURLPath.get(or: .null)]),
-                .dict(["Request URL Query String" : requestURLQueryString.get(or: .null)]),
-                .dict(["Request URL Full String" : requestURLFullString.get(or: .null)]),
-                .dict(["Request HTTP Method" : requestHTTPMethod.get(or: .null)]),
-                .dict(["Request HTTP Headers" : requestHTTPHeaders.get(or: .null)]),
-                .dict(["Request Body String Representation" : requestBodyStringRepresentation.get(or: .null)]),
-                .dict(["Request Body Byte Length" : requestBodyByteLength.get(or: .null)])])
+            return bodyString1 ?? bodyString2 ?? bodyString3
         }
     }
     
