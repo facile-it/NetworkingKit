@@ -1,6 +1,7 @@
 import Foundation
 import NetworkingKit
 import SwiftCheck
+import FunctionalKit
 
 extension JSONObject {
 	var isNull: Bool {
@@ -84,6 +85,12 @@ struct Somestruct: Arbitrary {
 	}
 }
 
+extension Somestruct: JSONObjectConvertible {
+    var toJSONObject: JSONObject {
+        return .string(value)
+    }
+}
+
 final class Someclass: Arbitrary {
 	let value: String
 	init(value: String) {
@@ -93,6 +100,12 @@ final class Someclass: Arbitrary {
 	static var arbitrary: Gen<Someclass> {
 		return String.arbitrary.map(Someclass.init)
 	}
+}
+
+extension Someclass: JSONObjectConvertible {
+    var toJSONObject: JSONObject {
+        return .string(value)
+    }
 }
 
 struct TrueArbitrary: Arbitrary {
@@ -107,6 +120,14 @@ struct TrueArbitrary: Arbitrary {
 		                    Somestruct.arbitrary.map(TrueArbitrary.init),
 		                    Someclass.arbitrary.map(TrueArbitrary.init)])
 	}
+}
+
+extension TrueArbitrary: JSONObjectConvertible {
+    var toJSONObject: JSONObject {
+        return JSONObject.with(get).fold(
+            onSuccess: f.identity,
+            onFailure: { _ in JSONObject.null })
+    }
 }
 
 extension JSONObject: Arbitrary {

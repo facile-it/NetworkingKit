@@ -32,39 +32,9 @@ public enum JSONObject {
     case array([JSONObject])
     case dict([String:JSONObject])
     
-//    public static func with(_ object: Any) -> JSONObject {
-//
-//        switch object {
-//        case is NSNull:
-//            return .null
-//        case is Int:
-//            return .number(object as! JSONNumber)
-//        case is UInt:
-//            return .number(object as! JSONNumber)
-//        case is Float:
-//            return .number(object as! JSONNumber)
-//        case is Double:
-//            return .number(object as! JSONNumber)
-//        case is Bool:
-//            return .bool(object as! Bool)
-//        case is String:
-//            return .string(object as! String)
-//        case is [Any]:
-//            return .array((object as! [Any]).map(JSONObject.with))
-//        case is [String:Any]:
-//            return .dict((object as! [String:Any])
-//                .map { ($0,JSONObject.with($1)) }
-//                .reduce([:]) {
-//                    var m_accumulation = $0
-//                    m_accumulation[$1.0] = $1.1
-//                    return m_accumulation
-//            })
-//        default:
-//            return .null
-//        }
-//    }
-    
-    public static func with(_ object: Any) -> JSONResult<JSONObject> {
+    public static func with(_ object: Any?) -> JSONResult<JSONObject> {
+        guard let object = object else { return .success(.null) }
+        
         switch object {
         case is NSNull:
             return .success(.null)
@@ -96,6 +66,8 @@ public enum JSONObject {
                         var m_accumulation = $0
                         m_accumulation[$1.0] = $1.1
                         return m_accumulation})}
+        case is JSONObjectConvertible:
+            return .success((object as! JSONObjectConvertible).toJSONObject)
         default:
             return .failure(.nonJSONType)
         }

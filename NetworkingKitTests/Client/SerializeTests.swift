@@ -23,10 +23,17 @@ class SerializeTests: XCTestCase {
 
 		
 		property("'fromJSONObject' is invertible") <- forAll { (ao: JSONObject) in
-			let object = JSONObject.with(ao.getTopLevel)
-			let data = Serialize.fromJSONObject(object).toOptionalValue!
-			let gotObject = (try! JSONSerialization.jsonObject(with: data, options: .allowFragments)) |> JSONObject.with
-			return gotObject.isEqual(to: object, numberPrecision: 0.1)
+            do {
+                let object = try JSONObject.with(ao.getTopLevel).run()
+                let data = Serialize.fromJSONObject(object).toOptionalValue!
+                let gotObject = (try! JSONSerialization.jsonObject(with: data, options: .allowFragments)) |> JSONObject.with
+                return gotObject.fold(
+                    onSuccess: { $0.isEqual(to: object, numberPrecision: 0.1) },
+                    onFailure: { _ in false })
+            }
+            catch {
+                return false
+            }
 		}
 	}
 }
