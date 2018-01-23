@@ -1,7 +1,6 @@
 import Abstract
 import FunctionalKit
 
-
 public enum ConnectionAction {
 	case cancel
 }
@@ -89,7 +88,7 @@ public struct ConnectionInfo: Monoid, Equatable, JSONObjectConvertible {
         
         return JSONObject.array([.dict(["Connection Name" : connName.get(or: .null)])])
             <> request.toJSONObject
-            <> request.toJSONObject
+            <> response.toJSONObject
     }
     
     public struct Request: Monoid, Equatable {
