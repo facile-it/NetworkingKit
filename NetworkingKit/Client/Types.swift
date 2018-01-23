@@ -53,7 +53,7 @@ extension Sequence where Iterator.Element: Monoid, SubSequence: Sequence, SubSeq
 
 //: ------------------------
 
-public struct ConnectionInfo: Monoid, Equatable {
+public struct ConnectionInfo: Monoid, Equatable, JSONObjectConvertible {
 	public var connectionName: String?
     public var request: Request
     public var response: Response
@@ -84,12 +84,12 @@ public struct ConnectionInfo: Monoid, Equatable {
             && left.response == right.response
     }
     
-    public var getJSONObject: JSONObject {
+    public var toJSONObject: JSONObject {
         let connName: JSONObject? = connectionName.map(JSONObject.string)
         
         return JSONObject.array([.dict(["Connection Name" : connName.get(or: .null)])])
-            <> request.getJSONObject
-            <> request.getJSONObject
+            <> request.toJSONObject
+            <> request.toJSONObject
     }
     
     public struct Request: Monoid, Equatable {
@@ -117,7 +117,7 @@ public struct ConnectionInfo: Monoid, Equatable {
                 && right.bodyStringRepresentation == left.bodyStringRepresentation
         }
         
-        public var getJSONObject: JSONObject {
+        public var toJSONObject: JSONObject {
             let requestURLScheme: JSONObject? = urlComponents?.scheme.map(JSONObject.string)
             let requestURLHost: JSONObject? = urlComponents?.host.map(JSONObject.string)
             let requestURLPort: JSONObject? = urlComponents?.port.map(JSONObject.number)
@@ -180,7 +180,7 @@ public struct ConnectionInfo: Monoid, Equatable {
                 && left.downloadedFileURL == right.downloadedFileURL
         }
         
-        public var getJSONObject: JSONObject {
+        public var toJSONObject: JSONObject {
             let connError: JSONObject? = connectionError.map { JSONObject.dict([
                 "Code" : .number($0.code),
                 "Domain" : .string($0.domain),
