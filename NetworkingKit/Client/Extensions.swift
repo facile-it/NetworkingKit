@@ -135,10 +135,28 @@ extension Request {
 	}
 }
 
+//: ------------------------
+
 extension Array where Element: ProductType, Element.FirstType == String, Element.SecondType == Optional<JSONObject> {
     public var toJSONDict: Array<JSONObject> {
         return self
             .map { $0.mapSecond { optJSON in optJSON.get(or: .null) }}
             .map { JSONObject.dict([$0.first:$0.second]) }
+    }
+}
+
+//: ------------------------
+
+extension Sequence where SubSequence: Sequence, SubSequence.Iterator.Element == Iterator.Element {
+    func accumulate(combine: (Iterator.Element, Iterator.Element) throws -> Iterator.Element) rethrows -> Iterator.Element? {
+        guard let nonOptHead = head, let nonOptTail = tail else { return head }
+        return try nonOptTail.reduce(nonOptHead, combine)
+    }
+}
+
+extension Sequence where Iterator.Element: Monoid, SubSequence: Sequence, SubSequence.Iterator.Element == Iterator.Element {
+    func composeAll(separator: Iterator.Element = .empty) -> Iterator.Element {
+        guard let nonOptHead = head, let nonOptTail = tail else { return .empty }
+        return nonOptTail.reduce(nonOptHead) { $0 <> separator <> $1 }
     }
 }

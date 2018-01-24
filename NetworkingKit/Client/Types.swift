@@ -36,22 +36,6 @@ public func failable<T>(from closure: () throws -> Resource<T>) rethrows -> Reso
 
 //: ------------------------
 
-extension Sequence where SubSequence: Sequence, SubSequence.Iterator.Element == Iterator.Element {
-	func accumulate(combine: (Iterator.Element, Iterator.Element) throws -> Iterator.Element) rethrows -> Iterator.Element? {
-		guard let nonOptHead = head, let nonOptTail = tail else { return head }
-		return try nonOptTail.reduce(nonOptHead, combine)
-	}
-}
-
-extension Sequence where Iterator.Element: Monoid, SubSequence: Sequence, SubSequence.Iterator.Element == Iterator.Element {
-	func composeAll(separator: Iterator.Element = .empty) -> Iterator.Element {
-		guard let nonOptHead = head, let nonOptTail = tail else { return .empty }
-		return nonOptTail.reduce(nonOptHead) { $0 <> separator <> $1 }
-	}
-}
-
-//: ------------------------
-
 public struct ConnectionInfo: Monoid, Equatable, JSONObjectConvertible {
 	public var connectionName: String?
     public var request: Request
@@ -604,5 +588,3 @@ public enum ClientError: Error, CustomStringConvertible {
 		}
 	}
 }
-
-//: ------------------------
