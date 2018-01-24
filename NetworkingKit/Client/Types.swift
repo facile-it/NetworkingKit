@@ -91,7 +91,7 @@ public struct ConnectionInfo: Monoid, Equatable, JSONObjectConvertible {
             <> response.toJSONObject
     }
     
-    public struct Request: Monoid, Equatable {
+    public struct Request: Monoid, Equatable, JSONObjectConvertible {
         public var urlComponents: URLComponents?
         public var originalRequest: URLRequest?
         public var bodyStringRepresentation: String?
@@ -138,9 +138,7 @@ public struct ConnectionInfo: Monoid, Equatable, JSONObjectConvertible {
             let val10 = Product("Request Body Byte Length",
                                 originalRequest.flatMap { $0.httpBody }.map{ JSONObject.number($0.count) })
             
-            return [val1,val2,val3,val4,val5,val6,val7,val8,val9,val10]
-                .map { $0.mapSecond { optJSON in optJSON.get(or: .null) }}
-                .map { JSONObject.dict([$0.first:$0.second]) }
+            return [val1,val2,val3,val4,val5,val6,val7,val8,val9,val10].toJSONDict
                 |> JSONObject.array
         }
         
@@ -156,7 +154,7 @@ public struct ConnectionInfo: Monoid, Equatable, JSONObjectConvertible {
         }
     }
     
-    public struct Response: Monoid, Equatable {
+    public struct Response: Monoid, Equatable, JSONObjectConvertible {
         public var connectionError: NSError?
         public var serverResponse: HTTPURLResponse?
         public var serverOutput: Data?
@@ -186,37 +184,35 @@ public struct ConnectionInfo: Monoid, Equatable, JSONObjectConvertible {
         }
         
         public var toJSONObject: JSONObject {
-            let connError: JSONObject? = connectionError.map { JSONObject.dict([
-                "Code" : .number($0.code),
-                "Domain" : .string($0.domain),
-                "UserInfo" : JSONObject.with($0.userInfo)
-                    .fold(onSuccess: f.identity,
-                          onFailure: { _ in .null })])
-            }
-            let responseStatusCode: JSONObject? = (serverResponse?.statusCode).map(JSONObject.number)
-            let responseHTTPHeaders: JSONObject? = serverResponse?.allHeaderFields
-                .map { (key: AnyHashable, value: Any) -> JSONObject in
-                    guard let key = key.base as? String else { return JSONObject.null }
-                    return JSONObject.dict([key : JSONObject.with(value)
-                        .fold(onSuccess: f.identity,
-                              onFailure: { _ in .null })])
-                }
-                .reduce(.empty, <>)
-            let responseBody: JSONObject? = serverOutput
-                .flatMap { (try? JSONSerialization.jsonObject(with: $0, options: .allowFragments))
-                    .map(JSONObject.with)?
-                    .fold(onSuccess: f.identity,
-                          onFailure: { _ in nil })
-                    ?? String(data: $0, encoding: String.Encoding.utf8).map(JSONObject.string)
-            }
-            let downloadedFileURLString: JSONObject? = (downloadedFileURL?.absoluteString).map(JSONObject.string)
+            let val1 = Product("Connection Error",
+                               connectionError.map { JSONObject.dict([
+                                "Code" : .number($0.code),
+                                "Domain" : .string($0.domain),
+                                "UserInfo" : JSONObject.with($0.userInfo)
+                                    .fold(onSuccess: f.identity,
+                                          onFailure: { _ in .null })])})
+            let val2 = Product("Response Status Code",
+                               serverResponse.flatMap { $0.statusCode }.map(JSONObject.number))
+            let val3 = Product("Response HTTP Headers",
+                               serverResponse?.allHeaderFields
+                                .map { (key: AnyHashable, value: Any) -> JSONObject in
+                                    guard let key = key.base as? String else { return JSONObject.null }
+                                    return JSONObject.dict([key : JSONObject.with(value)
+                                        .fold(onSuccess: f.identity,
+                                              onFailure: { _ in .null })])}
+                                .reduce(.empty, <>))
+            let val4 = Product("Response Body",
+                               serverOutput
+                                .flatMap { (try? JSONSerialization.jsonObject(with: $0, options: .allowFragments))
+                                    .map(JSONObject.with)?
+                                    .fold(onSuccess: f.identity,
+                                          onFailure: { _ in nil })
+                                    ?? String(data: $0, encoding: String.Encoding.utf8).map(JSONObject.string)})
+            let val5 = Product("Downloaded File URL",
+                               downloadedFileURL.map { JSONObject.string($0.absoluteString) })
             
-            return JSONObject.array([
-                .dict(["Connection Error" : connError.get(or: .null)]),
-                .dict(["Response Status Code" : responseStatusCode.get(or: .null)]),
-                .dict(["Response HTTP Headers" : responseHTTPHeaders.get(or: .null)]),
-                .dict(["Response Body" : responseBody.get(or: .null)]),
-                .dict(["Downloaded File URL" : downloadedFileURLString.get(or: .null)])])
+            return [val1,val2,val3,val4,val5].toJSONDict
+                |> JSONObject.array
         }
     }
 }

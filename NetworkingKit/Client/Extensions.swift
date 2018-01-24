@@ -134,3 +134,11 @@ extension Request {
 			.getHTTPResponse(connection: connection)
 	}
 }
+
+extension Array where Element: ProductType, Element.FirstType == String, Element.SecondType == Optional<JSONObject> {
+    public var toJSONDict: Array<JSONObject> {
+        return self
+            .map { $0.mapSecond { optJSON in optJSON.get(or: .null) }}
+            .map { JSONObject.dict([$0.first:$0.second]) }
+    }
+}
