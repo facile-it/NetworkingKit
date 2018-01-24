@@ -174,30 +174,41 @@ public struct PathTo<Target> {
 
 		return plistKeys
 			.reduce(PathResult.success(root)) { current, key in
-				current.flatMap { (dict: [String:Any]) -> PathResult<[String:Any]> in
-					guard let subdict = dict[key] as? [String:Any] else {
-						return .failure(PathError.noDictAtKey(
-							root: self.root,
-							path: path,
-							key: key))
-					}
-					return .success(subdict)
-				}
+				current.flatMap { getIntermediateDict(from: $0, at: key, with: path) }
 			}
-			.flatMap { (dict: [String:Any]) -> PathResult<Target> in
-				guard let target = dict[lastKey] else {
-					return .failure(PathError.noTargetForLastKey(
-						root: self.root,
-						path: path,
-						key: lastKey))
-				}
-				guard let correctTarget = target as? Target else {
-					return .failure(PathError.wrongTargetTypeForLastKey(
-						root: self.root,
-						path: path,
-						typeDescription: "\(Target.self)"))
-				}
-				return .success(correctTarget)
-		}
+            .flatMap { getTarget(from: $0, at: lastKey, with: path) }
+            .flatMap { getCorrectTarget(from: $0, with: path) }
 	}
+    
+//MARK: Internal
+    
+    internal func getIntermediateDict(from dict: [String:Any], at key: String, with path: Path) -> PathResult<[String:Any]> {
+        guard let subdict = dict[key] as? [String:Any] else {
+            return .failure(PathError.noDictAtKey(
+                root: self.root,
+                path: path,
+                key: key))
+        }
+        return .success(subdict)
+    }
+    
+    internal func getTarget(from dict: [String:Any], at key: String, with path: Path) -> PathResult<Any> {
+        guard let target = dict[key] else {
+            return .failure(PathError.noTargetForLastKey(
+                root: self.root,
+                path: path,
+                key: key))
+        }
+        return .success(target)
+    }
+    
+    internal func getCorrectTarget(from target: Any, with path: Path) -> PathResult<Target> {
+        guard let correctTarget = target as? Target else {
+            return .failure(PathError.wrongTargetTypeForLastKey(
+                root: self.root,
+                path: path,
+                typeDescription: "\(Target.self)"))
+        }
+        return .success(correctTarget)
+    }
 }
