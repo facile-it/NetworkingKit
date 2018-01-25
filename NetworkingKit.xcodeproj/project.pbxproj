@@ -11,6 +11,10 @@
 		AA41EF972019F1910038B1A9 /* Optics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA41EF962019F1910038B1A9 /* Optics.framework */; };
 		AA41EF982019F1B00038B1A9 /* Optics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA41EF942019F1840038B1A9 /* Optics.framework */; };
 		AA41EF992019F1B90038B1A9 /* Optics.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA41EF942019F1840038B1A9 /* Optics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AA41EFA02019F6140038B1A9 /* Prism.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA41EF9E2019F6130038B1A9 /* Prism.generated.swift */; };
+		AA41EFA12019F6140038B1A9 /* Prism.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA41EF9E2019F6130038B1A9 /* Prism.generated.swift */; };
+		AA41EFA22019F6140038B1A9 /* Lens.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA41EF9F2019F6140038B1A9 /* Lens.generated.swift */; };
+		AA41EFA32019F6140038B1A9 /* Lens.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA41EF9F2019F6140038B1A9 /* Lens.generated.swift */; };
 		AA54A1AD2011F25100FE4478 /* NetworkingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA54A1A32011F25100FE4478 /* NetworkingKit.framework */; };
 		AA54A1B22011F25100FE4478 /* NetworkingKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA54A1B12011F25100FE4478 /* NetworkingKitTests.swift */; };
 		AA54A1B42011F25100FE4478 /* NetworkingKit.h in Headers */ = {isa = PBXBuildFile; fileRef = AA54A1A62011F25100FE4478 /* NetworkingKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -88,6 +92,9 @@
 		AA41EF932019EF880038B1A9 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		AA41EF942019F1840038B1A9 /* Optics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Optics.framework; path = Carthage/Build/Mac/Optics.framework; sourceTree = "<group>"; };
 		AA41EF962019F1910038B1A9 /* Optics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Optics.framework; path = Carthage/Build/iOS/Optics.framework; sourceTree = "<group>"; };
+		AA41EF9A2019F2F80038B1A9 /* Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Templates; sourceTree = "<group>"; };
+		AA41EF9E2019F6130038B1A9 /* Prism.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prism.generated.swift; sourceTree = "<group>"; };
+		AA41EF9F2019F6140038B1A9 /* Lens.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lens.generated.swift; sourceTree = "<group>"; };
 		AA54A1A32011F25100FE4478 /* NetworkingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA54A1A62011F25100FE4478 /* NetworkingKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingKit.h; sourceTree = "<group>"; };
 		AA54A1A72011F25100FE4478 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -171,9 +178,20 @@
 			path = Documents;
 			sourceTree = "<group>";
 		};
+		AA41EF9D2019F4000038B1A9 /* Sourcery Generated */ = {
+			isa = PBXGroup;
+			children = (
+				AA41EF9F2019F6140038B1A9 /* Lens.generated.swift */,
+				AA41EF9E2019F6130038B1A9 /* Prism.generated.swift */,
+			);
+			name = "Sourcery Generated";
+			path = ../generated;
+			sourceTree = "<group>";
+		};
 		AA54A1992011F25100FE4478 = {
 			isa = PBXGroup;
 			children = (
+				AA41EF9A2019F2F80038B1A9 /* Templates */,
 				AA41EF902019EEA30038B1A9 /* Documents */,
 				AA54A1A52011F25100FE4478 /* NetworkingKit */,
 				AA54A1B02011F25100FE4478 /* NetworkingKitTests */,
@@ -196,6 +214,7 @@
 		AA54A1A52011F25100FE4478 /* NetworkingKit */ = {
 			isa = PBXGroup;
 			children = (
+				AA41EF9D2019F4000038B1A9 /* Sourcery Generated */,
 				AAE4AD672015DD5500070EC4 /* Client */,
 				AA91B4CA20122EC900603E3C /* JSONObject */,
 				AA54A1A62011F25100FE4478 /* NetworkingKit.h */,
@@ -327,6 +346,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AA54A1B72011F25100FE4478 /* Build configuration list for PBXNativeTarget "NetworkingKit" */;
 			buildPhases = (
+				AA41EF9C2019F35D0038B1A9 /* Run Sourcery */,
 				AA54A19E2011F25100FE4478 /* Sources */,
 				AA54A19F2011F25100FE4478 /* Frameworks */,
 				AA54A1A02011F25100FE4478 /* Headers */,
@@ -364,6 +384,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AA91B4BF20122DFA00603E3C /* Build configuration list for PBXNativeTarget "NetworkingKit-iOS" */;
 			buildPhases = (
+				AA41EF9B2019F34A0038B1A9 /* Run Sourcery */,
 				AA91B4A520122DFA00603E3C /* Sources */,
 				AA91B4A620122DFA00603E3C /* Frameworks */,
 				AA91B4A720122DFA00603E3C /* Headers */,
@@ -447,6 +468,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AA41EF9B2019F34A0038B1A9 /* Run Sourcery */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Sourcery";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./sourcery\n";
+		};
+		AA41EF9C2019F35D0038B1A9 /* Run Sourcery */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Sourcery";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./sourcery\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AA54A19E2011F25100FE4478 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -454,10 +506,12 @@
 			files = (
 				AAE4AD7A2015DDA300070EC4 /* Multipart.swift in Sources */,
 				AAE4AD762015DDA300070EC4 /* Parsing.swift in Sources */,
+				AA41EFA12019F6140038B1A9 /* Prism.generated.swift in Sources */,
 				AAE4AD5E2015D7AF00070EC4 /* JSONObject.swift in Sources */,
 				AAE4AD5F2015D7AF00070EC4 /* PathTo.swift in Sources */,
 				AAE4AD5D2015D7AF00070EC4 /* JSONObjectExtensions.swift in Sources */,
 				AAE4AD782015DDA300070EC4 /* Utilites.swift in Sources */,
+				AA41EFA32019F6140038B1A9 /* Lens.generated.swift in Sources */,
 				AAE4AD722015DDA300070EC4 /* Types.swift in Sources */,
 				AAE4AD742015DDA300070EC4 /* Serialization.swift in Sources */,
 				AAE4AD702015DDA300070EC4 /* Extensions.swift in Sources */,
@@ -485,10 +539,12 @@
 			files = (
 				AAE4AD792015DDA300070EC4 /* Multipart.swift in Sources */,
 				AAE4AD752015DDA300070EC4 /* Parsing.swift in Sources */,
+				AA41EFA02019F6140038B1A9 /* Prism.generated.swift in Sources */,
 				AAE4AD612015D7AF00070EC4 /* JSONObject.swift in Sources */,
 				AAE4AD622015D7AF00070EC4 /* PathTo.swift in Sources */,
 				AAE4AD602015D7AF00070EC4 /* JSONObjectExtensions.swift in Sources */,
 				AAE4AD772015DDA300070EC4 /* Utilites.swift in Sources */,
+				AA41EFA22019F6140038B1A9 /* Lens.generated.swift in Sources */,
 				AAE4AD712015DDA300070EC4 /* Types.swift in Sources */,
 				AAE4AD732015DDA300070EC4 /* Serialization.swift in Sources */,
 				AAE4AD6F2015DDA300070EC4 /* Extensions.swift in Sources */,

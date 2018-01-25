@@ -1,6 +1,7 @@
 import Abstract
 import FunctionalKit
 
+//sourcery: prism
 public enum JSONError: Error, CustomStringConvertible {
     case serialization(NSError)
     case invalidTopLevelObject
