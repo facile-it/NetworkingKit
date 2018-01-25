@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA41EF952019F1840038B1A9 /* Optics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA41EF942019F1840038B1A9 /* Optics.framework */; };
+		AA41EF972019F1910038B1A9 /* Optics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA41EF962019F1910038B1A9 /* Optics.framework */; };
+		AA41EF982019F1B00038B1A9 /* Optics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA41EF942019F1840038B1A9 /* Optics.framework */; };
+		AA41EF992019F1B90038B1A9 /* Optics.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA41EF942019F1840038B1A9 /* Optics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AA54A1AD2011F25100FE4478 /* NetworkingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA54A1A32011F25100FE4478 /* NetworkingKit.framework */; };
 		AA54A1B22011F25100FE4478 /* NetworkingKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA54A1B12011F25100FE4478 /* NetworkingKitTests.swift */; };
 		AA54A1B42011F25100FE4478 /* NetworkingKit.h in Headers */ = {isa = PBXBuildFile; fileRef = AA54A1A62011F25100FE4478 /* NetworkingKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -72,12 +76,18 @@
 				AAE4AD562015D70200070EC4 /* Abstract.framework in CopyFiles */,
 				AAE4AD572015D70200070EC4 /* FunctionalKit.framework in CopyFiles */,
 				AAE4AD542015D6E300070EC4 /* SwiftCheck.framework in CopyFiles */,
+				AA41EF992019F1B90038B1A9 /* Optics.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AA41EF912019EF600038B1A9 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
+		AA41EF922019EF770038B1A9 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
+		AA41EF932019EF880038B1A9 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
+		AA41EF942019F1840038B1A9 /* Optics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Optics.framework; path = Carthage/Build/Mac/Optics.framework; sourceTree = "<group>"; };
+		AA41EF962019F1910038B1A9 /* Optics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Optics.framework; path = Carthage/Build/iOS/Optics.framework; sourceTree = "<group>"; };
 		AA54A1A32011F25100FE4478 /* NetworkingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA54A1A62011F25100FE4478 /* NetworkingKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingKit.h; sourceTree = "<group>"; };
 		AA54A1A72011F25100FE4478 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -120,6 +130,7 @@
 			files = (
 				AA91B4F9201232ED00603E3C /* SwiftCheck.framework in Frameworks */,
 				AA91B4FA201232ED00603E3C /* FunctionalKit.framework in Frameworks */,
+				AA41EF952019F1840038B1A9 /* Optics.framework in Frameworks */,
 				AA91B4FB201232ED00603E3C /* Abstract.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -133,6 +144,7 @@
 				AAE4AD552015D6E800070EC4 /* SwiftCheck.framework in Frameworks */,
 				AAE4AD582015D70400070EC4 /* Abstract.framework in Frameworks */,
 				AAE4AD592015D70400070EC4 /* FunctionalKit.framework in Frameworks */,
+				AA41EF982019F1B00038B1A9 /* Optics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA41EF972019F1910038B1A9 /* Optics.framework in Frameworks */,
 				AA91B5002012332600603E3C /* FunctionalKit.framework in Frameworks */,
 				AA91B5012012332600603E3C /* Abstract.framework in Frameworks */,
 			);
@@ -148,9 +161,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA41EF902019EEA30038B1A9 /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+				AA41EF912019EF600038B1A9 /* Cartfile */,
+				AA41EF932019EF880038B1A9 /* .gitignore */,
+				AA41EF922019EF770038B1A9 /* .travis.yml */,
+			);
+			path = Documents;
+			sourceTree = "<group>";
+		};
 		AA54A1992011F25100FE4478 = {
 			isa = PBXGroup;
 			children = (
+				AA41EF902019EEA30038B1A9 /* Documents */,
 				AA54A1A52011F25100FE4478 /* NetworkingKit */,
 				AA54A1B02011F25100FE4478 /* NetworkingKitTests */,
 				AA91B4AB20122DFA00603E3C /* NetworkingKit-iOS */,
@@ -232,6 +256,7 @@
 		AA91B4FC2012330800603E3C /* macOS */ = {
 			isa = PBXGroup;
 			children = (
+				AA41EF942019F1840038B1A9 /* Optics.framework */,
 				AAE4AD632015DC8F00070EC4 /* Nimble.framework */,
 				AA91B4F8201232ED00603E3C /* Abstract.framework */,
 				AA91B4F7201232ED00603E3C /* FunctionalKit.framework */,
@@ -243,6 +268,7 @@
 		AA91B5032012332B00603E3C /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				AA41EF962019F1910038B1A9 /* Optics.framework */,
 				AAE4AD662015DCB600070EC4 /* Nimble.framework */,
 				AA91B4FE2012332500603E3C /* Abstract.framework */,
 				AA91B4FD2012332500603E3C /* FunctionalKit.framework */,

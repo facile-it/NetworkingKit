@@ -1,0 +1,15 @@
+{
+  "commitish" : "0.3.0",
+  "Mac" : [
+    {
+      "name" : "Optics",
+      "hash" : "b8c3e2a309c016a354e1f4d9ad0376b073acc453585824aacc939fa3158e2aba"
+    }
+  ],
+  "iOS" : [
+    {
+      "name" : "Optics",
+      "hash" : "62dde4b4ed4e23a5fd8bbc73b7424715b961a8aca7e3253e435e5dcddd7a1da6"
+    }
+  ]
+}

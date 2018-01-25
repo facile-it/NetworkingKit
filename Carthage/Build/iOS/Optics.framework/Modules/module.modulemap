@@ -1,0 +1,4 @@
+framework module Optics {
+    header "Optics-Swift.h"
+    requires objc
+}

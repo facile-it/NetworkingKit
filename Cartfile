@@ -1,2 +1,3 @@
 github "facile-it/FunctionalKit"
 github "Quick/Nimble"
+github "facile-it/Optics"

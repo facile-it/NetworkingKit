@@ -1,0 +1,9 @@
+.DS_Store
+/.build
+/Packages
+Optics.xcodeproj/xcuserdata
+Optics.xcodeproj/project.xcworkspace/xcuserdata
+Carthage/Checkouts
+Play.playground
+Play.xcworkspace
+*.bcsymbolmap
