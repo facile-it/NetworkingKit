@@ -12,7 +12,7 @@ extension {{ type.name }} {
 		static var {{ case.name }}: Prism<{{ type.name }},{% if case.associatedValues.count > 1 %}({% for associated in case.associatedValues %}{{ associated.actualTypeName }}{% if forloop.last %}{% else %}, {% endif %}{% endfor %}){% else %}{{ case.associatedValues.first.actualTypeName}}{% endif %}> {
 			return .init(
 				tryGet: { if case .{{ case.name }}(let value) = $0 { return value } else { return nil } },
-				inject: { .{{ case.name }}({% if case.associatedValues.count > 1 %}$0{% for associated in case.associatedValues %}{% if not forloop.last %}, ${{ forloop.counter }}{% endif %}{% endfor %}{% else %}$0{% endif %}) })
+				inject: { ({% for associated in case.associatedValues %}x{{ forloop.counter}}{% if not forloop.last%}, {% endif %}{% endfor %}) in .{{ case.name }}({% for associated in case.associatedValues %}{% if associated.localName != nil %}{{ associated.localName }}:{% endif %}x{{ forloop.counter }}{% if not forloop.last%}, {% endif %}{% endfor %}) })
 		}
 		{% else %}
 		static var {{ case.name }}: Prism<{{ type.name }}, ()> {
@@ -25,7 +25,7 @@ extension {{ type.name }} {
         {% if case.hasAssociatedValue %}
         static let {{ case.name }} = Prism<{{ type.name }},{% if case.associatedValues.count > 1 %}({% for associated in case.associatedValues %}{{ associated.actualTypeName }}{% if forloop.last %}{% else %}, {% endif %}{% endfor %}){% else %}{{ case.associatedValues.first.actualTypeName}}{% endif %}>(
             tryGet: { if case .{{ case.name }}(let value) = $0 { return value } else { return nil } },
-            inject: { .{{ case.name }}({% if case.associatedValues.count > 1 %}$0{% for associated in case.associatedValues %}{% if not forloop.last %}, ${{ forloop.counter }}{% endif %}{% endfor %}{% else %}$0{% endif %}) })
+            inject: { ({% for associated in case.associatedValues %}x{{ forloop.counter}}{% if not forloop.last%}, {% endif %}{% endfor %}) in .{{ case.name }}({% for associated in case.associatedValues %}{% if associated.localName != nil %}{{ associated.localName }}:{% endif %}x{{ forloop.counter }}{% if not forloop.last%}, {% endif %}{% endfor %}) })
         {% else %}
         static let {{ case.name }} = Prism<{{ type.name }}, ()>(
             tryGet: { if case .{{ case.name }} = $0 { return () } else { return nil } },

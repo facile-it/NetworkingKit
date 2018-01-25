@@ -25,6 +25,7 @@ public protocol JSONNumber {
     var toNSNumber: NSNumber { get }
 }
 
+//sourcery: prism
 public enum JSONObject {
     case null
     case number(JSONNumber)

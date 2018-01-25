@@ -50,6 +50,7 @@ extension Path: Equatable {
     }
 }
 
+//sourcery: prism
 public enum PathError: Error, CustomDebugStringConvertible {
 
 	case emptyPath(root: [String:Any], path: Path)
