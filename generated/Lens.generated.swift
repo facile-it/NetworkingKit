@@ -210,6 +210,30 @@ extension Multipart.Part.Text {
     }
 }
 
+extension Path {
+    enum lens {
+        static let keys = Lens<Path,[String]>(
+            get: { $0.keys },
+			set: { part in { whole in
+				return Path.init(
+					keys: part)
+				} })
+    }
+}
+
+extension PathTo {
+    enum lens {
+		static var root: Lens<PathTo,[String:Any]> {
+			return Lens<PathTo,[String:Any]>(
+				get: { $0.root },
+				set: { part in { whole in
+					return PathTo.init(
+						root: part)
+				} })
+		}
+    }
+}
+
 extension Request {
     enum lens {
         static let identifier = Lens<Request,String>(

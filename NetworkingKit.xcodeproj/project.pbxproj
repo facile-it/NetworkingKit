@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA24F013201B436A002F242F /* Init.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24F012201B436A002F242F /* Init.generated.swift */; };
+		AA24F014201B436F002F242F /* Init.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24F012201B436A002F242F /* Init.generated.swift */; };
 		AA41EF952019F1840038B1A9 /* Optics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA41EF942019F1840038B1A9 /* Optics.framework */; };
 		AA41EF972019F1910038B1A9 /* Optics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA41EF962019F1910038B1A9 /* Optics.framework */; };
 		AA41EF982019F1B00038B1A9 /* Optics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA41EF942019F1840038B1A9 /* Optics.framework */; };
@@ -87,6 +89,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AA24F012201B436A002F242F /* Init.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Init.generated.swift; sourceTree = "<group>"; };
 		AA41EF912019EF600038B1A9 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		AA41EF922019EF770038B1A9 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
 		AA41EF932019EF880038B1A9 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
@@ -181,6 +184,7 @@
 		AA41EF9D2019F4000038B1A9 /* Sourcery Generated */ = {
 			isa = PBXGroup;
 			children = (
+				AA24F012201B436A002F242F /* Init.generated.swift */,
 				AA41EF9F2019F6140038B1A9 /* Lens.generated.swift */,
 				AA41EF9E2019F6130038B1A9 /* Prism.generated.swift */,
 			);
@@ -504,6 +508,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA24F013201B436A002F242F /* Init.generated.swift in Sources */,
 				AAE4AD7A2015DDA300070EC4 /* Multipart.swift in Sources */,
 				AAE4AD762015DDA300070EC4 /* Parsing.swift in Sources */,
 				AA41EFA12019F6140038B1A9 /* Prism.generated.swift in Sources */,
@@ -537,6 +542,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA24F014201B436F002F242F /* Init.generated.swift in Sources */,
 				AAE4AD792015DDA300070EC4 /* Multipart.swift in Sources */,
 				AAE4AD752015DDA300070EC4 /* Parsing.swift in Sources */,
 				AA41EFA02019F6140038B1A9 /* Prism.generated.swift in Sources */,

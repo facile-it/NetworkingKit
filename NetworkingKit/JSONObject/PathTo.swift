@@ -3,8 +3,11 @@ import FunctionalKit
 
 public typealias PathResult<T> = Result<PathError,T>
 
+//sourcery: init
+//sourcery: lens
 public struct Path: CustomStringConvertible {
 	public let keys: [String]
+    
 	public init(_ keys: String...) {
 		self.keys = keys
 	}
@@ -157,8 +160,12 @@ extension PathError: Equatable {
     }
 }
 
+//sourcery: init
+//sourcery: lens
 public struct PathTo<Target> {
 	let root: [String:Any]
+    
+    @available(*, deprecated)
 	public init(in root: [String:Any]) {
 		self.root = root
 	}
