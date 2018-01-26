@@ -36,6 +36,7 @@ public func failable<T>(from closure: () throws -> Resource<T>) rethrows -> Reso
 
 //: ------------------------
 
+//sourcery: lens
 public struct ConnectionInfo: Monoid, Equatable, JSONObjectConvertible {
 	public var connectionName: String?
     public var request: Request
@@ -75,6 +76,7 @@ public struct ConnectionInfo: Monoid, Equatable, JSONObjectConvertible {
             <> response.toJSONObject
     }
     
+    //sourcery: lens
     public struct Request: Monoid, Equatable, JSONObjectConvertible {
         public var urlComponents: URLComponents?
         public var originalRequest: URLRequest?
@@ -138,6 +140,7 @@ public struct ConnectionInfo: Monoid, Equatable, JSONObjectConvertible {
         }
     }
     
+    //sourcery: lens
     public struct Response: Monoid, Equatable, JSONObjectConvertible {
         public var connectionError: NSError?
         public var serverResponse: HTTPURLResponse?
@@ -202,7 +205,7 @@ public struct ConnectionInfo: Monoid, Equatable, JSONObjectConvertible {
 }
 
 //: ------------------------
-
+//sourcery: prism
 public enum HTTPMethod {
 	case get
 	case post
@@ -227,7 +230,7 @@ public enum HTTPMethod {
 }
 
 //: ------------------------
-
+//sourcery: lens
 public struct ClientConfiguration {
 	public let scheme: String
 	public let host: String
@@ -245,7 +248,7 @@ public struct ClientConfiguration {
 }
 
 //: ------------------------
-
+//sourcery: lens
 public struct Request {
 	public var identifier: String
 	public var urlComponents: URLComponents
@@ -305,7 +308,7 @@ public struct Request {
 }
 
 //: ------------------------
-
+//sourcery: lens
 public struct HTTPResponse<Output> {
 	public var URLResponse: HTTPURLResponse
 	public var output: Output
@@ -330,7 +333,7 @@ public struct HTTPResponse<Output> {
 //: ------------------------
 //MARK: - Errors
 //: ------------------------
-
+//sourcery: prism
 public enum SerializationError: CustomStringConvertible {
 	case toJSON
 	case toFormURLEncoded
@@ -363,7 +366,7 @@ public enum SerializationError: CustomStringConvertible {
 }
 
 //: ------------------------
-
+//sourcery: prism
 public enum DeserializationError: CustomStringConvertible {
 	case toAny(NSError?)
 	case toAnyDict(NSError?)
@@ -412,7 +415,7 @@ public enum DeserializationError: CustomStringConvertible {
 }
 
 //: ------------------------
-
+//sourcery: prism
 public enum ClientError: Error, CustomStringConvertible {
 	case generic(NSError)
 	case connection(NSError)

@@ -1,5 +1,6 @@
 import Foundation
 
+//sourcery: lens
 public struct Multipart: Equatable {
 	public static let errorDomain = "Client.Multipart"
 	static let newLineString = "\r\n"
@@ -66,7 +67,7 @@ public struct Multipart: Equatable {
 			&& left.contentBoundaryData == right.contentBoundaryData
 			&& left.parts == right.parts
 	}
-
+    //sourcery: prism
 	public enum Part: Equatable {
 		case text(Text)
 		case file(File)
@@ -99,7 +100,7 @@ public struct Multipart: Equatable {
 				return false
 			}
 		}
-
+        //sourcery: lens
 		public struct Text: Equatable {
 			public var name: String
 			public var content: String
@@ -135,7 +136,7 @@ public struct Multipart: Equatable {
 					&& left.content == right.content
 			}
 		}
-
+        //sourcery: lens
 		public struct File: Equatable {
 			public var contentType: String
 			public var name: String

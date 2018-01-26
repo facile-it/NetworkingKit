@@ -6,6 +6,102 @@ import FunctionalKit
 import Optics
 
 
+extension ClientError {
+    enum prism {
+        static let generic = Prism<ClientError,NSError>(
+            tryGet: { if case .generic(let value) = $0 { return value } else { return nil } },
+            inject: { (x1) in .generic(x1) })
+        static let connection = Prism<ClientError,NSError>(
+            tryGet: { if case .connection(let value) = $0 { return value } else { return nil } },
+            inject: { (x1) in .connection(x1) })
+        static let request = Prism<ClientError,URLComponents>(
+            tryGet: { if case .request(let value) = $0 { return value } else { return nil } },
+            inject: { (x1) in .request(x1) })
+        static let noData = Prism<ClientError, ()>(
+            tryGet: { if case .noData = $0 { return () } else { return nil } },
+            inject: { .noData })
+        static let noResponse = Prism<ClientError, ()>(
+            tryGet: { if case .noResponse = $0 { return () } else { return nil } },
+            inject: { .noResponse })
+        static let invalidHTTPCode = Prism<ClientError,Int>(
+            tryGet: { if case .invalidHTTPCode(let value) = $0 { return value } else { return nil } },
+            inject: { (x1) in .invalidHTTPCode(x1) })
+        static let invalidHeader = Prism<ClientError,String>(
+            tryGet: { if case .invalidHeader(let value) = $0 { return value } else { return nil } },
+            inject: { (x1) in .invalidHeader(x1) })
+        static let noValueAtPath = Prism<ClientError,PathError>(
+            tryGet: { if case .noValueAtPath(let value) = $0 { return value } else { return nil } },
+            inject: { (x1) in .noValueAtPath(x1) })
+        static let noValueInArray = Prism<ClientError,Int>(
+            tryGet: { if case .noValueInArray(let value) = $0 { return value } else { return nil } },
+            inject: { (x1) in .noValueInArray(index:x1) })
+        static let noResults = Prism<ClientError, ()>(
+            tryGet: { if case .noResults = $0 { return () } else { return nil } },
+            inject: { .noResults })
+        static let invalidData = Prism<ClientError,String>(
+            tryGet: { if case .invalidData(let value) = $0 { return value } else { return nil } },
+            inject: { (x1) in .invalidData(x1) })
+        static let errorMessage = Prism<ClientError,String>(
+            tryGet: { if case .errorMessage(let value) = $0 { return value } else { return nil } },
+            inject: { (x1) in .errorMessage(x1) })
+        static let errorMessages = Prism<ClientError,[String]>(
+            tryGet: { if case .errorMessages(let value) = $0 { return value } else { return nil } },
+            inject: { (x1) in .errorMessages(x1) })
+        static let errorPlist = Prism<ClientError,[String: Any]>(
+            tryGet: { if case .errorPlist(let value) = $0 { return value } else { return nil } },
+            inject: { (x1) in .errorPlist(x1) })
+        static let unauthorized = Prism<ClientError, ()>(
+            tryGet: { if case .unauthorized = $0 { return () } else { return nil } },
+            inject: { .unauthorized })
+        static let serialization = Prism<ClientError,SerializationError>(
+            tryGet: { if case .serialization(let value) = $0 { return value } else { return nil } },
+            inject: { (x1) in .serialization(x1) })
+        static let deserialization = Prism<ClientError,DeserializationError>(
+            tryGet: { if case .deserialization(let value) = $0 { return value } else { return nil } },
+            inject: { (x1) in .deserialization(x1) })
+        static let undefined = Prism<ClientError,Error>(
+            tryGet: { if case .undefined(let value) = $0 { return value } else { return nil } },
+            inject: { (x1) in .undefined(x1) })
+    }
+}
+
+extension DeserializationError {
+    enum prism {
+        static let toAny = Prism<DeserializationError,NSError?>(
+            tryGet: { if case .toAny(let value) = $0 { return value } else { return nil } },
+            inject: { (x1) in .toAny(x1) })
+        static let toAnyDict = Prism<DeserializationError,NSError?>(
+            tryGet: { if case .toAnyDict(let value) = $0 { return value } else { return nil } },
+            inject: { (x1) in .toAnyDict(x1) })
+        static let toArray = Prism<DeserializationError,NSError?>(
+            tryGet: { if case .toArray(let value) = $0 { return value } else { return nil } },
+            inject: { (x1) in .toArray(x1) })
+        static let toString = Prism<DeserializationError, ()>(
+            tryGet: { if case .toString = $0 { return () } else { return nil } },
+            inject: { .toString })
+    }
+}
+
+extension HTTPMethod {
+    enum prism {
+        static let get = Prism<HTTPMethod, ()>(
+            tryGet: { if case .get = $0 { return () } else { return nil } },
+            inject: { .get })
+        static let post = Prism<HTTPMethod, ()>(
+            tryGet: { if case .post = $0 { return () } else { return nil } },
+            inject: { .post })
+        static let put = Prism<HTTPMethod, ()>(
+            tryGet: { if case .put = $0 { return () } else { return nil } },
+            inject: { .put })
+        static let patch = Prism<HTTPMethod, ()>(
+            tryGet: { if case .patch = $0 { return () } else { return nil } },
+            inject: { .patch })
+        static let delete = Prism<HTTPMethod, ()>(
+            tryGet: { if case .delete = $0 { return () } else { return nil } },
+            inject: { .delete })
+    }
+}
+
 extension JSONError {
     enum prism {
         static let serialization = Prism<JSONError,NSError>(
@@ -43,6 +139,17 @@ extension JSONObject {
     }
 }
 
+extension Multipart.Part {
+    enum prism {
+        static let text = Prism<Multipart.Part,Multipart.Part.Text>(
+            tryGet: { if case .text(let value) = $0 { return value } else { return nil } },
+            inject: { (x1) in .text(x1) })
+        static let file = Prism<Multipart.Part,Multipart.Part.File>(
+            tryGet: { if case .file(let value) = $0 { return value } else { return nil } },
+            inject: { (x1) in .file(x1) })
+    }
+}
+
 extension PathError {
     enum prism {
         static let emptyPath = Prism<PathError,([String: Any], Path)>(
@@ -63,5 +170,16 @@ extension PathError {
         static let multiple = Prism<PathError,[PathError]>(
             tryGet: { if case .multiple(let value) = $0 { return value } else { return nil } },
             inject: { (x1) in .multiple(x1) })
+    }
+}
+
+extension SerializationError {
+    enum prism {
+        static let toJSON = Prism<SerializationError, ()>(
+            tryGet: { if case .toJSON = $0 { return () } else { return nil } },
+            inject: { .toJSON })
+        static let toFormURLEncoded = Prism<SerializationError, ()>(
+            tryGet: { if case .toFormURLEncoded = $0 { return () } else { return nil } },
+            inject: { .toFormURLEncoded })
     }
 }
