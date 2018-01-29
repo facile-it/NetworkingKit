@@ -12,9 +12,6 @@ public struct Parse {
 						.mapError { _ in .invalidHTTPCode(code) }
 						.flatMap(errorStrategy)
 						.flatMap { _ in ClientResult<HTTPResponse<Data>>.failure(.invalidHTTPCode(code)) }
-						.fold(
-							onSuccess: ClientResult.success,
-							onFailure: ClientResult.failure)
 				}
 				return .success(response)
 			}
@@ -50,7 +47,7 @@ public struct Parse {
 		}
 
 		public static func getElement<T>(type: T.Type, at path: Path) -> ([String:Any]) -> ClientResult<T> {
-			return { PathTo<T>(in: $0).get(path).mapError(ClientError.noValueAtPath) }
+			return { PathTo<T>(root: $0).get(path).mapError(ClientError.noValueAtPath) }
 		}
 
 		public static func getElement<T>(at index: Int) -> ([T]) -> ClientResult<T> {
@@ -94,7 +91,7 @@ public struct Parse {
 
 		public static func messageForPath(_ errorPath: Path) -> ([String:Any]) -> ClientResult<[String:Any]> {
 			return { plist in
-				guard let errorMessage = PathTo<String>(in: plist).get(errorPath).toOptionalValue else { return .success(plist) }
+				guard let errorMessage = PathTo<String>(root: plist).get(errorPath).toOptionalValue else { return .success(plist) }
 				return .failure(.errorMessage(errorMessage))
 			}
 		}
