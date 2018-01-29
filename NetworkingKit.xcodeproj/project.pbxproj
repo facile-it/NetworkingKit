@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AA24F013201B436A002F242F /* Init.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24F012201B436A002F242F /* Init.generated.swift */; };
 		AA24F014201B436F002F242F /* Init.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24F012201B436A002F242F /* Init.generated.swift */; };
+		AA24F017201F22B5002F242F /* ParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24F016201F22B5002F242F /* ParseTests.swift */; };
 		AA41EF952019F1840038B1A9 /* Optics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA41EF942019F1840038B1A9 /* Optics.framework */; };
 		AA41EF972019F1910038B1A9 /* Optics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA41EF962019F1910038B1A9 /* Optics.framework */; };
 		AA41EF982019F1B00038B1A9 /* Optics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA41EF942019F1840038B1A9 /* Optics.framework */; };
@@ -90,6 +91,7 @@
 
 /* Begin PBXFileReference section */
 		AA24F012201B436A002F242F /* Init.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Init.generated.swift; sourceTree = "<group>"; };
+		AA24F016201F22B5002F242F /* ParseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseTests.swift; sourceTree = "<group>"; };
 		AA41EF912019EF600038B1A9 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		AA41EF922019EF770038B1A9 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
 		AA41EF932019EF880038B1A9 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
@@ -320,6 +322,7 @@
 				AAE4AD7C2015DE0500070EC4 /* MultipartTests.swift */,
 				AAE4AD7B2015DE0400070EC4 /* SerializeTests.swift */,
 				AAE4AD7E2015DE0500070EC4 /* TestTools.swift */,
+				AA24F016201F22B5002F242F /* ParseTests.swift */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				AAE4AD802015DE0500070EC4 /* MultipartTests.swift in Sources */,
 				AAE4AD5B2015D77500070EC4 /* PathTests.swift in Sources */,
 				AAE4AD7F2015DE0500070EC4 /* SerializeTests.swift in Sources */,
+				AA24F017201F22B5002F242F /* ParseTests.swift in Sources */,
 				AAE4AD822015DE0500070EC4 /* TestTools.swift in Sources */,
 				AAE4AD5A2015D77500070EC4 /* JSONObjectTests.swift in Sources */,
 				AA54A1B22011F25100FE4478 /* NetworkingKitTests.swift in Sources */,

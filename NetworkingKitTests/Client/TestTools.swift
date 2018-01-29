@@ -126,3 +126,30 @@ extension Multipart: Arbitrary {
 		}
 	}
 }
+
+struct HTTPCode: Arbitrary, ExpressibleByIntegerLiteral {
+    typealias IntegerLiteralType = Int
+    
+    let code: Int
+    
+    init(integerLiteral value: Int) {
+        self.code = value
+    }
+    
+    static var arbitrary: Gen<HTTPCode> {
+        return Gen<HTTPCode>.fromElements(of: [200, 201, 400, 401, 500])
+    }
+}
+
+extension URL: Arbitrary {
+    public static var arbitrary: Gen<URL> {
+        return Gen<URL>.compose { _ in
+            URLStringGenerator.get
+                .map { URL.init(string: $0) }
+                .map { _ in URL.init(string: "http://www.facile.it")! }
+                .generate
+        }
+    }
+    
+    
+}
