@@ -10,10 +10,6 @@
 		AA24F013201B436A002F242F /* Init.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24F012201B436A002F242F /* Init.generated.swift */; };
 		AA24F014201B436F002F242F /* Init.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24F012201B436A002F242F /* Init.generated.swift */; };
 		AA24F017201F22B5002F242F /* ParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24F016201F22B5002F242F /* ParseTests.swift */; };
-		AA41EF952019F1840038B1A9 /* Optics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA41EF942019F1840038B1A9 /* Optics.framework */; };
-		AA41EF972019F1910038B1A9 /* Optics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA41EF962019F1910038B1A9 /* Optics.framework */; };
-		AA41EF982019F1B00038B1A9 /* Optics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA41EF942019F1840038B1A9 /* Optics.framework */; };
-		AA41EF992019F1B90038B1A9 /* Optics.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA41EF942019F1840038B1A9 /* Optics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AA41EFA02019F6140038B1A9 /* Prism.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA41EF9E2019F6130038B1A9 /* Prism.generated.swift */; };
 		AA41EFA12019F6140038B1A9 /* Prism.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA41EF9E2019F6130038B1A9 /* Prism.generated.swift */; };
 		AA41EFA22019F6140038B1A9 /* Lens.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA41EF9F2019F6140038B1A9 /* Lens.generated.swift */; };
@@ -82,7 +78,6 @@
 				AAE4AD562015D70200070EC4 /* Abstract.framework in CopyFiles */,
 				AAE4AD572015D70200070EC4 /* FunctionalKit.framework in CopyFiles */,
 				AAE4AD542015D6E300070EC4 /* SwiftCheck.framework in CopyFiles */,
-				AA41EF992019F1B90038B1A9 /* Optics.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,7 +136,6 @@
 			files = (
 				AA91B4F9201232ED00603E3C /* SwiftCheck.framework in Frameworks */,
 				AA91B4FA201232ED00603E3C /* FunctionalKit.framework in Frameworks */,
-				AA41EF952019F1840038B1A9 /* Optics.framework in Frameworks */,
 				AA91B4FB201232ED00603E3C /* Abstract.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,7 +149,6 @@
 				AAE4AD552015D6E800070EC4 /* SwiftCheck.framework in Frameworks */,
 				AAE4AD582015D70400070EC4 /* Abstract.framework in Frameworks */,
 				AAE4AD592015D70400070EC4 /* FunctionalKit.framework in Frameworks */,
-				AA41EF982019F1B00038B1A9 /* Optics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,7 +156,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA41EF972019F1910038B1A9 /* Optics.framework in Frameworks */,
 				AA91B5002012332600603E3C /* FunctionalKit.framework in Frameworks */,
 				AA91B5012012332600603E3C /* Abstract.framework in Frameworks */,
 			);

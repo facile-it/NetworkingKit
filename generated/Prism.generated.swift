@@ -3,7 +3,6 @@
 
 import Abstract
 import FunctionalKit
-import Optics
 
 
 extension ClientError {
