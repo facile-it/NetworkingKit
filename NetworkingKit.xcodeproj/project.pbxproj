@@ -105,7 +105,7 @@
 		AA54A1A72011F25100FE4478 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA54A1AC2011F25100FE4478 /* NetworkingKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkingKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA54A1B32011F25100FE4478 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AA91B4AA20122DFA00603E3C /* NetworkingKit_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkingKit_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA91B4AA20122DFA00603E3C /* NetworkingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA91B4AC20122DFA00603E3C /* NetworkingKit_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingKit_iOS.h; sourceTree = "<group>"; };
 		AA91B4AD20122DFA00603E3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA91B4CB20122ED200603E3C /* JSONObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONObject.swift; sourceTree = "<group>"; };
@@ -212,7 +212,7 @@
 			children = (
 				AA54A1A32011F25100FE4478 /* NetworkingKit.framework */,
 				AA54A1AC2011F25100FE4478 /* NetworkingKitTests.xctest */,
-				AA91B4AA20122DFA00603E3C /* NetworkingKit_iOS.framework */,
+				AA91B4AA20122DFA00603E3C /* NetworkingKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -402,7 +402,7 @@
 			);
 			name = "NetworkingKit-iOS";
 			productName = "NetworkingKit-iOS";
-			productReference = AA91B4AA20122DFA00603E3C /* NetworkingKit_iOS.framework */;
+			productReference = AA91B4AA20122DFA00603E3C /* NetworkingKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -790,7 +790,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "it.facile.NetworkingKit-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = NetworkingKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -818,7 +818,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "it.facile.NetworkingKit-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = NetworkingKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
