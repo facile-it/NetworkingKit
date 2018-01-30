@@ -141,17 +141,17 @@ public enum PathError: Error, CustomDebugStringConvertible {
 
 extension PathError: Monoid {
     public static var empty: PathError {
-        return .multiple([PathError].init())
+        return .multiple([])
     }
     
     public static func <> (left: PathError, right: PathError) -> PathError {
         switch (left, right) {
+        case (.empty, _):
+            return right
+        case (_ , .empty):
+            return left
         case (.multiple(let leftErrors), .multiple(let rightErrors)):
             return PathError.multiple(leftErrors + rightErrors)
-        case (.multiple(let leftErrors), _) where leftErrors.isEmpty:
-            return right
-        case (_ , .multiple(let rightErrors)) where rightErrors.isEmpty:
-            return left
         case (.multiple(let leftErrors), _):
             return PathError.multiple(leftErrors + [right])
         case (_ , .multiple(let rightErrors)):
