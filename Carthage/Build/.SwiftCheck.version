@@ -1,0 +1,15 @@
+{
+  "commitish" : "0.9.1",
+  "Mac" : [
+    {
+      "name" : "SwiftCheck",
+      "hash" : "71dfd6c6aaf57ae4fee8d7dfab46bb4483b31075f4df32b2bcfa3f11d32b2977"
+    }
+  ],
+  "iOS" : [
+    {
+      "name" : "SwiftCheck",
+      "hash" : "2c62cb175f387024474eb1f6400a0a55fc737b8b36ed0b249890509b4d7b58b9"
+    }
+  ]
+}
