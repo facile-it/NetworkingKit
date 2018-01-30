@@ -1,6 +1,5 @@
 import Abstract
 import FunctionalKit
-import Optics
 
 {% for type in types.structs|annotated:"lens" %}
 

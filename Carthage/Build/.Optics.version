@@ -3,13 +3,13 @@
   "Mac" : [
     {
       "name" : "Optics",
-      "hash" : "b8c3e2a309c016a354e1f4d9ad0376b073acc453585824aacc939fa3158e2aba"
+      "hash" : "75bcf122471c470601018f6c45ea00ec8fc7dab76b8fe01427a14b0357516b44"
     }
   ],
   "iOS" : [
     {
       "name" : "Optics",
-      "hash" : "62dde4b4ed4e23a5fd8bbc73b7424715b961a8aca7e3253e435e5dcddd7a1da6"
+      "hash" : "7c080a7869d47a7318863279d71eaac5cde77ba18ebfcccfde9c6c8b02529f59"
     }
   ]
 }
