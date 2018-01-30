@@ -34,9 +34,7 @@ public enum JSONObject {
     case array([JSONObject])
     case dict([String:JSONObject])
     
-    public static func with(_ object: Any?) -> JSONResult<JSONObject> {
-        guard let object = object else { return .success(.null) }
-        
+    public static func with(_ object: Any) -> JSONResult<JSONObject> {
         switch object {
         case is NSNull:
             return .success(.null)

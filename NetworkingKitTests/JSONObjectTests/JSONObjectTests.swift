@@ -5,28 +5,6 @@ import Abstract
 
 class JSONObjectSpec: XCTestCase {
 
-	func testCreationWithOptional() {
-		property("JSONObject creation with Optional will result in .null if Optional is .none, or other if .some - 1") <- {
-			let some: Int? = 42
-			let none: Int? = nil
-
-			return (JSONObject.with(some).fold(
-                onSuccess: { $0.isNull.not },
-                onFailure: { _ in false })) <?> "With .some"
-				^&&^
-				(JSONObject.with(none).fold(
-                    onSuccess: { $0.isNull },
-                    onFailure: { _ in false })) <?> "With .none"
-		}
-
-		property("JSONObject creation with Optional will result in .null if Optional is .none, or other if .some - 2") <- forAll { (opt: OptionalOf<Int>) in
-			let optional = opt.getOptional
-			return JSONObject.with(optional).fold(
-                onSuccess: { $0.isNull == (optional == nil) },
-                onFailure: { _ in false })
-		}
-	}
-
 	func testCreationIsConsistentWithPassedType() {
 		property("JSONObject creation with NSNull will result in .null") <- {
 			return JSONObject.with(NSNull()).fold(
