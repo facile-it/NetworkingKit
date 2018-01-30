@@ -6,7 +6,7 @@
 //  Copyright © 2018 Facile.it. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for NetworkingKit.
 FOUNDATION_EXPORT double NetworkingKitVersionNumber;
