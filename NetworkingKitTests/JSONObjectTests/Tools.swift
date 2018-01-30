@@ -171,9 +171,15 @@ extension PathError: Arbitrary {
             Gen.zip(rootGenerator, pathGenerator, stringGenerator).map { PathError.noDictAtKey(root: $0 as [String: Any], path: $1, key: $2) },
             Gen.zip(rootGenerator, pathGenerator, stringGenerator).map { PathError.noTargetForLastKey(root: $0 as [String: Any], path: $1, key: $2) },
             Gen.zip(rootGenerator, pathGenerator, stringGenerator).map { PathError.wrongTargetTypeForLastKey(root: $0 as [String: Any], path: $1, typeDescription: $2) },
-            Gen.fromElements(of: [1,2,3,4,5]).proliferate.map { numbers in
+            Gen.fromElements(of: [0,1,2,3,4,5]).proliferate.map { numbers in
                 return PathError.multiple(numbers.map { number -> PathError in
                     switch(number) {
+                    case 0:
+                        return PathError.multiple(Bool.arbitrary.generate
+                            ? [PathError].init()
+                            : [PathError.emptyPath(
+                                root: rootGenerator.generate,
+                                path: pathGenerator.generate)])
                     case 1:
                         return PathError.emptyPath(
                             root: rootGenerator.generate,

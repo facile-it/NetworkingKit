@@ -139,11 +139,19 @@ public enum PathError: Error, CustomDebugStringConvertible {
 	}
 }
 
-extension PathError: Semigroup {
+extension PathError: Monoid {
+    public static var empty: PathError {
+        return .multiple([PathError].init())
+    }
+    
     public static func <> (left: PathError, right: PathError) -> PathError {
         switch (left, right) {
         case (.multiple(let leftErrors), .multiple(let rightErrors)):
             return PathError.multiple(leftErrors + rightErrors)
+        case (.multiple(let leftErrors), _) where leftErrors.isEmpty:
+            return right
+        case (_ , .multiple(let rightErrors)) where rightErrors.isEmpty:
+            return left
         case (.multiple(let leftErrors), _):
             return PathError.multiple(leftErrors + [right])
         case (_ , .multiple(let rightErrors)):
