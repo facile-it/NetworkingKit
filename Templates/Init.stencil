@@ -1,3 +1,5 @@
+import Foundation
+
 // MARK: - Standard initializer for structs
 {% for type in types.structs|annotated:"init" %}
 

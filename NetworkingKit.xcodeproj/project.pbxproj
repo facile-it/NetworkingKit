@@ -91,7 +91,6 @@
 		AA24F012201B436A002F242F /* Init.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Init.generated.swift; sourceTree = "<group>"; };
 		AA24F016201F22B5002F242F /* ParseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseTests.swift; sourceTree = "<group>"; };
 		AA41EF942019F1840038B1A9 /* Optics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Optics.framework; path = Carthage/Build/Mac/Optics.framework; sourceTree = "<group>"; };
-		AA41EF962019F1910038B1A9 /* Optics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Optics.framework; path = Carthage/Build/iOS/Optics.framework; sourceTree = "<group>"; };
 		AA41EF9A2019F2F80038B1A9 /* Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Templates; sourceTree = "<group>"; };
 		AA41EF9E2019F6130038B1A9 /* Prism.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prism.generated.swift; sourceTree = "<group>"; };
 		AA41EF9F2019F6140038B1A9 /* Lens.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lens.generated.swift; sourceTree = "<group>"; };
@@ -284,7 +283,6 @@
 		AA91B5032012332B00603E3C /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				AA41EF962019F1910038B1A9 /* Optics.framework */,
 				AAE4AD662015DCB600070EC4 /* Nimble.framework */,
 				AA91B4FE2012332500603E3C /* Abstract.framework */,
 				AA91B4FD2012332500603E3C /* FunctionalKit.framework */,

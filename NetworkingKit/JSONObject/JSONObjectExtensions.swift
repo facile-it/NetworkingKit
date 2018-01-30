@@ -1,3 +1,5 @@
+import Foundation
+
 extension Array {
     func isEqual(to other: [Element], considering predicate: (Element,Element) -> Bool) -> Bool {
         guard count == other.count else { return false }
