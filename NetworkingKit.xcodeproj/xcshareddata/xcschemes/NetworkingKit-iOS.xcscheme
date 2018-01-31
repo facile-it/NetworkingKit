@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AA91B4A920122DFA00603E3C"
-               BuildableName = "NetworkingKit_iOS.framework"
+               BuildableName = "NetworkingKit.framework"
                BlueprintName = "NetworkingKit-iOS"
                ReferencedContainer = "container:NetworkingKit.xcodeproj">
             </BuildableReference>
@@ -48,7 +48,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AA91B4A920122DFA00603E3C"
-            BuildableName = "NetworkingKit_iOS.framework"
+            BuildableName = "NetworkingKit.framework"
             BlueprintName = "NetworkingKit-iOS"
             ReferencedContainer = "container:NetworkingKit.xcodeproj">
          </BuildableReference>
@@ -66,7 +66,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AA91B4A920122DFA00603E3C"
-            BuildableName = "NetworkingKit_iOS.framework"
+            BuildableName = "NetworkingKit.framework"
             BlueprintName = "NetworkingKit-iOS"
             ReferencedContainer = "container:NetworkingKit.xcodeproj">
          </BuildableReference>
