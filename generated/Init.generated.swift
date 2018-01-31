@@ -6,13 +6,13 @@ import Foundation
 // MARK: - Standard initializer for structs
 
 extension Path {
-    init(keys: [String]) {
+    public init(keys: [String]) {
         self.keys = keys
     }
 }
 
 extension PathTo {
-    init(root: [String: Any]) {
+    public init(root: [String: Any]) {
         self.root = root
     }
 }
