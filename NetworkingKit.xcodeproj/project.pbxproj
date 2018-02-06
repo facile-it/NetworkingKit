@@ -17,7 +17,6 @@
 		AA54A1AD2011F25100FE4478 /* NetworkingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA54A1A32011F25100FE4478 /* NetworkingKit.framework */; };
 		AA54A1B42011F25100FE4478 /* NetworkingKit.h in Headers */ = {isa = PBXBuildFile; fileRef = AA54A1A62011F25100FE4478 /* NetworkingKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA91B4BA20122DFA00603E3C /* NetworkingKit_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = AA91B4AC20122DFA00603E3C /* NetworkingKit_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AA91B4F9201232ED00603E3C /* SwiftCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA91B4F6201232EC00603E3C /* SwiftCheck.framework */; };
 		AA91B4FA201232ED00603E3C /* FunctionalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA91B4F7201232ED00603E3C /* FunctionalKit.framework */; };
 		AA91B4FB201232ED00603E3C /* Abstract.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA91B4F8201232ED00603E3C /* Abstract.framework */; };
 		AA91B5002012332600603E3C /* FunctionalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA91B4FD2012332500603E3C /* FunctionalKit.framework */; };
@@ -133,7 +132,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA91B4F9201232ED00603E3C /* SwiftCheck.framework in Frameworks */,
 				AA91B4FA201232ED00603E3C /* FunctionalKit.framework in Frameworks */,
 				AA91B4FB201232ED00603E3C /* Abstract.framework in Frameworks */,
 			);
