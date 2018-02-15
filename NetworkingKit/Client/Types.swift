@@ -615,7 +615,7 @@ extension ClientError: Equatable {
 		case (.errorMessages(let lhs), .errorMessages(let rhs)):
 			return lhs == rhs
 		case (.errorPlist(let lhs), .errorPlist(let rhs)):
-			return "\(lhs)" == "\(rhs)"
+			return lhs.isEqual(to: rhs, considering: { "\($0)" == "\($1)" })
 		case (.unauthorized, .unauthorized):
 			return true
 		case (.serialization(let lhs), .serialization(let rhs)):

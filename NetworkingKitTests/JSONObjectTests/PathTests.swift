@@ -14,7 +14,7 @@ class PathTests: XCTestCase {
         }
         
         property("If two PathError are equal, their NSError must be as well") <- forAll { (ape1: PathError, ape2: PathError) in
-            (ape1 == ape2) == (ape1.getNSError == ape2.getNSError)
+            (ape1 == ape2) == (ape1.getNSError.isEqual(ape2.getNSError))
         }
     }
     

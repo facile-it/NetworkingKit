@@ -5,6 +5,7 @@ import FunctionalKit
 public typealias PathResult<T> = Result<PathError,T>
 
 // sourcery: lens
+// sourcery: equatable
 public struct Path: CustomStringConvertible {
 	public let keys: [String]
 
@@ -45,12 +46,6 @@ extension Path: ExpressibleByStringLiteral {
 	public init(stringLiteral value: String) {
 		self.keys = [value]
 	}
-}
-
-extension Path: Equatable {
-    public static func == (left: Path, right: Path) -> Bool {
-        return left.keys == right.keys
-    }
 }
 
 // sourcery: prism

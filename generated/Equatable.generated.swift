@@ -72,6 +72,13 @@ extension Multipart.Part.Text: Equatable {
     }
 }
 
+extension Path: Equatable {
+    public static func == (lhs: Path, rhs: Path) -> Bool {
+		guard lhs.keys == rhs.keys else { return false }
+        return true
+    }
+}
+
 extension Request: Equatable {
     public static func == (lhs: Request, rhs: Request) -> Bool {
 		guard lhs.identifier == rhs.identifier else { return false }
@@ -89,11 +96,11 @@ extension DeserializationError: Equatable {
     public static func == (lhs: DeserializationError, rhs: DeserializationError) -> Bool {
         switch (lhs,rhs) {
             case (.toAny(let lhs), .toAny(let rhs)):
-                return lhs == rhs
+				return lhs == rhs
             case (.toAnyDict(let lhs), .toAnyDict(let rhs)):
-                return lhs == rhs
+				return lhs == rhs
             case (.toArray(let lhs), .toArray(let rhs)):
-                return lhs == rhs
+				return lhs == rhs
             case (.toString, .toString):
                 return true
 			default: return false
@@ -105,7 +112,7 @@ extension JSONError: Equatable {
     public static func == (lhs: JSONError, rhs: JSONError) -> Bool {
         switch (lhs,rhs) {
             case (.serialization(let lhs), .serialization(let rhs)):
-                return lhs == rhs
+				return lhs == rhs
             case (.invalidTopLevelObject, .invalidTopLevelObject):
                 return true
             case (.nonJSONType, .nonJSONType):
@@ -119,9 +126,9 @@ extension Multipart.Part: Equatable {
     public static func == (lhs: Multipart.Part, rhs: Multipart.Part) -> Bool {
         switch (lhs,rhs) {
             case (.text(let lhs), .text(let rhs)):
-                return lhs == rhs
+				return lhs == rhs
             case (.file(let lhs), .file(let rhs)):
-                return lhs == rhs
+				return lhs == rhs
 			default: return false
         }
     }

@@ -7,7 +7,7 @@ import FunctionalKit
 class SerializeTests: XCTestCase {
     
 	func testJSON() {
-		property("'toJSON' is invertible for dict") <- forAll { (ao: DictionaryOf<String,String>) in
+		property("'toJSON' is invertible for dict", arguments: .with(25072100,913394349,10)) <- forAll { (ao: DictionaryOf<String,String>) in
 			let object = ao.getDictionary
 			let data = Serialize.toJSON(object).toOptionalValue!
 			let gotObject = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! Dictionary<String,String>
