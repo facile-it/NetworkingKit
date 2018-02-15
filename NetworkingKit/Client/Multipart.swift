@@ -1,7 +1,8 @@
 import Foundation
 
-//sourcery: lens
-public struct Multipart: Equatable {
+// sourcery: equatable
+// sourcery: lens
+public struct Multipart {
 	public static let errorDomain = "Client.Multipart"
 	static let newLineString = "\r\n"
 	static let newLineData = newLineString.data(using: .utf8)!
@@ -61,14 +62,9 @@ public struct Multipart: Equatable {
 		return elements.reduce(Data()) { var m_data = $0; m_data.append($1); return m_data }
 	}
 
-	public static func == (left: Multipart, right: Multipart) -> Bool {
-		return left.boundary == right.boundary
-			&& left.contentBoundary == right.contentBoundary
-			&& left.contentBoundaryData == right.contentBoundaryData
-			&& left.parts == right.parts
-	}
-    //sourcery: prism
-	public enum Part: Equatable {
+	// sourcery: equatable
+    // sourcery: prism
+	public enum Part {
 		case text(Text)
 		case file(File)
 
@@ -90,18 +86,9 @@ public struct Multipart: Equatable {
 			}
 		}
 
-		public static func == (left: Part, right: Part) -> Bool {
-			switch (left,right) {
-			case (.text(let leftValue), .text(let rightValue)):
-				return leftValue == rightValue
-			case (.file(let leftValue), .file(let rightValue)):
-				return leftValue == rightValue
-			default:
-				return false
-			}
-		}
-        //sourcery: lens
-		public struct Text: Equatable {
+		// sourcery: equatable
+		// sourcery: lens
+		public struct Text {
 			public var name: String
 			public var content: String
 
@@ -130,14 +117,11 @@ public struct Multipart: Equatable {
 					+ Multipart.newLineString
 					+ Multipart.newLineString
 			}
-
-			public static func == (left: Text, right: Text) -> Bool {
-				return left.name == right.name
-					&& left.content == right.content
-			}
 		}
-        //sourcery: lens
-		public struct File: Equatable {
+
+		// sourcery: equatable
+        // sourcery: lens
+		public struct File {
 			public var contentType: String
 			public var name: String
 			public var filename: String
@@ -173,13 +157,6 @@ public struct Multipart: Equatable {
 					+ "Content-Type: \(contentType)"
 					+ Multipart.newLineString
 					+ Multipart.newLineString
-			}
-
-			public static func == (left: File, right: File) -> Bool {
-				return left.contentType == right.contentType
-					&& left.name == right.name
-					&& left.filename == right.filename
-					&& left.data == right.data
 			}
 		}
 	}

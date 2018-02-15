@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38E8FE8E2035AB21002A6546 /* SourceryImports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E8FE8D2035AB21002A6546 /* SourceryImports.swift */; };
+		38E8FE8F2035AB21002A6546 /* SourceryImports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E8FE8D2035AB21002A6546 /* SourceryImports.swift */; };
+		38E8FE922035AC22002A6546 /* Match.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E8FE912035AC22002A6546 /* Match.generated.swift */; };
+		38E8FE932035AC22002A6546 /* Match.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E8FE912035AC22002A6546 /* Match.generated.swift */; };
+		38E8FE952035C2D6002A6546 /* Equatable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E8FE942035C2D5002A6546 /* Equatable.generated.swift */; };
+		38E8FE962035C2D6002A6546 /* Equatable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E8FE942035C2D5002A6546 /* Equatable.generated.swift */; };
 		AA24F013201B436A002F242F /* Init.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24F012201B436A002F242F /* Init.generated.swift */; };
 		AA24F014201B436F002F242F /* Init.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24F012201B436A002F242F /* Init.generated.swift */; };
 		AA24F017201F22B5002F242F /* ParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24F016201F22B5002F242F /* ParseTests.swift */; };
@@ -87,6 +93,9 @@
 		388AACAE20208A9900FBE3FA /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		388AACAF20208A9A00FBE3FA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		388AACB020208A9A00FBE3FA /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		38E8FE8D2035AB21002A6546 /* SourceryImports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceryImports.swift; sourceTree = "<group>"; };
+		38E8FE912035AC22002A6546 /* Match.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.generated.swift; sourceTree = "<group>"; };
+		38E8FE942035C2D5002A6546 /* Equatable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equatable.generated.swift; sourceTree = "<group>"; };
 		AA24F012201B436A002F242F /* Init.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Init.generated.swift; sourceTree = "<group>"; };
 		AA24F016201F22B5002F242F /* ParseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseTests.swift; sourceTree = "<group>"; };
 		AA41EF942019F1840038B1A9 /* Optics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Optics.framework; path = Carthage/Build/Mac/Optics.framework; sourceTree = "<group>"; };
@@ -172,11 +181,21 @@
 			name = Documents;
 			sourceTree = "<group>";
 		};
+		38E8FE8C2035AB06002A6546 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				38E8FE8D2035AB21002A6546 /* SourceryImports.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		AA41EF9D2019F4000038B1A9 /* Sourcery Generated */ = {
 			isa = PBXGroup;
 			children = (
+				38E8FE942035C2D5002A6546 /* Equatable.generated.swift */,
 				AA24F012201B436A002F242F /* Init.generated.swift */,
 				AA41EF9F2019F6140038B1A9 /* Lens.generated.swift */,
+				38E8FE912035AC22002A6546 /* Match.generated.swift */,
 				AA41EF9E2019F6130038B1A9 /* Prism.generated.swift */,
 			);
 			name = "Sourcery Generated";
@@ -209,6 +228,7 @@
 		AA54A1A52011F25100FE4478 /* NetworkingKit */ = {
 			isa = PBXGroup;
 			children = (
+				38E8FE8C2035AB06002A6546 /* Utility */,
 				AA41EF9D2019F4000038B1A9 /* Sourcery Generated */,
 				AAE4AD672015DD5500070EC4 /* Client */,
 				AA91B4CA20122EC900603E3C /* JSONObject */,
@@ -499,16 +519,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA24F013201B436A002F242F /* Init.generated.swift in Sources */,
+				38E8FE8F2035AB21002A6546 /* SourceryImports.swift in Sources */,
 				AAE4AD7A2015DDA300070EC4 /* Multipart.swift in Sources */,
 				AAE4AD762015DDA300070EC4 /* Parsing.swift in Sources */,
 				AA41EFA12019F6140038B1A9 /* Prism.generated.swift in Sources */,
 				AAE4AD5E2015D7AF00070EC4 /* JSONObject.swift in Sources */,
 				AAE4AD5F2015D7AF00070EC4 /* PathTo.swift in Sources */,
 				AAE4AD5D2015D7AF00070EC4 /* JSONObjectExtensions.swift in Sources */,
+				38E8FE932035AC22002A6546 /* Match.generated.swift in Sources */,
 				AAE4AD782015DDA300070EC4 /* Utilites.swift in Sources */,
 				AA41EFA32019F6140038B1A9 /* Lens.generated.swift in Sources */,
 				AAE4AD722015DDA300070EC4 /* Types.swift in Sources */,
 				AAE4AD742015DDA300070EC4 /* Serialization.swift in Sources */,
+				38E8FE962035C2D6002A6546 /* Equatable.generated.swift in Sources */,
 				AAE4AD702015DDA300070EC4 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,16 +556,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA24F014201B436F002F242F /* Init.generated.swift in Sources */,
+				38E8FE8E2035AB21002A6546 /* SourceryImports.swift in Sources */,
 				AAE4AD792015DDA300070EC4 /* Multipart.swift in Sources */,
 				AAE4AD752015DDA300070EC4 /* Parsing.swift in Sources */,
 				AA41EFA02019F6140038B1A9 /* Prism.generated.swift in Sources */,
 				AAE4AD612015D7AF00070EC4 /* JSONObject.swift in Sources */,
 				AAE4AD622015D7AF00070EC4 /* PathTo.swift in Sources */,
 				AAE4AD602015D7AF00070EC4 /* JSONObjectExtensions.swift in Sources */,
+				38E8FE922035AC22002A6546 /* Match.generated.swift in Sources */,
 				AAE4AD772015DDA300070EC4 /* Utilites.swift in Sources */,
 				AA41EFA22019F6140038B1A9 /* Lens.generated.swift in Sources */,
 				AAE4AD712015DDA300070EC4 /* Types.swift in Sources */,
 				AAE4AD732015DDA300070EC4 /* Serialization.swift in Sources */,
+				38E8FE952035C2D6002A6546 /* Equatable.generated.swift in Sources */,
 				AAE4AD6F2015DDA300070EC4 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -612,7 +638,6 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -667,7 +692,6 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
-				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -696,7 +720,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = it.facile.NetworkingKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
@@ -724,7 +747,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = it.facile.NetworkingKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

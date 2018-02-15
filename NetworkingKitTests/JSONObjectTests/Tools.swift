@@ -155,7 +155,7 @@ extension JSONObject: Arbitrary {
 extension Path: Arbitrary {
     public static var arbitrary: Gen<Path> {
         return Gen<Path>.compose {
-            Path.init(keysArray: $0.generate(using: ArrayOf<String>.arbitrary.map { $0.getArray }))
+            Path.init(keys: $0.generate(using: ArrayOf<String>.arbitrary.map { $0.getArray }))
         }
     }
 }

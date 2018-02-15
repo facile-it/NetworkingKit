@@ -4,8 +4,6 @@
 
 
 
-public extension PathTo {
-    init(root: [String: Any]) {
-        self.root = root
-    }
-}
+// MARK: - Arbitrary for structs and classes
+
+// MARK: - Arbitrary for enums

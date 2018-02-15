@@ -37,8 +37,9 @@ public func failable<T>(from closure: () throws -> Resource<T>) rethrows -> Reso
 
 //: ------------------------
 
-//sourcery: lens
-public struct ConnectionInfo: Monoid, Equatable, JSONObjectConvertible {
+// sourcery: equatable
+// sourcery: lens
+public struct ConnectionInfo: Monoid, JSONObjectConvertible {
 	public var connectionName: String?
     public var request: Request
     public var response: Response
@@ -62,13 +63,7 @@ public struct ConnectionInfo: Monoid, Equatable, JSONObjectConvertible {
             request: right.request <> left.request,
             response: right.response <> left.response)
     }
-    
-    public static func == (left: ConnectionInfo, right: ConnectionInfo) -> Bool {
-        return left.connectionName == right.connectionName
-            && left.request == right.request
-            && left.response == right.response
-    }
-    
+
     public var toJSONObject: JSONObject {
         let connName: JSONObject? = connectionName.map(JSONObject.string)
         
@@ -77,8 +72,9 @@ public struct ConnectionInfo: Monoid, Equatable, JSONObjectConvertible {
             <> response.toJSONObject
     }
     
-    //sourcery: lens
-    public struct Request: Monoid, Equatable, JSONObjectConvertible {
+	// sourcery: equatable
+    // sourcery: lens
+    public struct Request: Monoid, JSONObjectConvertible {
         public var urlComponents: URLComponents?
         public var originalRequest: URLRequest?
         public var bodyStringRepresentation: String?
@@ -96,13 +92,7 @@ public struct ConnectionInfo: Monoid, Equatable, JSONObjectConvertible {
                 originalRequest: left.originalRequest ?? right.originalRequest,
                 bodyStringRepresentation: left.bodyStringRepresentation ?? right.bodyStringRepresentation)
         }
-        
-        public static func == (_ left: Request, _ right: Request) -> Bool {
-            return right.urlComponents == left.urlComponents
-                && right.originalRequest == left.originalRequest
-                && right.bodyStringRepresentation == left.bodyStringRepresentation
-        }
-        
+
         public var toJSONObject: JSONObject {
             let val1 = Product("Request URL Scheme",
                                urlComponents.flatMap { $0.scheme }.map(JSONObject.string))
@@ -140,9 +130,10 @@ public struct ConnectionInfo: Monoid, Equatable, JSONObjectConvertible {
             return bodyString1 ?? bodyString2 ?? bodyString3
         }
     }
-    
-    //sourcery: lens
-    public struct Response: Monoid, Equatable, JSONObjectConvertible {
+
+	// sourcery: equatable
+    // sourcery: lens
+    public struct Response: Monoid, JSONObjectConvertible {
         public var connectionError: NSError?
         public var serverResponse: HTTPURLResponse?
         public var serverOutput: Data?
@@ -163,14 +154,7 @@ public struct ConnectionInfo: Monoid, Equatable, JSONObjectConvertible {
                 serverOutput: right.serverOutput ?? left.serverOutput,
                 downloadedFileURL: right.downloadedFileURL ?? left.downloadedFileURL)
         }
-        
-        public static func == (_ left: Response, _ right: Response) -> Bool {
-            return left.connectionError == right.connectionError
-                && left.serverResponse == right.serverResponse
-                && left.serverOutput == right.serverOutput
-                && left.downloadedFileURL == right.downloadedFileURL
-        }
-        
+                
         public var toJSONObject: JSONObject {
             let val1 = Product("Connection Error",
                                connectionError.map { JSONObject.dict([
@@ -206,7 +190,8 @@ public struct ConnectionInfo: Monoid, Equatable, JSONObjectConvertible {
 }
 
 //: ------------------------
-//sourcery: prism
+// sourcery: prism
+// sourcery: match
 public enum HTTPMethod {
 	case get
 	case post
@@ -231,7 +216,8 @@ public enum HTTPMethod {
 }
 
 //: ------------------------
-//sourcery: lens
+// sourcery: equatable
+// sourcery: lens
 public struct ClientConfiguration {
 	public let scheme: String
 	public let host: String
@@ -249,7 +235,8 @@ public struct ClientConfiguration {
 }
 
 //: ------------------------
-//sourcery: lens
+// sourcery: equatable
+// sourcery: lens
 public struct Request {
 	public var identifier: String
 	public var urlComponents: URLComponents
@@ -309,7 +296,7 @@ public struct Request {
 }
 
 //: ------------------------
-//sourcery: lens
+// sourcery: lens
 public struct HTTPResponse<Output> {
 	public var URLResponse: HTTPURLResponse
 	public var output: Output
@@ -332,9 +319,11 @@ public struct HTTPResponse<Output> {
 }
 
 //: ------------------------
-//MARK: - Errors
+// MARK: - Errors
 //: ------------------------
-//sourcery: prism
+// sourcery: equatable
+// sourcery: prism
+// sourcery: match
 public enum SerializationError: CustomStringConvertible {
 	case toJSON
 	case toFormURLEncoded
@@ -367,7 +356,9 @@ public enum SerializationError: CustomStringConvertible {
 }
 
 //: ------------------------
-//sourcery: prism
+// sourcery: equatable
+// sourcery: prism
+// sourcery: match
 public enum DeserializationError: CustomStringConvertible {
 	case toAny(NSError?)
 	case toAnyDict(NSError?)
@@ -416,7 +407,8 @@ public enum DeserializationError: CustomStringConvertible {
 }
 
 //: ------------------------
-//sourcery: prism
+// sourcery: prism
+// sourcery: match
 public enum ClientError: Error, CustomStringConvertible {
 	case generic(NSError)
 	case connection(NSError)
@@ -589,6 +581,50 @@ public enum ClientError: Error, CustomStringConvertible {
 
 		case .undefined(let error):
 			return NSError(domain: "Undefined", code: 0, userInfo: [NSLocalizedDescriptionKey : error.localizedDescription])
+		}
+	}
+}
+
+extension ClientError: Equatable {
+	public static func == (lhs: ClientError, rhs: ClientError) -> Bool {
+		switch (lhs,rhs) {
+		case (.generic(let lhs), .generic(let rhs)):
+			return lhs == rhs
+		case (.connection(let lhs), .connection(let rhs)):
+			return lhs == rhs
+		case (.request(let lhs), .request(let rhs)):
+			return lhs == rhs
+		case (.noData, .noData):
+			return true
+		case (.noResponse, .noResponse):
+			return true
+		case (.invalidHTTPCode(let lhs), .invalidHTTPCode(let rhs)):
+			return lhs == rhs
+		case (.invalidHeader(let lhs), .invalidHeader(let rhs)):
+			return lhs == rhs
+		case (.noValueAtPath(let lhs), .noValueAtPath(let rhs)):
+			return lhs == rhs
+		case (.noValueInArray(let lhs), .noValueInArray(let rhs)):
+			return lhs == rhs
+		case (.noResults, .noResults):
+			return true
+		case (.invalidData(let lhs), .invalidData(let rhs)):
+			return lhs == rhs
+		case (.errorMessage(let lhs), .errorMessage(let rhs)):
+			return lhs == rhs
+		case (.errorMessages(let lhs), .errorMessages(let rhs)):
+			return lhs == rhs
+		case (.errorPlist(let lhs), .errorPlist(let rhs)):
+			return "\(lhs)" == "\(rhs)"
+		case (.unauthorized, .unauthorized):
+			return true
+		case (.serialization(let lhs), .serialization(let rhs)):
+			return lhs == rhs
+		case (.deserialization(let lhs), .deserialization(let rhs)):
+			return lhs == rhs
+		case (.undefined(let lhs), .undefined(let rhs)):
+			return "\(lhs)" == "\(rhs)"
+		default: return false
 		}
 	}
 }

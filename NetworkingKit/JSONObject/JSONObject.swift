@@ -2,7 +2,9 @@ import Foundation
 import Abstract
 import FunctionalKit
 
-//sourcery: prism
+// sourcery: prism
+// sourcery: match
+// sourcery: equatable
 public enum JSONError: Error, CustomStringConvertible {
     case serialization(NSError)
     case invalidTopLevelObject
@@ -26,7 +28,8 @@ public protocol JSONNumber {
     var toNSNumber: NSNumber { get }
 }
 
-//sourcery: prism
+// sourcery: prism
+// sourcery: match
 public enum JSONObject {
     case null
     case number(JSONNumber)

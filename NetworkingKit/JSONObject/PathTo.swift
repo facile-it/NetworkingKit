@@ -4,18 +4,17 @@ import FunctionalKit
 
 public typealias PathResult<T> = Result<PathError,T>
 
-//sourcery: init
-//sourcery: lens
+// sourcery: lens
 public struct Path: CustomStringConvertible {
 	public let keys: [String]
-    
+
+	public init(keys: [String]) {
+		self.keys = keys
+	}
+
 	public init(_ keys: String...) {
 		self.keys = keys
 	}
-    
-    public init(keysArray: [String]) {
-        self.keys = keysArray
-    }
 
 	public var description: String {
 		return keys.reduce("") { $0 + " - " + $1 }
@@ -54,7 +53,8 @@ extension Path: Equatable {
     }
 }
 
-//sourcery: prism
+// sourcery: prism
+// sourcery: match
 public enum PathError: Error, CustomDebugStringConvertible {
 
 	case emptyPath(root: [String:Any], path: Path)
@@ -169,8 +169,8 @@ extension PathError: Equatable {
     }
 }
 
-//sourcery: init
-//sourcery: lens
+// sourcery: init
+// sourcery: lens
 public struct PathTo<Target> {
 	let root: [String:Any]
     
@@ -197,7 +197,7 @@ public struct PathTo<Target> {
             .flatMap { getCorrectTarget(from: $0, with: path) }
 	}
     
-//MARK: Internal
+// MARK: Internal
     
     internal func getIntermediateDict(from dict: [String:Any], at key: String, with path: Path) -> PathResult<[String:Any]> {
         guard let subdict = dict[key] as? [String:Any] else {

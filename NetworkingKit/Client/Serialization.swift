@@ -1,7 +1,7 @@
 import Foundation
 import Abstract
 
-//MARK: Serialize
+// MARK: Serialize
 
 public struct Serialize {
 	public static var toJSON: (Any) -> ClientResult<Data> {
@@ -55,7 +55,7 @@ public struct Serialize {
 	}
 }
 
-//MARK: Deserialize
+// MARK: Deserialize
 
 public struct Deserialize {
 	public static var ignored: (Data) -> ClientResult<()> { return { _ in .success(()) } }
