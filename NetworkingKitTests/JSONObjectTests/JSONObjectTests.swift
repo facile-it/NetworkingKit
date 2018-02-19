@@ -2,58 +2,59 @@ import XCTest
 import SwiftCheck
 @testable import NetworkingKit
 import Abstract
+import FunctionalKit
 
-class JSONObjectSpec: XCTestCase {
+class JSONObjectTests: XCTestCase {
 
 	func testCreationIsConsistentWithPassedType() {
 		property("JSONObject creation with NSNull will result in .null") <- {
 			return JSONObject.with(NSNull()).fold(
                 onSuccess: { $0.isNull },
-                onFailure: { _ in false })
+                onFailure: f.pure(false))
 		}
 
 		property("JSONObject creation with Bool will result in .bool") <- {
 			return (JSONObject.with(true).fold(
                 onSuccess: { $0.isBool(true) },
-                onFailure: { _ in false })) <?> "With true"
+                onFailure: f.pure(false))) <?> "With true"
 				^&&^
 				(JSONObject.with(false).fold(
                     onSuccess: { $0.isBool(false) },
-                    onFailure: { _ in false })) <?> "With false"
+                    onFailure: f.pure(false))) <?> "With false"
 		}
 
 		property("JSONObject creation with Int, UInt, Float, Double will result in .number") <- forAll { (ajn: ArbitraryJSONNumber) in
 			let jn = ajn.get
 			return JSONObject.with(jn).fold(
                 onSuccess: { $0.isNumber(jn) },
-                onFailure: { _ in false })
+                onFailure: f.pure(false))
 		}
 
 		property("JSONObject creation with NSNumber will result in .number") <- forAll { (ajn: ArbitraryJSONNumber) in
 			let number = ajn.get.toNSNumber
 			return JSONObject.with(number).fold(
                 onSuccess: { $0.isNumber(number) },
-                onFailure: { _ in false })
+                onFailure: f.pure(false))
 		}
 
 		property("JSONObject creation with String will result in .string") <- forAll { (string: String) in
 			return JSONObject.with(string).fold(
                 onSuccess: { $0.isString(string) },
-                onFailure: { _ in false })
+                onFailure: f.pure(false))
 		}
 
-		property("JSONObject creation with Array will result in .array") <- forAll { (arrayOf: ArrayOf<TrueArbitrary>) in
+		property("JSONObject creation with array of json compatible object will result in .array") <- forAll { (arrayOf: ArrayOf<Int>) in
 			let array = arrayOf.getArray
 			return JSONObject.with(array).fold(
                 onSuccess: { $0.isArray(array) },
-                onFailure: { _ in false })
+                onFailure: f.pure(false))
 		}
 
-		property("JSONObject creation with Dictionary will result in .dict") <- forAll { (dictOf: DictionaryOf<String,TrueArbitrary>) in
+		property("JSONObject creation with dictionary of json compatible object will result in .dict") <- forAll { (dictOf: DictionaryOf<String,Int>) in
 			let dict: [String:Any] = dictOf.getDictionary
 			return JSONObject.with(dict).fold(
                 onSuccess: { $0.isDict(dict) },
-                onFailure: { _ in false })
+                onFailure: f.pure(false))
 		}
 	}
 
@@ -103,96 +104,90 @@ class JSONObjectSpec: XCTestCase {
 		property("JSONObject processing consistency: null") <- {
 			return NSNull().isEqual(JSONObject.with(NSNull()).fold(
                 onSuccess: { $0.get },
-                onFailure: { _ in false }))
+                onFailure: f.pure(false)))
 		}
 
 		property("JSONObject processing consistency: bool") <- {
             return NSNumber(value: true).isEqual(JSONObject.with(true).fold(
                 onSuccess: { $0.get },
-                onFailure: { _ in false }))
+                onFailure: f.pure(false)))
                 && NSNumber(value: false).isEqual(JSONObject.with(false).fold(
                     onSuccess: { $0.get },
-                    onFailure: { _ in false }))
+                    onFailure: f.pure(false)))
 		}
 
 		property("JSONObject processing consistency: number") <- forAll { (ajn: ArbitraryJSONNumber) in
             return ajn.get.toNSNumber.isEqual(JSONObject.with(ajn.get).fold(
                 onSuccess: { $0.get },
-                onFailure: { _ in false }))
+                onFailure: f.pure(false)))
 		}
 
 		property("JSONObject processing consistency: string") <- forAll { (string: String) in
             return NSString(string: string).isEqual(JSONObject.with(string).fold(
                 onSuccess: { $0.get },
-                onFailure: { _ in false }))
+                onFailure: f.pure(false)))
 		}
 
 		property("JSONObject processing consistency: array") <- {
 			let array = NSArray(array: [1,"2",true])
             return array.isEqual(JSONObject.with(array).fold(
                 onSuccess: { $0.get },
-                onFailure: { _ in false }))
+                onFailure: f.pure(false)))
 		}
 
 		property("JSONObject processing consistency: dictionary") <- {
 			let dict = NSDictionary(dictionary: ["1":1,"2":"2","3":true])
             return dict.isEqual(JSONObject.with(dict).fold(
                 onSuccess: { $0.get },
-                onFailure: { _ in false }))
+                onFailure: f.pure(false)))
 		}
 	}
 
 	func testDataGenerationProducesNoErrors() {
 		property("no error for data with null") <- {
 			return JSONSerialization.data(with: .null).fold(
-                    onSuccess: { _ in true },
-                    onFailure: { _ in false })
+                    onSuccess: f.pure(true),
+                    onFailure: f.pure(false))
 		}
 
 		property("no error for data with number") <- forAll { (ajn: ArbitraryJSONNumber) in
 			JSONSerialization.data(with: .number(ajn.get)).fold(
-                    onSuccess: { _ in true },
-                    onFailure: { _ in false })
+                    onSuccess: f.pure(true),
+                    onFailure: f.pure(false))
 		}
 
         property("no error for data with bool") <- forAll { (bool: Bool) in
 			JSONSerialization.data(with: .bool(bool)).fold(
                 onSuccess: { _ in true},
-                onFailure: { _ in false })
+                onFailure: f.pure(false))
 		}
 
 		property("no error for data with string") <- forAll { (string: String) in
 			JSONSerialization.data(with: .string(string)).fold(
-                onSuccess: { _ in true },
-                onFailure: { _ in false })
+                onSuccess: f.pure(true),
+                onFailure: f.pure(false))
 		}
 
 		property("no error for data with array") <- {
 			JSONSerialization.data(with: .array([.number(1),.string("2"),.bool(true)])).fold(
-                onSuccess: { _ in true },
-                onFailure: { _ in false })
+                onSuccess: f.pure(true),
+                onFailure: f.pure(false))
 		}
 
 		property("no error for data with dictionary") <- {
 			JSONSerialization.data(with: .dict(["1":.number(1),"2":.string("2"),"3":.bool(true)])).fold(
-                onSuccess: { _ in true },
-                onFailure: { _ in false })
+                onSuccess: f.pure(true),
+                onFailure: f.pure(false))
 		}
 	}
 
 	func testOptDict() {
-		property(".optDict generates a valid .dict JSONObject (with no .null value) or .null") <- forAll { (ao: OptionalOf<TrueArbitrary>, key: String) in
-			let optional = ao.getOptional?.get
+		property(".optDict generates a valid .dict JSONObject (with no .null value) or .null") <- forAll { (ao: OptionalOf<Int>, key: String) in
+			let optional = ao.getOptional
 			let generated = JSONObject.optDict(key: key, value: optional)
-            
-			if optional == nil {
-				return generated == .null
-            } else if optional! is Int {
-                return generated == .dict([key : .number(optional as! Int)])
-            } else if optional! is Someclass {
-                return generated == .dict([key : .string((optional as! Someclass).value)])
-            } else if optional! is Somestruct {
-                return generated == .dict([key : .string((optional as! Somestruct).value)])
+
+			if let value = optional {
+				return generated == .dict([key : .number(value)])
 			} else {
 				return generated == .null
 			}

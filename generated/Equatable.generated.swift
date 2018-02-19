@@ -5,8 +5,8 @@
 
 // MARK: - Equatable for structs and classes
 
-extension ClientConfiguration: Equatable {
-    public static func == (lhs: ClientConfiguration, rhs: ClientConfiguration) -> Bool {
+extension ConnectionConfiguration: Equatable {
+    public static func == (lhs: ConnectionConfiguration, rhs: ConnectionConfiguration) -> Bool {
 		guard lhs.scheme == rhs.scheme else { return false }
 		guard lhs.host == rhs.host else { return false }
 		guard lhs.port == rhs.port else { return false }
@@ -44,6 +44,17 @@ extension ConnectionInfo.Response: Equatable {
     }
 }
 
+extension HTTPRequest: Equatable {
+    public static func == (lhs: HTTPRequest, rhs: HTTPRequest) -> Bool {
+		guard lhs.identifier == rhs.identifier else { return false }
+		guard lhs.urlComponents == rhs.urlComponents else { return false }
+		guard lhs.method == rhs.method else { return false }
+		guard lhs.headers == rhs.headers else { return false }
+		guard lhs.body == rhs.body else { return false }
+        return true
+    }
+}
+
 extension Multipart: Equatable {
     public static func == (lhs: Multipart, rhs: Multipart) -> Bool {
 		guard lhs.boundary == rhs.boundary else { return false }
@@ -75,17 +86,6 @@ extension Multipart.Part.Text: Equatable {
 extension Path: Equatable {
     public static func == (lhs: Path, rhs: Path) -> Bool {
 		guard lhs.keys == rhs.keys else { return false }
-        return true
-    }
-}
-
-extension Request: Equatable {
-    public static func == (lhs: Request, rhs: Request) -> Bool {
-		guard lhs.identifier == rhs.identifier else { return false }
-		guard lhs.urlComponents == rhs.urlComponents else { return false }
-		guard lhs.method == rhs.method else { return false }
-		guard lhs.headers == rhs.headers else { return false }
-		guard lhs.body == rhs.body else { return false }
         return true
     }
 }

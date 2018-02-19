@@ -6,14 +6,14 @@ import FunctionalKit
 
 
 
-public extension ClientConfiguration {
+public extension ConnectionConfiguration {
     enum lens {
 
-        static let scheme = Lens<ClientConfiguration,String>(
+        static let scheme = Lens<ConnectionConfiguration,String>(
             get: { $0.scheme },
 			set: { part in
 				{ whole in
-					ClientConfiguration.init(
+					ConnectionConfiguration.init(
 						scheme: part,
 						host: whole.host,
 						port: whole.port,
@@ -22,11 +22,11 @@ public extension ClientConfiguration {
 				}
 		})
 
-        static let host = Lens<ClientConfiguration,String>(
+        static let host = Lens<ConnectionConfiguration,String>(
             get: { $0.host },
 			set: { part in
 				{ whole in
-					ClientConfiguration.init(
+					ConnectionConfiguration.init(
 						scheme: whole.scheme,
 						host: part,
 						port: whole.port,
@@ -35,11 +35,11 @@ public extension ClientConfiguration {
 				}
 		})
 
-        static let port = Lens<ClientConfiguration,Int?>(
+        static let port = Lens<ConnectionConfiguration,Int?>(
             get: { $0.port },
 			set: { part in
 				{ whole in
-					ClientConfiguration.init(
+					ConnectionConfiguration.init(
 						scheme: whole.scheme,
 						host: whole.host,
 						port: part,
@@ -48,11 +48,11 @@ public extension ClientConfiguration {
 				}
 		})
 
-        static let rootPath = Lens<ClientConfiguration,String?>(
+        static let rootPath = Lens<ConnectionConfiguration,String?>(
             get: { $0.rootPath },
 			set: { part in
 				{ whole in
-					ClientConfiguration.init(
+					ConnectionConfiguration.init(
 						scheme: whole.scheme,
 						host: whole.host,
 						port: whole.port,
@@ -61,11 +61,11 @@ public extension ClientConfiguration {
 				}
 		})
 
-        static let defaultHeaders = Lens<ClientConfiguration,[String:String]?>(
+        static let defaultHeaders = Lens<ConnectionConfiguration,[String:String]?>(
             get: { $0.defaultHeaders },
 			set: { part in
 				{ whole in
-					ClientConfiguration.init(
+					ConnectionConfiguration.init(
 						scheme: whole.scheme,
 						host: whole.host,
 						port: whole.port,
@@ -73,6 +73,50 @@ public extension ClientConfiguration {
 						defaultHeaders: part)
 				}
 		})
+    }
+}
+
+public extension ConnectionContext {
+    enum lens {
+
+		static var connection: Lens<ConnectionContext,Connection> {
+			return Lens<ConnectionContext,Connection>(
+				get: { $0.connection },
+				set: { part in
+				    { whole in
+					    ConnectionContext.init(
+						    connection: part,
+						    configuration: whole.configuration,
+						    environment: whole.environment)
+					}
+	        })
+		}
+
+		static var configuration: Lens<ConnectionContext,ConnectionConfiguration> {
+			return Lens<ConnectionContext,ConnectionConfiguration>(
+				get: { $0.configuration },
+				set: { part in
+				    { whole in
+					    ConnectionContext.init(
+						    connection: whole.connection,
+						    configuration: part,
+						    environment: whole.environment)
+					}
+	        })
+		}
+
+		static var environment: Lens<ConnectionContext,Environment> {
+			return Lens<ConnectionContext,Environment>(
+				get: { $0.environment },
+				set: { part in
+				    { whole in
+					    ConnectionContext.init(
+						    connection: whole.connection,
+						    configuration: whole.configuration,
+						    environment: part)
+					}
+	        })
+		}
     }
 }
 
@@ -185,6 +229,61 @@ public extension ConnectionInfo.Response {
 				{ whole in
 					var m = whole
 					m.downloadedFileURL = part
+					return m
+				}
+		})
+    }
+}
+
+public extension HTTPRequest {
+    enum lens {
+
+        static let identifier = Lens<HTTPRequest,String>(
+            get: { $0.identifier },
+			set: { part in
+				{ whole in
+					var m = whole
+					m.identifier = part
+					return m
+				}
+		})
+
+        static let urlComponents = Lens<HTTPRequest,URLComponents>(
+            get: { $0.urlComponents },
+			set: { part in
+				{ whole in
+					var m = whole
+					m.urlComponents = part
+					return m
+				}
+		})
+
+        static let method = Lens<HTTPRequest,HTTPMethod>(
+            get: { $0.method },
+			set: { part in
+				{ whole in
+					var m = whole
+					m.method = part
+					return m
+				}
+		})
+
+        static let headers = Lens<HTTPRequest,[String:String]>(
+            get: { $0.headers },
+			set: { part in
+				{ whole in
+					var m = whole
+					m.headers = part
+					return m
+				}
+		})
+
+        static let body = Lens<HTTPRequest,Data?>(
+            get: { $0.body },
+			set: { part in
+				{ whole in
+					var m = whole
+					m.body = part
 					return m
 				}
 		})
@@ -362,60 +461,5 @@ public extension PathTo {
 					}
 	        })
 		}
-    }
-}
-
-public extension Request {
-    enum lens {
-
-        static let identifier = Lens<Request,String>(
-            get: { $0.identifier },
-			set: { part in
-				{ whole in
-					var m = whole
-					m.identifier = part
-					return m
-				}
-		})
-
-        static let urlComponents = Lens<Request,URLComponents>(
-            get: { $0.urlComponents },
-			set: { part in
-				{ whole in
-					var m = whole
-					m.urlComponents = part
-					return m
-				}
-		})
-
-        static let method = Lens<Request,HTTPMethod>(
-            get: { $0.method },
-			set: { part in
-				{ whole in
-					var m = whole
-					m.method = part
-					return m
-				}
-		})
-
-        static let headers = Lens<Request,[String:String]>(
-            get: { $0.headers },
-			set: { part in
-				{ whole in
-					var m = whole
-					m.headers = part
-					return m
-				}
-		})
-
-        static let body = Lens<Request,Data?>(
-            get: { $0.body },
-			set: { part in
-				{ whole in
-					var m = whole
-					m.body = part
-					return m
-				}
-		})
     }
 }

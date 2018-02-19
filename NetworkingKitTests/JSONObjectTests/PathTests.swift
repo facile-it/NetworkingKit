@@ -2,6 +2,7 @@ import XCTest
 @testable import NetworkingKit
 import SwiftCheck
 import Abstract
+import FunctionalKit
 
 class PathTests: XCTestCase {
     func testPathError() {
@@ -28,8 +29,8 @@ class PathTests: XCTestCase {
             }
             let pathToInt = PathTo<Int>.init(root: dict)
             return pathToInt.get(path).fold(
-                onSuccess: { _ in true },
-                onFailure: { _ in false })
+                onSuccess: f.pure(true),
+                onFailure: f.pure(false))
         }
     }
 }

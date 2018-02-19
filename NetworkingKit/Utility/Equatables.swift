@@ -11,8 +11,3 @@ public func == <A,B> (lhs: [A : B]?, rhs: [A : B]?) -> Bool where B: Equatable {
 		return false
 	}
 }
-
-//public func == (lhs: [String:Any], rhs: [String:Any]) -> Bool {
-//	return "\(lhs)" == "\(rhs)"
-//}
-
