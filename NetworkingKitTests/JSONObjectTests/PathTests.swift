@@ -9,13 +9,9 @@ class PathTests: XCTestCase {
         property("PathError's empty element is neutral") <- forAll { (ape: PathError) in
             Law.isNeutralToEmpty(ape)
         }
-        
+
         property("PathError's composition operation must be associative") <- forAll { (ape1: PathError, ape2: PathError, ape3: PathError) in
             Law.isAssociative(ape1, ape2, ape3)
-        }
-        
-        property("If two PathError are equal, their NSError must be as well") <- forAll { (ape1: PathError, ape2: PathError) in
-            (ape1 == ape2) == (ape1.getNSError.isEqual(ape2.getNSError))
         }
     }
     
