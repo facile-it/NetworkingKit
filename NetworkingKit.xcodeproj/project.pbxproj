@@ -400,7 +400,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AA54A1B72011F25100FE4478 /* Build configuration list for PBXNativeTarget "NetworkingKit" */;
 			buildPhases = (
-				AA41EF9C2019F35D0038B1A9 /* Run Sourcery */,
 				AA54A19E2011F25100FE4478 /* Sources */,
 				AA54A19F2011F25100FE4478 /* Frameworks */,
 				AA54A1A02011F25100FE4478 /* Headers */,
@@ -438,7 +437,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AA91B4BF20122DFA00603E3C /* Build configuration list for PBXNativeTarget "NetworkingKit-iOS" */;
 			buildPhases = (
-				AA41EF9B2019F34A0038B1A9 /* Run Sourcery */,
 				AA91B4A520122DFA00603E3C /* Sources */,
 				AA91B4A620122DFA00603E3C /* Frameworks */,
 				AA91B4A720122DFA00603E3C /* Headers */,
@@ -521,37 +519,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		AA41EF9B2019F34A0038B1A9 /* Run Sourcery */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Run Sourcery";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "echo \"Checking for Sourcery...\"\nif [ -x \"$(command -v sourcery)\" ]; then\n    echo \"Sourcery found, running...\"\n    sourcery\nelse\n    echo \"Sourcery is not installed, ignoring.\"\nfi";
-		};
-		AA41EF9C2019F35D0038B1A9 /* Run Sourcery */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Run Sourcery";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "echo \"Checking for Sourcery...\"\n    if [ -x \"$(command -v sourcery)\" ]; then\n    echo \"Sourcery found, running...\"\n    sourcery\nelse\n    echo \"Sourcery is not installed, ignoring.\"\nfi";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AA54A19E2011F25100FE4478 /* Sources */ = {
