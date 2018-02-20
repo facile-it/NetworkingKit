@@ -535,7 +535,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./sourcery\n";
+			shellScript = "echo \"Checking for Sourcery...\"\nif [ -x \"$(command -v sourcery)\" ]; then\n    echo \"Sourcery found, running...\"\n    sourcery\nelse\n    echo \"Sourcery is not installed, ignoring.\"\nfi";
 		};
 		AA41EF9C2019F35D0038B1A9 /* Run Sourcery */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -549,7 +549,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./sourcery\n";
+			shellScript = "echo \"Checking for Sourcery...\"\n    if [ -x \"$(command -v sourcery)\" ]; then\n    echo \"Sourcery found, running...\"\n    sourcery\nelse\n    echo \"Sourcery is not installed, ignoring.\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
