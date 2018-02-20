@@ -1,9 +1,10 @@
 import Foundation
 import FunctionalKit
 
-public struct Parse {
+public enum Parse {
 
-	public struct Response {
+	public enum Response {
+
 		public static func acceptOnly(httpCodes accepted: [Int], parseErrorsWith errorStrategy: @escaping ([String:Any]) -> ClientResult<[String:Any]> = { .success($0) }) -> (HTTPResponse<Data>) -> ClientResult<HTTPResponse<Data>> {
 			return { response in
 				let code = response.URLResponse.statusCode
@@ -38,7 +39,8 @@ public struct Parse {
 		}
 	}
 
-	public struct Output {
+	public enum Output {
+
 		public static func check<OutputType, CheckedType>(at getCheckedType: @escaping (OutputType) -> CheckedType, errorStrategy: @escaping (CheckedType) -> ClientResult<CheckedType>) -> (OutputType) -> ClientResult<OutputType> {
 			return { output in errorStrategy(getCheckedType(output)).map { _ in output } }
 		}
@@ -62,7 +64,8 @@ public struct Parse {
 		}
 	}
 
-	public struct Error {
+	public enum Error {
+		
 		public static func noResults<T>() -> ([T]) -> ClientResult<[T]> {
 			return { results in
 				if results.count > 0 {

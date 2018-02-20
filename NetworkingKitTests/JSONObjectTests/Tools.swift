@@ -155,7 +155,7 @@ extension JSONObject: Arbitrary {
 extension Path: Arbitrary {
     public static var arbitrary: Gen<Path> {
         return Gen<Path>.compose {
-            Path.init(keysArray: $0.generate(using: ArrayOf<String>.arbitrary.map { $0.getArray }))
+            Path.init(keys: $0.generate(using: ArrayOf<String>.arbitrary.map { $0.getArray }))
         }
     }
 }
@@ -172,7 +172,7 @@ extension PathError: Arbitrary {
             Gen.zip(rootGenerator, pathGenerator, stringGenerator).map { PathError.noTargetForLastKey(root: $0 as [String: Any], path: $1, key: $2) },
             Gen.zip(rootGenerator, pathGenerator, stringGenerator).map { PathError.wrongTargetTypeForLastKey(root: $0 as [String: Any], path: $1, typeDescription: $2) },
             Gen.fromElements(of: [0,1,2,3,4,5]).proliferate.map { numbers in
-                return PathError.multiple(numbers.map { number -> PathError in
+                PathError.multiple(numbers.map { number -> PathError in
                     switch(number) {
                     case 0:
                         return PathError.multiple(Bool.arbitrary.generate

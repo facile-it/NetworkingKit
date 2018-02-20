@@ -2,6 +2,7 @@ import XCTest
 @testable import NetworkingKit
 import SwiftCheck
 import Abstract
+import FunctionalKit
 
 class PathTests: XCTestCase {
     func testPathError() {
@@ -14,7 +15,7 @@ class PathTests: XCTestCase {
         }
         
         property("If two PathError are equal, their NSError must be as well") <- forAll { (ape1: PathError, ape2: PathError) in
-            (ape1 == ape2) == (ape1.getNSError == ape2.getNSError)
+            (ape1 == ape2) == (ape1.getNSError.isEqual(ape2.getNSError))
         }
     }
     
@@ -28,8 +29,8 @@ class PathTests: XCTestCase {
             }
             let pathToInt = PathTo<Int>.init(root: dict)
             return pathToInt.get(path).fold(
-                onSuccess: { _ in true },
-                onFailure: { _ in false })
+                onSuccess: f.pure(true),
+                onFailure: f.pure(false))
         }
     }
 }
