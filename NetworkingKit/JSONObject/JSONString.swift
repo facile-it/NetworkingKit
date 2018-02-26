@@ -1,7 +1,7 @@
 import Foundation
 import FunctionalKit
 
-public enum JSONString {
+enum JSONString {
 	static func from(_ object: Any) -> JSONStringResult {
 		guard JSONSerialization.isValidJSONObject(object) else {
 			return .failure(.invalidJSONObject)
@@ -18,7 +18,7 @@ public enum JSONString {
 	}
 }
 
-public enum JSONStringError: Error, CustomStringConvertible {
+enum JSONStringError: Error, CustomStringConvertible {
 	case invalidJSONObject
 	case dataCreationFailed
 	case stringCreationFailed
@@ -35,4 +35,4 @@ public enum JSONStringError: Error, CustomStringConvertible {
 	}
 }
 
-public typealias JSONStringResult = Result<JSONStringError,String>
+typealias JSONStringResult = Result<JSONStringError,String>
