@@ -1,5 +1,6 @@
 import Foundation
 import FunctionalKit
+import Abstract
 
 public enum Parse {
 
@@ -29,11 +30,26 @@ public enum Parse {
 			}
 		}
 
-		public static func getHeader(at key: String) -> (HTTPResponse<Data>) -> ClientResult<String> {
+		public static func getHeader(at key: String, caseSensitive: Bool = false) -> (HTTPResponse<Data>) -> ClientResult<String> {
 			return { response in
-				guard let
-					header = response.URLResponse.allHeaderFields[key] as? String
-					else { return ClientResult<String>.failure(ClientError.invalidHeader(key)) }
+				let targetHeaders = response.URLResponse.allHeaderFields
+					.map(Product.init)
+					.map { $0.bimap(
+						{ caseSensitive.fold(
+							onTrue: $0,
+							onFalse: $0.description.lowercased())
+					},
+						f.identity)
+					}
+					.map { $0.unwrap }
+					|> { Dictionary.init($0, uniquingKeysWith: f.first) }
+
+				let targetKey = caseSensitive.fold(
+					onTrue: key,
+					onFalse: key.lowercased())
+
+				guard let header = targetHeaders[targetKey] as? String
+					else { return ClientResult<String>.failure(ClientError.invalidHeader(targetKey)) }
 				return .success(header)
 			}
 		}

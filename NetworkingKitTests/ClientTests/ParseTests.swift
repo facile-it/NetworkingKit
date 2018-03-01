@@ -2,6 +2,7 @@ import NetworkingKit
 import XCTest
 import SwiftCheck
 import FunctionalKit
+import Nimble
 
 class ParseTests: XCTestCase {
     func testParseResponse() {
@@ -59,4 +60,78 @@ class ParseTests: XCTestCase {
                         } })
         }
     }
+
+	func testGetHeaderCaseSensitiveFailure() {
+		let headers = ["Aaa" : "42"]
+
+        let urlResponse = HTTPURLResponse.init(
+			url: URL.init(string: "https://www.facile.it")!,
+			statusCode: 200,
+			httpVersion: nil,
+			headerFields: headers)!
+
+		let data = "hi".data(using: .utf8)!
+
+		let response = HTTPResponse.init(URLResponse: urlResponse, output: data)
+
+		let result = Parse.Response.getHeader(at: "aaa", caseSensitive: true)(response)
+
+		expect(result.toOptionalValue).to(beNil())
+	}
+
+	func testGetHeaderCaseSensitiveSuccess() {
+		let headers = ["Aaa" : "42"]
+
+		let urlResponse = HTTPURLResponse.init(
+			url: URL.init(string: "https://www.facile.it")!,
+			statusCode: 200,
+			httpVersion: nil,
+			headerFields: headers)!
+
+		let data = "hi".data(using: .utf8)!
+
+		let response = HTTPResponse.init(URLResponse: urlResponse, output: data)
+
+		let result = Parse.Response.getHeader(at: "Aaa", caseSensitive: true)(response)
+
+		expect(result.toOptionalValue).to(equal("42"))
+	}
+
+	func testGetHeaderCaseInsensitiveFailure() {
+		let headers = ["Aaa" : "42"]
+
+		let urlResponse = HTTPURLResponse.init(
+			url: URL.init(string: "https://www.facile.it")!,
+			statusCode: 200,
+			httpVersion: nil,
+			headerFields: headers)!
+
+		let data = "hi".data(using: .utf8)!
+
+		let response = HTTPResponse.init(URLResponse: urlResponse, output: data)
+
+		let result = Parse.Response.getHeader(at: "aab")(response)
+
+		expect(result.toOptionalValue).to(beNil())
+	}
+
+	func testGetHeaderCaseInsensitiveSuccess() {
+		let headers = ["Aaa" : "42"]
+
+		let urlResponse = HTTPURLResponse.init(
+			url: URL.init(string: "https://www.facile.it")!,
+			statusCode: 200,
+			httpVersion: nil,
+			headerFields: headers)!
+
+		let data = "hi".data(using: .utf8)!
+
+		let response = HTTPResponse.init(URLResponse: urlResponse, output: data)
+
+		let result = Parse.Response.getHeader(at: "aaa")(response)
+
+		expect(result.toOptionalValue).to(equal("42"))
+	}
 }
+
+
