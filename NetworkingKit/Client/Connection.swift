@@ -6,11 +6,9 @@ public enum ConnectionAction {
 	case cancel
 }
 
-public typealias ConnectionActionHandler = Handler<ConnectionAction>
-
 public typealias ClientWriter<T> = Writer<ConnectionInfo,ClientResult<T>>
 public typealias ClientResource<T> = Future<ClientWriter<T>>
-public typealias ClientResourceInContext<T> = Writer<ConnectionActionHandler,ClientResource<T>>
+public typealias ClientResourceInContext<T> = Writer<Coeffect<ConnectionAction>,ClientResource<T>>
 
 public extension f {
 	static func failed<T>(with error: ClientError) -> ClientResource<T> {
