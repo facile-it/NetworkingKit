@@ -1,15 +1,15 @@
 {
-  "commitish" : "0.0.2",
+  "commitish" : "0.0.3",
   "Mac" : [
     {
       "name" : "Abstract",
-      "hash" : "8e0094fc018e532991b6cf25e5309510acf3132f5831f31f205cb83b170c9c96"
+      "hash" : "c8a89f329f18013b0ab85ade964d267884a817679deb2042eb1a07246238271a"
     }
   ],
   "iOS" : [
     {
       "name" : "Abstract",
-      "hash" : "5cfd9e6994d5cd5f04411e648030b232a7e29efa9040f98c8f9d801c030b63b4"
+      "hash" : "94408c48d67842461b691a72dab255f65629d3c18bf42f9887b9ca6b72a465f6"
     }
   ]
 }

@@ -120,7 +120,7 @@ public enum Parse {
 			return { plist in
 				guard let errorsArray = plist[errorsKey] as? [[String:Any]] else { return .success(plist) }
 				let messages = errorsArray
-					.flatMap { (dict: [String:Any]) -> String? in dict[messageKey] as? String }
+					.compactMap { (dict: [String:Any]) -> String? in dict[messageKey] as? String }
 				guard messages.count > 0 else { return .success(plist) }
 				return .failure(ClientError.errorMessages(messages))
 			}
@@ -131,7 +131,7 @@ public enum Parse {
 				guard let errorsDict = plist[errorsKey] as? [String:[String:Any]] else { return .success(plist) }
 				let messages = errorsDict
 					.map { (key: String, value: [String:Any]) -> [String:Any] in value  }
-					.flatMap { (dict: [String:Any]) -> String? in dict[messageKey] as? String }
+					.compactMap { (dict: [String:Any]) -> String? in dict[messageKey] as? String }
 				guard messages.count > 0 else { return .success(plist) }
 				return .failure(ClientError.errorMessages(messages))
 			}
@@ -141,7 +141,7 @@ public enum Parse {
 			return { plist in
 				guard let errorsArray = plist[errorsKey] as? [[String:Any]] else { return .success(plist) }
 				let messages = errorsArray
-					.flatMap { (dict: [String:Any]) -> String? in
+					.compactMap { (dict: [String:Any]) -> String? in
 						dict.values.first
 							.flatMap { (value: Any) -> [String:Any]? in value as? [String:Any] }
 							.flatMap { (dict: [String:Any]) -> String? in dict[messageKey] as? String }
@@ -156,8 +156,8 @@ public enum Parse {
 				guard let errorsDict = plist[errorsKey] as? [String:Any] else { return .success(plist) }
 				let messages = errorsDict
 					.map { (key: String, value: Any) -> Any in value }
-					.flatMap { (value: Any) -> [String:Any]? in value as? [String:Any] }
-					.flatMap { (dict: [String:Any]) -> String? in dict[messageKey] as? String }
+					.compactMap { (value: Any) -> [String:Any]? in value as? [String:Any] }
+					.compactMap { (dict: [String:Any]) -> String? in dict[messageKey] as? String }
 				guard messages.count > 0 else { return .success(plist) }
 				return .failure(ClientError.errorMessages(messages))
 			}

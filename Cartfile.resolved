@@ -1,3 +1,5 @@
 github "Quick/Nimble" "v7.0.3"
-github "facile-it/FunctionalKit" "0.8.0"
-github "typelift/Abstract" "0.0.2"
+github "facile-it/FunctionalKit" "0.10.0"
+github "trill-lang/FileCheck" "0.0.6"
+github "typelift/Abstract" "0.0.3"
+github "typelift/SwiftCheck" "0.9.1"
