@@ -111,7 +111,7 @@ public enum Parse {
 
 		public static func messageForPath(_ errorPath: Path) -> ([String:Any]) -> ClientResult<[String:Any]> {
 			return { plist in
-				guard let errorMessage = PathTo<String>(root: plist).get(errorPath).toOptionalValue else { return .success(plist) }
+				guard let errorMessage = PathTo<String>(root: plist).get(errorPath).toOptionalValue() else { return .success(plist) }
 				return .failure(.errorMessage(errorMessage))
 			}
 		}
@@ -137,7 +137,7 @@ public enum Parse {
 			}
 		}
 
-		public static func multipleMessagesArrayOfDictionary(errorsKey: String, messageKey: String) -> ([String:Any]) -> ClientResult<[String:Any]> {
+		public static func multipleMessagesArrayDictionary(errorsKey: String, messageKey: String) -> ([String:Any]) -> ClientResult<[String:Any]> {
 			return { plist in
 				guard let errorsArray = plist[errorsKey] as? [[String:Any]] else { return .success(plist) }
 				let messages = errorsArray
@@ -151,7 +151,7 @@ public enum Parse {
 			}
 		}
 
-		public static func multipleMessagesDictionaryOfDictionary(errorsKey: String, messageKey: String) -> ([String:Any]) -> ClientResult<[String:Any]> {
+		public static func multipleMessagesDictionaryDictionary(errorsKey: String, messageKey: String) -> ([String:Any]) -> ClientResult<[String:Any]> {
 			return { plist in
 				guard let errorsDict = plist[errorsKey] as? [String:Any] else { return .success(plist) }
 				let messages = errorsDict

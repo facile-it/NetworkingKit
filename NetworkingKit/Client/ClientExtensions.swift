@@ -39,8 +39,8 @@ extension HTTPRequest {
 	public func getHTTPResponse(connection: @escaping Connection) -> ClientResourceInContext<HTTPResponse<Data>> {
 		let result = getURLRequestWriter()
 
-		guard let writer = result.toOptionalValue else {
-			return ClientResourceInContext<HTTPResponse<Data>>.pure(Future.pure(Writer.pure(ClientResult.failure(result.toOptionalError!))))
+		guard let writer = result.toOptionalValue() else {
+			return ClientResourceInContext<HTTPResponse<Data>>.pure(Future.pure(Writer.pure(ClientResult.failure(result.toOptionalError()!))))
 		}
 
 		let (urlRequestInfo,request) = writer.run

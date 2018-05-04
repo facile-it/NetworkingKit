@@ -76,7 +76,7 @@ class ParseTests: XCTestCase {
 
 		let result = Parse.Response.getHeader(at: "aaa", caseSensitive: true)(response)
 
-		expect(result.toOptionalValue).to(beNil())
+		expect(result.toOptionalValue()).to(beNil())
 	}
 
 	func testGetHeaderCaseSensitiveSuccess() {
@@ -94,7 +94,7 @@ class ParseTests: XCTestCase {
 
 		let result = Parse.Response.getHeader(at: "Aaa", caseSensitive: true)(response)
 
-		expect(result.toOptionalValue).to(equal("42"))
+		expect(result.toOptionalValue()).to(equal("42"))
 	}
 
 	func testGetHeaderCaseInsensitiveFailure() {
@@ -112,7 +112,7 @@ class ParseTests: XCTestCase {
 
 		let result = Parse.Response.getHeader(at: "aab")(response)
 
-		expect(result.toOptionalValue).to(beNil())
+		expect(result.toOptionalValue()).to(beNil())
 	}
 
 	func testGetHeaderCaseInsensitiveSuccess() {
@@ -130,7 +130,7 @@ class ParseTests: XCTestCase {
 
 		let result = Parse.Response.getHeader(at: "aaa")(response)
 
-		expect(result.toOptionalValue).to(equal("42"))
+		expect(result.toOptionalValue()).to(equal("42"))
 	}
 }
 

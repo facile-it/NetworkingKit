@@ -43,15 +43,15 @@ class JSONObjectTests: XCTestCase {
                 onFailure: f.pure(false))
 		}
 
-		property("JSONObject creation with array of json compatible object will result in .array") <- forAll { (arrayOf: ArrayOf<Int>) in
-			let array = arrayOf.getArray
+		property("JSONObject creation with array of json compatible object will result in .array") <- forAll { (arrayOf: Array<Int>) in
+			let array = arrayOf
 			return JSONObject.with(array).fold(
                 onSuccess: { $0.isArray(array) },
                 onFailure: f.pure(false))
 		}
 
-		property("JSONObject creation with dictionary of json compatible object will result in .dict") <- forAll { (dictOf: DictionaryOf<String,Int>) in
-			let dict: [String:Any] = dictOf.getDictionary
+		property("JSONObject creation with dictionary of json compatible object will result in .dict") <- forAll { (dictOf: Dictionary<String,Int>) in
+			let dict: [String:Any] = dictOf
 			return JSONObject.with(dict).fold(
                 onSuccess: { $0.isDict(dict) },
                 onFailure: f.pure(false))
@@ -182,8 +182,8 @@ class JSONObjectTests: XCTestCase {
 	}
 
 	func testOptDict() {
-		property(".optDict generates a valid .dict JSONObject (with no .null value) or .null") <- forAll { (ao: OptionalOf<Int>, key: String) in
-			let optional = ao.getOptional
+		property(".optDict generates a valid .dict JSONObject (with no .null value) or .null") <- forAll { (ao: Optional<Int>, key: String) in
+			let optional = ao
 			let generated = JSONObject.optDict(key: key, value: optional)
 
 			if let value = optional {
@@ -219,12 +219,12 @@ class JSONObjectTests: XCTestCase {
 			JSONObject.string(string) == JSONObject.string(string)
 		}
 
-		property(".array equality is respected") <- forAll { (arrayOf: ArrayOf<JSONObject>) in
-			JSONObject.array(arrayOf.getArray) == JSONObject.array(arrayOf.getArray)
+		property(".array equality is respected") <- forAll { (arrayOf: Array<JSONObject>) in
+			JSONObject.array(arrayOf) == JSONObject.array(arrayOf)
 		}
 
-		property(".dict equality is respected") <- forAll { (dictionaryOf: DictionaryOf<String,JSONObject>) in
-			JSONObject.dict(dictionaryOf.getDictionary) == JSONObject.dict(dictionaryOf.getDictionary)
+		property(".dict equality is respected") <- forAll { (dictionaryOf: Dictionary<String,JSONObject>) in
+			JSONObject.dict(dictionaryOf) == JSONObject.dict(dictionaryOf)
 		}
 	}
 

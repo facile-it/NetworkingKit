@@ -271,6 +271,11 @@ SWIFT_CLASS("_TtC6Nimble14NMBObjCMatcher")
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
 
+
+@interface NMBObjCMatcher (SWIFT_EXTENSION(Nimble))
++ (NMBObjCMatcher * _Nonnull)haveCountMatcher:(NSNumber * _Nonnull)expected SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class NMBPredicate;
 
 @interface NMBObjCMatcher (SWIFT_EXTENSION(Nimble))
@@ -289,17 +294,17 @@ SWIFT_CLASS("_TtC6Nimble14NMBObjCMatcher")
 
 
 @interface NMBObjCMatcher (SWIFT_EXTENSION(Nimble))
++ (NMBPredicate * _Nonnull)satisfyAllOfMatcher:(NSArray<id <NMBMatcher>> * _Nonnull)matchers SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+@interface NMBObjCMatcher (SWIFT_EXTENSION(Nimble))
 + (NMBPredicate * _Nonnull)beEmptyMatcher SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 @interface NMBObjCMatcher (SWIFT_EXTENSION(Nimble))
 + (NMBObjCMatcher * _Nonnull)beIdenticalToMatcher:(NSObject * _Nullable)expected SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-@interface NMBObjCMatcher (SWIFT_EXTENSION(Nimble))
-+ (NMBObjCMatcher * _Nonnull)beginWithMatcher:(id _Nonnull)expected SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -371,7 +376,7 @@ SWIFT_CLASS("_TtC6Nimble14NMBObjCMatcher")
 
 
 @interface NMBObjCMatcher (SWIFT_EXTENSION(Nimble))
-+ (NMBObjCMatcher * _Nonnull)haveCountMatcher:(NSNumber * _Nonnull)expected SWIFT_WARN_UNUSED_RESULT;
++ (NMBObjCMatcher * _Nonnull)beginWithMatcher:(id _Nonnull)expected SWIFT_WARN_UNUSED_RESULT;
 @end
 
 

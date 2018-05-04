@@ -22,10 +22,10 @@ struct URLStringGenerator {
 }
 
 extension Gen where A: OptionalType, A.ParameterType: Arbitrary {
-	var flip: Gen<OptionalOf<A.ParameterType>> {
+	var flip: Gen<Optional<A.ParameterType>> {
 		return map { $0.fold(
-			onNone: { OptionalOf(nil) },
-			onSome: { OptionalOf($0) })
+			onNone: { nil },
+			onSome: { .pure($0) })
         }
 	}
 }
@@ -59,7 +59,7 @@ extension ConnectionInfo.Request: Arbitrary {
 extension ConnectionInfo.Response: Arbitrary {
     public static var arbitrary: Gen<ConnectionInfo.Response> {
         let optionalArbitraryURLResponse = URLStringGenerator.get.map { URL(string: $0).map { HTTPURLResponse(url: $0, mimeType: nil, expectedContentLength: 0, textEncodingName: nil) } }
-        let optionalArbitraryServerOutput = OptionalOf<String>.arbitrary.map { $0.getOptional.flatMap { $0.data(using: .utf8, allowLossyConversion: true) }}
+        let optionalArbitraryServerOutput = Optional<String>.arbitrary.map { $0.flatMap { $0.data(using: .utf8, allowLossyConversion: true) }}
         let optionalArbitraryDownloadedFileURL = URLStringGenerator.get.map { URL.init(string: $0) }
         
         return Gen<ConnectionInfo.Response>.compose {
@@ -122,7 +122,7 @@ extension Multipart: Arbitrary {
 		return Gen<Multipart>.compose {
 			Multipart(
 				boundary: $0.generate(),
-				parts: $0.generate(using: ArrayOf<Multipart.Part>.arbitrary.map { $0.getArray }))
+				parts: $0.generate(using: Array<Multipart.Part>.arbitrary.map { $0 }))
 		}
 	}
 }

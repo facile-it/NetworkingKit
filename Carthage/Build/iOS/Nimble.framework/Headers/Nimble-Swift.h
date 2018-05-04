@@ -276,6 +276,12 @@ SWIFT_CLASS("_TtC6Nimble14NMBObjCMatcher")
 + (NMBObjCMatcher * _Nonnull)haveCountMatcher:(NSNumber * _Nonnull)expected SWIFT_WARN_UNUSED_RESULT;
 @end
 
+@class NMBPredicate;
+
+@interface NMBObjCMatcher (SWIFT_EXTENSION(Nimble))
++ (NMBPredicate * _Nonnull)satisfyAnyOfMatcher:(NSArray<id <NMBMatcher>> * _Nonnull)matchers SWIFT_WARN_UNUSED_RESULT;
+@end
+
 
 @interface NMBObjCMatcher (SWIFT_EXTENSION(Nimble))
 + (NMBObjCMatcher * _Nonnull)endWithMatcher:(id _Nonnull)expected SWIFT_WARN_UNUSED_RESULT;
@@ -286,7 +292,11 @@ SWIFT_CLASS("_TtC6Nimble14NMBObjCMatcher")
 + (NMBObjCMatcher * _Nonnull)beNilMatcher SWIFT_WARN_UNUSED_RESULT;
 @end
 
-@class NMBPredicate;
+
+@interface NMBObjCMatcher (SWIFT_EXTENSION(Nimble))
++ (NMBPredicate * _Nonnull)satisfyAllOfMatcher:(NSArray<id <NMBMatcher>> * _Nonnull)matchers SWIFT_WARN_UNUSED_RESULT;
+@end
+
 
 @interface NMBObjCMatcher (SWIFT_EXTENSION(Nimble))
 + (NMBPredicate * _Nonnull)beEmptyMatcher SWIFT_WARN_UNUSED_RESULT;
@@ -333,11 +343,6 @@ SWIFT_CLASS("_TtC6Nimble14NMBObjCMatcher")
 + (id <NMBMatcher> _Nonnull)equalMatcher:(NSObject * _Nonnull)expected SWIFT_WARN_UNUSED_RESULT;
 @end
 
-
-@interface NMBObjCMatcher (SWIFT_EXTENSION(Nimble))
-+ (NMBObjCMatcher * _Nonnull)containElementSatisfyingMatcher:(BOOL (^ _Nonnull)(NSObject * _Nonnull))predicate SWIFT_WARN_UNUSED_RESULT;
-@end
-
 @class NSString;
 
 @interface NMBObjCMatcher (SWIFT_EXTENSION(Nimble))
@@ -371,7 +376,7 @@ SWIFT_CLASS("_TtC6Nimble14NMBObjCMatcher")
 
 
 @interface NMBObjCMatcher (SWIFT_EXTENSION(Nimble))
-+ (NMBPredicate * _Nonnull)satisfyAnyOfMatcher:(NSArray<id <NMBMatcher>> * _Nonnull)matchers SWIFT_WARN_UNUSED_RESULT;
++ (NMBObjCMatcher * _Nonnull)containElementSatisfyingMatcher:(BOOL (^ _Nonnull)(NSObject * _Nonnull))predicate SWIFT_WARN_UNUSED_RESULT;
 @end
 
 

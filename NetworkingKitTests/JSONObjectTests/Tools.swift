@@ -136,11 +136,11 @@ extension JSONObject: Arbitrary {
 		let number = ArbitraryJSONNumber.arbitrary.map { JSONObject.number($0.get) }
 		let bool = Bool.arbitrary.map(JSONObject.bool)
 		let string = String.arbitrary.map(JSONObject.string)
-		let array = ArrayOf<Int>.arbitrary
-			.map { $0.getArray.map(JSONObject.number) }
+		let array = Array<Int>.arbitrary
+			.map { $0.map(JSONObject.number) }
 			.map(JSONObject.array)
-		let dictionary = DictionaryOf<String,Int>.arbitrary
-			.map { $0.getDictionary
+		let dictionary = Dictionary<String,Int>.arbitrary
+			.map { $0
 				.reduce([String:JSONObject]()) { accumulation, tuple in
 					var m_accumulation = accumulation
 					m_accumulation[tuple.key] = JSONObject.number(tuple.value)
@@ -155,14 +155,14 @@ extension JSONObject: Arbitrary {
 extension Path: Arbitrary {
     public static var arbitrary: Gen<Path> {
         return Gen<Path>.compose {
-            Path.init(keys: $0.generate(using: ArrayOf<String>.arbitrary.map { $0.getArray }))
+            Path.init(keys: $0.generate(using: Array<String>.arbitrary.map { $0 }))
         }
     }
 }
 
 extension PathError: Arbitrary {
     public static var arbitrary: Gen<PathError> {
-        let rootGenerator = DictionaryOf<String,String>.arbitrary.map { $0.getDictionary }
+        let rootGenerator = Dictionary<String,String>.arbitrary.map { $0 }
         let pathGenerator = Path.arbitrary
         let stringGenerator = String.arbitrary
 
