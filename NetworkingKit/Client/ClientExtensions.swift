@@ -43,7 +43,7 @@ extension HTTPRequest {
 			return ClientResourceInContext<HTTPResponse<Data>>.pure(Future.pure(Writer.pure(ClientResult.failure(result.toOptionalError()!))))
 		}
 
-		let (urlRequestInfo,request) = writer.run
+		let (urlRequestInfo,request) = (writer.log, writer.value)
 
 		return connection(request).map {
 			$0.flatMapTT {

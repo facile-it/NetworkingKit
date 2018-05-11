@@ -21,15 +21,6 @@ struct URLStringGenerator {
 	}
 }
 
-extension Gen where A: OptionalType, A.ParameterType: Arbitrary {
-	var flip: Gen<Optional<A.ParameterType>> {
-		return map { $0.fold(
-			onNone: { nil },
-			onSome: { .pure($0) })
-        }
-	}
-}
-
 extension ConnectionInfo: Arbitrary {
 	public static var arbitrary: Gen<ConnectionInfo> {
 
