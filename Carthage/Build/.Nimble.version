@@ -1,15 +1,9 @@
 {
   "commitish" : "v7.1.1",
-  "Mac" : [
-    {
-      "name" : "Nimble",
-      "hash" : "0fa654690cc0f79bde01fd52227c8b70910f5c024ec32b9e19976cf64b9d4a3e"
-    }
-  ],
   "iOS" : [
     {
       "name" : "Nimble",
-      "hash" : "c04895f5cd3725c0f4303afdea63e8327dec5ecb8a7ad252c487bc0e5f951856"
+      "hash" : "2ecc36a4947b5fe7fa4a169d601eb77ba096a94b285b047da479057dd5898953"
     }
   ]
 }

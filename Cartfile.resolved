@@ -1,4 +1,4 @@
 github "Quick/Nimble" "v7.1.1"
-github "facile-it/FunctionalKit" "7b5308e052382830baf1956aeedf8c8544bca7f4"
+github "facile-it/FunctionalKit" "0.12.0"
 github "typelift/Abstract" "0.0.3"
 github "typelift/SwiftCheck" "0.10.0"

@@ -1,15 +1,9 @@
 {
-  "commitish" : "7b5308e052382830baf1956aeedf8c8544bca7f4",
-  "Mac" : [
-    {
-      "name" : "FunctionalKit",
-      "hash" : "c372d3e25fda507975d59a05c5a91661438b0a119a949a32b71702046a9a0b54"
-    }
-  ],
+  "commitish" : "0.12.0",
   "iOS" : [
     {
       "name" : "FunctionalKit",
-      "hash" : "a9995131e47570d6ee6c1e79cafcfd5fe922c0d3bf1222a3745b75d2e6b96d07"
+      "hash" : "c4d303455599cd348d1d99a8a4f575def22386703bf59e295d63c92c650f15d5"
     }
   ]
 }
