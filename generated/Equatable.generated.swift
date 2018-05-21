@@ -1,4 +1,4 @@
-// Generated using Sourcery 0.10.1 — https://github.com/krzysztofzablocki/Sourcery
+// Generated using Sourcery 0.11.2 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
 
@@ -6,7 +6,7 @@
 // MARK: - Equatable for structs and classes
 
 extension ConnectionConfiguration: Equatable {
-    public static func == (lhs: ConnectionConfiguration, rhs: ConnectionConfiguration) -> Bool {
+    public  static func == (lhs: ConnectionConfiguration, rhs: ConnectionConfiguration) -> Bool {
 		guard lhs.scheme == rhs.scheme else { return false }
 		guard lhs.host == rhs.host else { return false }
 		guard lhs.port == rhs.port else { return false }
@@ -17,7 +17,7 @@ extension ConnectionConfiguration: Equatable {
 }
 
 extension ConnectionInfo: Equatable {
-    public static func == (lhs: ConnectionInfo, rhs: ConnectionInfo) -> Bool {
+    public  static func == (lhs: ConnectionInfo, rhs: ConnectionInfo) -> Bool {
 		guard lhs.connectionName == rhs.connectionName else { return false }
 		guard lhs.request == rhs.request else { return false }
 		guard lhs.response == rhs.response else { return false }
@@ -26,7 +26,7 @@ extension ConnectionInfo: Equatable {
 }
 
 extension ConnectionInfo.Request: Equatable {
-    public static func == (lhs: ConnectionInfo.Request, rhs: ConnectionInfo.Request) -> Bool {
+    public  static func == (lhs: ConnectionInfo.Request, rhs: ConnectionInfo.Request) -> Bool {
 		guard lhs.urlComponents == rhs.urlComponents else { return false }
 		guard lhs.originalRequest == rhs.originalRequest else { return false }
 		guard lhs.bodyStringRepresentation == rhs.bodyStringRepresentation else { return false }
@@ -35,7 +35,7 @@ extension ConnectionInfo.Request: Equatable {
 }
 
 extension ConnectionInfo.Response: Equatable {
-    public static func == (lhs: ConnectionInfo.Response, rhs: ConnectionInfo.Response) -> Bool {
+    public  static func == (lhs: ConnectionInfo.Response, rhs: ConnectionInfo.Response) -> Bool {
 		guard lhs.connectionError == rhs.connectionError else { return false }
 		guard lhs.serverResponse == rhs.serverResponse else { return false }
 		guard lhs.serverOutput == rhs.serverOutput else { return false }
@@ -45,7 +45,7 @@ extension ConnectionInfo.Response: Equatable {
 }
 
 extension HTTPRequest: Equatable {
-    public static func == (lhs: HTTPRequest, rhs: HTTPRequest) -> Bool {
+    public  static func == (lhs: HTTPRequest, rhs: HTTPRequest) -> Bool {
 		guard lhs.identifier == rhs.identifier else { return false }
 		guard lhs.urlComponents == rhs.urlComponents else { return false }
 		guard lhs.method == rhs.method else { return false }
@@ -56,7 +56,7 @@ extension HTTPRequest: Equatable {
 }
 
 extension Multipart: Equatable {
-    public static func == (lhs: Multipart, rhs: Multipart) -> Bool {
+    public  static func == (lhs: Multipart, rhs: Multipart) -> Bool {
 		guard lhs.boundary == rhs.boundary else { return false }
 		guard lhs.contentBoundary == rhs.contentBoundary else { return false }
 		guard lhs.contentBoundaryData == rhs.contentBoundaryData else { return false }
@@ -66,7 +66,7 @@ extension Multipart: Equatable {
 }
 
 extension Multipart.Part.File: Equatable {
-    public static func == (lhs: Multipart.Part.File, rhs: Multipart.Part.File) -> Bool {
+    public  static func == (lhs: Multipart.Part.File, rhs: Multipart.Part.File) -> Bool {
 		guard lhs.contentType == rhs.contentType else { return false }
 		guard lhs.name == rhs.name else { return false }
 		guard lhs.filename == rhs.filename else { return false }
@@ -76,7 +76,7 @@ extension Multipart.Part.File: Equatable {
 }
 
 extension Multipart.Part.Text: Equatable {
-    public static func == (lhs: Multipart.Part.Text, rhs: Multipart.Part.Text) -> Bool {
+    public  static func == (lhs: Multipart.Part.Text, rhs: Multipart.Part.Text) -> Bool {
 		guard lhs.name == rhs.name else { return false }
 		guard lhs.content == rhs.content else { return false }
         return true
@@ -84,7 +84,7 @@ extension Multipart.Part.Text: Equatable {
 }
 
 extension Path: Equatable {
-    public static func == (lhs: Path, rhs: Path) -> Bool {
+    public  static func == (lhs: Path, rhs: Path) -> Bool {
 		guard lhs.keys == rhs.keys else { return false }
         return true
     }

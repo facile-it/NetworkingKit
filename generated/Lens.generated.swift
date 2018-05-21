@@ -1,4 +1,4 @@
-// Generated using Sourcery 0.10.1 — https://github.com/krzysztofzablocki/Sourcery
+// Generated using Sourcery 0.11.2 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
 
@@ -7,10 +7,10 @@ import FunctionalKit
 
 
 
-public extension ConnectionConfiguration {
-    enum lens {
+extension ConnectionConfiguration {
+    public enum lens {
 
-        static let scheme = Lens<ConnectionConfiguration,String>(
+        public static let scheme = Lens<ConnectionConfiguration,String>(
             get: { $0.scheme },
 			set: { part in
 				{ whole in
@@ -23,7 +23,7 @@ public extension ConnectionConfiguration {
 				}
 		})
 
-        static let host = Lens<ConnectionConfiguration,String>(
+        public static let host = Lens<ConnectionConfiguration,String>(
             get: { $0.host },
 			set: { part in
 				{ whole in
@@ -36,7 +36,7 @@ public extension ConnectionConfiguration {
 				}
 		})
 
-        static let port = Lens<ConnectionConfiguration,Int?>(
+        public static let port = Lens<ConnectionConfiguration,Int?>(
             get: { $0.port },
 			set: { part in
 				{ whole in
@@ -49,7 +49,7 @@ public extension ConnectionConfiguration {
 				}
 		})
 
-        static let rootPath = Lens<ConnectionConfiguration,String?>(
+        public static let rootPath = Lens<ConnectionConfiguration,String?>(
             get: { $0.rootPath },
 			set: { part in
 				{ whole in
@@ -62,7 +62,7 @@ public extension ConnectionConfiguration {
 				}
 		})
 
-        static let defaultHeaders = Lens<ConnectionConfiguration,[String:String]?>(
+        public static let defaultHeaders = Lens<ConnectionConfiguration,[String:String]?>(
             get: { $0.defaultHeaders },
 			set: { part in
 				{ whole in
@@ -77,10 +77,11 @@ public extension ConnectionConfiguration {
     }
 }
 
-public extension ConnectionContext {
-    enum lens {
 
-		static var connection: Lens<ConnectionContext,Connection> {
+extension ConnectionContext {
+    public enum lens {
+
+		public static var connection: Lens<ConnectionContext,Connection> {
 			return Lens<ConnectionContext,Connection>(
 				get: { $0.connection },
 				set: { part in
@@ -93,7 +94,7 @@ public extension ConnectionContext {
 	        })
 		}
 
-		static var configuration: Lens<ConnectionContext,ConnectionConfiguration> {
+		public static var configuration: Lens<ConnectionContext,ConnectionConfiguration> {
 			return Lens<ConnectionContext,ConnectionConfiguration>(
 				get: { $0.configuration },
 				set: { part in
@@ -106,7 +107,7 @@ public extension ConnectionContext {
 	        })
 		}
 
-		static var environment: Lens<ConnectionContext,Environment> {
+		public static var environment: Lens<ConnectionContext,Environment> {
 			return Lens<ConnectionContext,Environment>(
 				get: { $0.environment },
 				set: { part in
@@ -121,10 +122,11 @@ public extension ConnectionContext {
     }
 }
 
-public extension ConnectionInfo {
-    enum lens {
 
-        static let connectionName = Lens<ConnectionInfo,String?>(
+extension ConnectionInfo {
+    public enum lens {
+
+        public static let connectionName = Lens<ConnectionInfo,String?>(
             get: { $0.connectionName },
 			set: { part in
 				{ whole in
@@ -134,7 +136,7 @@ public extension ConnectionInfo {
 				}
 		})
 
-        static let request = Lens<ConnectionInfo,Request>(
+        public static let request = Lens<ConnectionInfo,Request>(
             get: { $0.request },
 			set: { part in
 				{ whole in
@@ -144,7 +146,7 @@ public extension ConnectionInfo {
 				}
 		})
 
-        static let response = Lens<ConnectionInfo,Response>(
+        public static let response = Lens<ConnectionInfo,Response>(
             get: { $0.response },
 			set: { part in
 				{ whole in
@@ -156,10 +158,11 @@ public extension ConnectionInfo {
     }
 }
 
-public extension ConnectionInfo.Request {
-    enum lens {
 
-        static let urlComponents = Lens<ConnectionInfo.Request,URLComponents?>(
+extension ConnectionInfo.Request {
+    public enum lens {
+
+        public static let urlComponents = Lens<ConnectionInfo.Request,URLComponents?>(
             get: { $0.urlComponents },
 			set: { part in
 				{ whole in
@@ -169,7 +172,7 @@ public extension ConnectionInfo.Request {
 				}
 		})
 
-        static let originalRequest = Lens<ConnectionInfo.Request,URLRequest?>(
+        public static let originalRequest = Lens<ConnectionInfo.Request,URLRequest?>(
             get: { $0.originalRequest },
 			set: { part in
 				{ whole in
@@ -179,7 +182,7 @@ public extension ConnectionInfo.Request {
 				}
 		})
 
-        static let bodyStringRepresentation = Lens<ConnectionInfo.Request,String?>(
+        public static let bodyStringRepresentation = Lens<ConnectionInfo.Request,String?>(
             get: { $0.bodyStringRepresentation },
 			set: { part in
 				{ whole in
@@ -191,10 +194,11 @@ public extension ConnectionInfo.Request {
     }
 }
 
-public extension ConnectionInfo.Response {
-    enum lens {
 
-        static let connectionError = Lens<ConnectionInfo.Response,NSError?>(
+extension ConnectionInfo.Response {
+    public enum lens {
+
+        public static let connectionError = Lens<ConnectionInfo.Response,NSError?>(
             get: { $0.connectionError },
 			set: { part in
 				{ whole in
@@ -204,7 +208,7 @@ public extension ConnectionInfo.Response {
 				}
 		})
 
-        static let serverResponse = Lens<ConnectionInfo.Response,HTTPURLResponse?>(
+        public static let serverResponse = Lens<ConnectionInfo.Response,HTTPURLResponse?>(
             get: { $0.serverResponse },
 			set: { part in
 				{ whole in
@@ -214,7 +218,7 @@ public extension ConnectionInfo.Response {
 				}
 		})
 
-        static let serverOutput = Lens<ConnectionInfo.Response,Data?>(
+        public static let serverOutput = Lens<ConnectionInfo.Response,Data?>(
             get: { $0.serverOutput },
 			set: { part in
 				{ whole in
@@ -224,7 +228,7 @@ public extension ConnectionInfo.Response {
 				}
 		})
 
-        static let downloadedFileURL = Lens<ConnectionInfo.Response,URL?>(
+        public static let downloadedFileURL = Lens<ConnectionInfo.Response,URL?>(
             get: { $0.downloadedFileURL },
 			set: { part in
 				{ whole in
@@ -236,10 +240,11 @@ public extension ConnectionInfo.Response {
     }
 }
 
-public extension HTTPRequest {
-    enum lens {
 
-        static let identifier = Lens<HTTPRequest,String>(
+extension HTTPRequest {
+    public enum lens {
+
+        public static let identifier = Lens<HTTPRequest,String>(
             get: { $0.identifier },
 			set: { part in
 				{ whole in
@@ -249,7 +254,7 @@ public extension HTTPRequest {
 				}
 		})
 
-        static let urlComponents = Lens<HTTPRequest,URLComponents>(
+        public static let urlComponents = Lens<HTTPRequest,URLComponents>(
             get: { $0.urlComponents },
 			set: { part in
 				{ whole in
@@ -259,7 +264,7 @@ public extension HTTPRequest {
 				}
 		})
 
-        static let method = Lens<HTTPRequest,HTTPMethod>(
+        public static let method = Lens<HTTPRequest,HTTPMethod>(
             get: { $0.method },
 			set: { part in
 				{ whole in
@@ -269,7 +274,7 @@ public extension HTTPRequest {
 				}
 		})
 
-        static let headers = Lens<HTTPRequest,[String:String]>(
+        public static let headers = Lens<HTTPRequest,[String:String]>(
             get: { $0.headers },
 			set: { part in
 				{ whole in
@@ -279,7 +284,7 @@ public extension HTTPRequest {
 				}
 		})
 
-        static let body = Lens<HTTPRequest,Data?>(
+        public static let body = Lens<HTTPRequest,Data?>(
             get: { $0.body },
 			set: { part in
 				{ whole in
@@ -291,10 +296,11 @@ public extension HTTPRequest {
     }
 }
 
-public extension HTTPResponse {
-    enum lens {
 
-		static var URLResponse: Lens<HTTPResponse,HTTPURLResponse> {
+extension HTTPResponse {
+    public enum lens {
+
+		public static var URLResponse: Lens<HTTPResponse,HTTPURLResponse> {
 			return Lens<HTTPResponse,HTTPURLResponse>(
 				get: { $0.URLResponse },
 				set: { part in
@@ -306,7 +312,7 @@ public extension HTTPResponse {
 	        })
 		}
 
-		static var output: Lens<HTTPResponse,Output> {
+		public static var output: Lens<HTTPResponse,Output> {
 			return Lens<HTTPResponse,Output>(
 				get: { $0.output },
 				set: { part in
@@ -320,10 +326,11 @@ public extension HTTPResponse {
     }
 }
 
-public extension Multipart {
-    enum lens {
 
-        static let boundary = Lens<Multipart,String>(
+extension Multipart {
+    public enum lens {
+
+        public static let boundary = Lens<Multipart,String>(
             get: { $0.boundary },
 			set: { part in
 				{ whole in
@@ -333,7 +340,7 @@ public extension Multipart {
 				}
 		})
 
-        static let contentBoundary = Lens<Multipart,String>(
+        public static let contentBoundary = Lens<Multipart,String>(
             get: { $0.contentBoundary },
 			set: { part in
 				{ whole in
@@ -343,7 +350,7 @@ public extension Multipart {
 				}
 		})
 
-        static let contentBoundaryData = Lens<Multipart,Data>(
+        public static let contentBoundaryData = Lens<Multipart,Data>(
             get: { $0.contentBoundaryData },
 			set: { part in
 				{ whole in
@@ -353,7 +360,7 @@ public extension Multipart {
 				}
 		})
 
-        static let parts = Lens<Multipart,[Part]>(
+        public static let parts = Lens<Multipart,[Part]>(
             get: { $0.parts },
 			set: { part in
 				{ whole in
@@ -365,10 +372,11 @@ public extension Multipart {
     }
 }
 
-public extension Multipart.Part.File {
-    enum lens {
 
-        static let contentType = Lens<Multipart.Part.File,String>(
+extension Multipart.Part.File {
+    public enum lens {
+
+        public static let contentType = Lens<Multipart.Part.File,String>(
             get: { $0.contentType },
 			set: { part in
 				{ whole in
@@ -378,7 +386,7 @@ public extension Multipart.Part.File {
 				}
 		})
 
-        static let name = Lens<Multipart.Part.File,String>(
+        public static let name = Lens<Multipart.Part.File,String>(
             get: { $0.name },
 			set: { part in
 				{ whole in
@@ -388,7 +396,7 @@ public extension Multipart.Part.File {
 				}
 		})
 
-        static let filename = Lens<Multipart.Part.File,String>(
+        public static let filename = Lens<Multipart.Part.File,String>(
             get: { $0.filename },
 			set: { part in
 				{ whole in
@@ -398,7 +406,7 @@ public extension Multipart.Part.File {
 				}
 		})
 
-        static let data = Lens<Multipart.Part.File,Data>(
+        public static let data = Lens<Multipart.Part.File,Data>(
             get: { $0.data },
 			set: { part in
 				{ whole in
@@ -410,10 +418,11 @@ public extension Multipart.Part.File {
     }
 }
 
-public extension Multipart.Part.Text {
-    enum lens {
 
-        static let name = Lens<Multipart.Part.Text,String>(
+extension Multipart.Part.Text {
+    public enum lens {
+
+        public static let name = Lens<Multipart.Part.Text,String>(
             get: { $0.name },
 			set: { part in
 				{ whole in
@@ -423,7 +432,7 @@ public extension Multipart.Part.Text {
 				}
 		})
 
-        static let content = Lens<Multipart.Part.Text,String>(
+        public static let content = Lens<Multipart.Part.Text,String>(
             get: { $0.content },
 			set: { part in
 				{ whole in
@@ -435,10 +444,11 @@ public extension Multipart.Part.Text {
     }
 }
 
-public extension Path {
-    enum lens {
 
-        static let keys = Lens<Path,[String]>(
+extension Path {
+    public enum lens {
+
+        public static let keys = Lens<Path,[String]>(
             get: { $0.keys },
 			set: { part in
 				{ whole in
@@ -449,10 +459,11 @@ public extension Path {
     }
 }
 
-public extension PathTo {
-    enum lens {
 
-		static var root: Lens<PathTo,[String:Any]> {
+extension PathTo {
+    public enum lens {
+
+		public static var root: Lens<PathTo,[String:Any]> {
 			return Lens<PathTo,[String:Any]>(
 				get: { $0.root },
 				set: { part in
@@ -464,3 +475,4 @@ public extension PathTo {
 		}
     }
 }
+
