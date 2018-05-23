@@ -3,13 +3,13 @@
   "Mac" : [
     {
       "name" : "Nimble",
-      "hash" : "f65f2b3666c4a591ea36a011aa04c991dfd169538214be3078f33ed2ce8bd3ea"
+      "hash" : "aca5132c19e9f050cac8b8a11df15b874fed61627cac861f4ed4fc6a65025427"
     }
   ],
   "iOS" : [
     {
       "name" : "Nimble",
-      "hash" : "6a8b0361ca53da231c310579732097c596ee0cf3122528aa4e80a65075fcf5e9"
+      "hash" : "d4deeaa8154121ec05a53c380ecc46f14172264cc4249334ced73309d4911694"
     }
   ]
 }
