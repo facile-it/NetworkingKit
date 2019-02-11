@@ -99,7 +99,7 @@ class MultipartTests: XCTestCase {
 			(multi.contentBoundary.isEmpty == false && multi.parts.count > 0) ==> {
 				let dataString = String(data: try! multi.getData(), encoding: .utf8)!
 				return dataString.hasPrefix(multi.contentBoundary)
-					&& dataString.hasSuffix(multi.contentBoundary)
+					&& dataString.hasSuffix(multi.lastContentBoundary)
 			}
 		}
 	}
