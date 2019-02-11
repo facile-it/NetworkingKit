@@ -1,4 +1,4 @@
-// Generated using Sourcery 0.11.2 — https://github.com/krzysztofzablocki/Sourcery
+// Generated using Sourcery 0.15.0 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
 
@@ -59,7 +59,9 @@ extension Multipart: Equatable {
     public  static func == (lhs: Multipart, rhs: Multipart) -> Bool {
 		guard lhs.boundary == rhs.boundary else { return false }
 		guard lhs.contentBoundary == rhs.contentBoundary else { return false }
+		guard lhs.lastContentBoundary == rhs.lastContentBoundary else { return false }
 		guard lhs.contentBoundaryData == rhs.contentBoundaryData else { return false }
+		guard lhs.lastContentBoundaryData == rhs.lastContentBoundaryData else { return false }
 		guard lhs.parts == rhs.parts else { return false }
         return true
     }

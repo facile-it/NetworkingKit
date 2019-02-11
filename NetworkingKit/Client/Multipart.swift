@@ -7,27 +7,35 @@ public struct Multipart {
 	public static let newLineString = "\r\n"
 	public static let newLineData = newLineString.data(using: .utf8)!
 	public static let preBoundaryString = "--"
+    public static let postBoundaryString = "--"
 
 	var boundary: String
 	var contentBoundary: String
+    var lastContentBoundary: String
 	var contentBoundaryData: Data
+    var lastContentBoundaryData: Data
 	var parts: [Part]
 
 	// sourcery:inline:Multipart.Init
-    public init(boundary: String, contentBoundary: String, contentBoundaryData: Data, parts: [Multipart.Part]) {
+    public init(boundary: String, contentBoundary: String, lastContentBoundary: String, contentBoundaryData: Data, lastContentBoundaryData: Data, parts: [Multipart.Part]) {
         self.boundary = boundary
         self.contentBoundary = contentBoundary
+        self.lastContentBoundary = lastContentBoundary
         self.contentBoundaryData = contentBoundaryData
+        self.lastContentBoundaryData = lastContentBoundaryData
         self.parts = parts
     }
 	// sourcery:end
 
 	public init(boundary: String, parts: [Part] = []) {
 		let contentBoundary = Multipart.preBoundaryString + boundary
+        let lastContentBoundary = contentBoundary + Multipart.postBoundaryString
 		self.init(
 			boundary: boundary,
 			contentBoundary: contentBoundary,
+            lastContentBoundary: lastContentBoundary,
 			contentBoundaryData: contentBoundary.data(using: .utf8)!,
+            lastContentBoundaryData: lastContentBoundary.data(using: .utf8)!,
 			parts: parts)
 	}
 
@@ -81,9 +89,11 @@ public extension Multipart {
 	var stringRepresentation: String {
 		guard parts.isEmpty.not else { return "" }
 
-		let elements = [contentBoundary] + parts.map {
-			Multipart.newLineString + $0.stringRepresentation + Multipart.newLineString + self.contentBoundary
-		}
+        let elements = parts
+            .map {
+                contentBoundary + Multipart.newLineString + $0.stringRepresentation + Multipart.newLineString
+            }
+            .appending(lastContentBoundary)
 
 		return elements.reduce("", +)
 	}
@@ -92,18 +102,23 @@ public extension Multipart {
 		return Multipart.init(
 			boundary: boundary,
 			contentBoundary: contentBoundary,
+            lastContentBoundary: lastContentBoundary,
 			contentBoundaryData: contentBoundaryData,
+            lastContentBoundaryData: lastContentBoundaryData,
 			parts: parts + [part])
 	}
 
 	func getData() throws -> Data {
 		guard parts.count > 0 else { return Data() }
 
-		let elements = [contentBoundaryData] + (try parts.map {
-			Multipart.newLineData
-				+ (try $0.getData())
-				+ Multipart.newLineData
-				+ self.contentBoundaryData })
+        let elements = try parts
+            .map {
+                contentBoundaryData
+                    + Multipart.newLineData
+                    + (try $0.getData())
+                    + Multipart.newLineData
+            }
+            .appending(lastContentBoundaryData)
 
 		return elements.reduce(Data()) { var m_data = $0; m_data.append($1); return m_data }
 	}

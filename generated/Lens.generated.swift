@@ -1,4 +1,4 @@
-// Generated using Sourcery 0.11.2 — https://github.com/krzysztofzablocki/Sourcery
+// Generated using Sourcery 0.15.0 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
 
@@ -350,12 +350,32 @@ extension Multipart {
 				}
 		})
 
+        public static let lastContentBoundary = Lens<Multipart,String>(
+            get: { $0.lastContentBoundary },
+			set: { part in
+				{ whole in
+					var m = whole
+					m.lastContentBoundary = part
+					return m
+				}
+		})
+
         public static let contentBoundaryData = Lens<Multipart,Data>(
             get: { $0.contentBoundaryData },
 			set: { part in
 				{ whole in
 					var m = whole
 					m.contentBoundaryData = part
+					return m
+				}
+		})
+
+        public static let lastContentBoundaryData = Lens<Multipart,Data>(
+            get: { $0.lastContentBoundaryData },
+			set: { part in
+				{ whole in
+					var m = whole
+					m.lastContentBoundaryData = part
 					return m
 				}
 		})
