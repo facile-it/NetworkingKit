@@ -53,7 +53,7 @@ extension SerializationError: CustomStringConvertible {
 }
 
 public extension DeserializationError {
-	public var getNSError: NSError {
+    var getNSError: NSError {
 		switch self {
 		case .toAny(let optionalError):
 			return optionalError ?? NSError(

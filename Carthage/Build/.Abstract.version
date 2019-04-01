@@ -3,13 +3,7 @@
   "Mac" : [
     {
       "name" : "Abstract",
-      "hash" : "a3335b5600ac70337d62c58cd7509cec5062b70fe4422bcbc2b4a57b492fbc4c"
-    }
-  ],
-  "iOS" : [
-    {
-      "name" : "Abstract",
-      "hash" : "3991bc2c3d62733ea9f607d06b86f93edad82cabe3a6e2952280a3e1c0073775"
+      "hash" : "fcbf41ba463e9a25e6a7a0e7529a16114438fb88531c066956b60d81a32d80c1"
     }
   ]
 }

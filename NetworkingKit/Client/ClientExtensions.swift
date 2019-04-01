@@ -147,14 +147,14 @@ extension Array where Element: ProductType, Element.FirstType == String, Element
 
 //: ------------------------
 
-extension Sequence where SubSequence: Sequence, SubSequence.Iterator.Element == Iterator.Element {
+extension Collection {
     func accumulate(combine: (Iterator.Element, Iterator.Element) throws -> Iterator.Element) rethrows -> Iterator.Element? {
         guard let nonOptHead = head, let nonOptTail = tail else { return head }
         return try nonOptTail.reduce(nonOptHead, combine)
     }
 }
 
-extension Sequence where Iterator.Element: Monoid, SubSequence: Sequence, SubSequence.Iterator.Element == Iterator.Element {
+extension Collection where Iterator.Element: Monoid {
     func composeAll(separator: Iterator.Element = .empty) -> Iterator.Element {
         guard let nonOptHead = head, let nonOptTail = tail else { return .empty }
         return nonOptTail.reduce(nonOptHead) { $0 <> separator <> $1 }
