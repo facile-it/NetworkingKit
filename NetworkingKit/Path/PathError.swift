@@ -73,6 +73,13 @@ public extension PathError {
 						   NSLocalizedDescriptionKey: "PathError.multiple"])
 		}
 	}
+    
+    static func wrongDateFormat(root: [String: Any], path: Path, string: String) -> PathError {
+        return PathError.wrongTargetContentForLastKey(
+            root: root,
+            path: path,
+            contentDescription: "\(string) should be an appropriate ISO8601 date string")
+    }
 }
 
 extension PathError: Equatable {
