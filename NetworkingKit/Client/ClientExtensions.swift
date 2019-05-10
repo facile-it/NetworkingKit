@@ -28,8 +28,12 @@ extension URLComponents {
 			m_self.queryItems = nil
 			return m_self
 		}
-		m_self.queryItems = parameters.map { (key, value) in URLQueryItem(name: key, value: "\(value)") }
-		return m_self
+
+        m_self.queryItems = parameters
+            .map { URLQueryItem(name: $0.key, value: "\($0.value)") }
+            .sorted { $0.name < $1.name }
+        
+        return m_self
 	}
 }
 
