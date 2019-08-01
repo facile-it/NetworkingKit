@@ -1,5 +1,4 @@
 import Foundation
-import FunctionalKit
 
 // sourcery: prism
 // sourcery: match
@@ -25,4 +24,4 @@ extension JSONError: CustomStringConvertible {
 	}
 }
 
-public typealias JSONResult<T> = Result<JSONError, T>
+public typealias JSONResult<T> = Result<T, JSONError>

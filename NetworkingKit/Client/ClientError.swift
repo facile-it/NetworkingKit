@@ -1,7 +1,7 @@
 import Foundation
 import FunctionalKit
 
-public typealias ClientResult<T> = Result<ClientError,T>
+public typealias ClientResult<T> = Result<T, ClientError>
 
 // sourcery: prism
 // sourcery: match

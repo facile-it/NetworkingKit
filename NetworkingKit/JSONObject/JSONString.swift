@@ -1,5 +1,4 @@
 import Foundation
-import FunctionalKit
 
 enum JSONString {
 	static func from(_ object: Any) -> JSONStringResult {
@@ -35,4 +34,4 @@ enum JSONStringError: Error, CustomStringConvertible {
 	}
 }
 
-typealias JSONStringResult = Result<JSONStringError,String>
+typealias JSONStringResult = Result<String, JSONStringError>

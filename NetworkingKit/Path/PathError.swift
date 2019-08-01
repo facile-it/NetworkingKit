@@ -2,7 +2,7 @@ import Foundation
 import Abstract
 import FunctionalKit
 
-public typealias PathResult<T> = Result<PathError,T>
+public typealias PathResult<T> = Result<T, PathError>
 
 // sourcery: prism
 // sourcery: match

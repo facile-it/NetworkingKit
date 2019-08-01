@@ -24,7 +24,7 @@ class SerializeTests: XCTestCase {
 		
 		property("'fromJSONObject' is invertible") <- forAll { (ao: JSONObject) in
             do {
-                let object = try JSONObject.with(ao.getTopLevel).run()
+                let object = try JSONObject.with(ao.getTopLevel).get()
                 let data = Serialize.fromJSONObject(object).toOptionalValue()!
                 let gotObject = (try! JSONSerialization.jsonObject(with: data, options: .allowFragments)) |> JSONObject.with
                 return gotObject.fold(
