@@ -22,6 +22,7 @@ extension URLComponents {
 		return m_self
 	}
 
+    @available(*, deprecated, message: "Please use correct version 'setQueryString(parameters: [Pair<String,Any>]) -> URLComponents'")
 	public func setQueryString(parameters: [String:Any]) -> URLComponents {
 		var m_self = self
 		guard parameters.count > 0 else {
@@ -35,6 +36,20 @@ extension URLComponents {
         
         return m_self
 	}
+    
+    public func setQueryString(parameters: [Pair<String,Any>]) -> URLComponents {
+        var m_self = self
+        guard parameters.count > 0 else {
+            m_self.queryItems = nil
+            return m_self
+        }
+        
+        m_self.queryItems = parameters
+            .map { URLQueryItem(name: $0.first, value: "\($0.second)") }
+            .sorted { $0.name < $1.name }
+        
+        return m_self
+    }
 }
 
 //: ------------------------
@@ -84,6 +99,7 @@ extension HTTPRequest {
 		}
 	}
 
+    @available(*, deprecated, message: "Please use correct version with paramenter 'queryStringParameters: [Pair<String,Any>]?'")
 	public static func get(
 		identifier: String,
 		configuration: ConnectionConfiguration,
@@ -101,6 +117,24 @@ extension HTTPRequest {
 			body: nil)
 			.getHTTPResponse(connection: connection)
 	}
+    
+    public static func get(
+        identifier: String,
+        configuration: ConnectionConfiguration,
+        path: String,
+        additionalHeaders: [String:String]? = nil,
+        queryString: [Pair<String,Any>]? = nil,
+        connection: @escaping Connection) -> ClientResourceInContext<HTTPResponse<Data>> {
+        return HTTPRequest(
+            identifier: identifier,
+            configuration: configuration,
+            method: .get,
+            additionalHeaders: additionalHeaders,
+            path: path,
+            queryString: queryString,
+            body: nil)
+            .getHTTPResponse(connection: connection)
+    }
 
 	public static func post(
 		identifier: String,
@@ -115,7 +149,7 @@ extension HTTPRequest {
 			method: .post,
 			additionalHeaders: additionalHeaders,
 			path: path,
-			queryStringParameters: nil,
+			queryString: nil,
 			body: body)
 			.getHTTPResponse(connection: connection)
 	}
@@ -133,7 +167,7 @@ extension HTTPRequest {
 			method: .put,
 			additionalHeaders: additionalHeaders,
 			path: path,
-			queryStringParameters: nil,
+			queryString: nil,
 			body: body)
 			.getHTTPResponse(connection: connection)
 	}
