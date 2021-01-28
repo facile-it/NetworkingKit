@@ -1,10 +1,11 @@
 {
   "commitish" : "0.1.0",
-  "Mac" : [
+  "iOS" : [
     {
+      "hash" : "c4eb507b97b42ec4e20d6e78b2dd644d2adb8f5ca9d5d398bdccc5e3741734f7",
       "name" : "Abstract",
-      "hash" : "68a330294887e2138b5698a2f0fcaabcf8bec0ae2d4787e7d33d1a3ae39951be",
-      "swiftToolchainVersion" : "5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)"
+      "linking" : "dynamic",
+      "swiftToolchainVersion" : "5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)"
     }
   ]
 }
