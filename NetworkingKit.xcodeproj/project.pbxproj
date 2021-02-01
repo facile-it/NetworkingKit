@@ -462,7 +462,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 1230;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = Facile.it;
 				TargetAttributes = {
 					AA54A1A22011F25100FE4478 = {
