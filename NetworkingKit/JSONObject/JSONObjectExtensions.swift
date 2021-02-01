@@ -36,36 +36,42 @@ extension Dictionary {
 }
 
 extension Int: JSONNumber {
+    @available(*, deprecated, message: "Use Codable protocol instead")
     public var toNSNumber: NSNumber {
         return NSNumber(value: self)
     }
 }
 
 extension UInt: JSONNumber {
+    @available(*, deprecated, message: "Use Codable protocol instead")
     public var toNSNumber: NSNumber {
         return NSNumber(value: self)
     }
 }
 
 extension Float: JSONNumber {
+    @available(*, deprecated, message: "Use Codable protocol instead")
     public var toNSNumber: NSNumber {
         return NSNumber(value: self)
     }
 }
 
 extension Double: JSONNumber {
+    @available(*, deprecated, message: "Use Codable protocol instead")
     public var toNSNumber: NSNumber {
         return NSNumber(value: self)
     }
 }
 
 extension NSNumber: JSONNumber {
+    @available(*, deprecated, message: "Use Codable protocol instead")
     public var toNSNumber: NSNumber {
         return self
     }
 }
 
 extension JSONSerialization {
+    @available(*, deprecated, message: "Use Codable protocol instead")
     public static func data(with object: JSONObject) -> JSONResult<Data> {
         let topLevelObject = object.getTopLevel
         guard JSONSerialization.isValidJSONObject(topLevelObject) else {

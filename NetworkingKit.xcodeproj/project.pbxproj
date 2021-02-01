@@ -31,6 +31,7 @@
 		38E8FE962035C2D6002A6546 /* Equatable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E8FE942035C2D5002A6546 /* Equatable.generated.swift */; };
 		38E8FE982035CF8F002A6546 /* JSONString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E8FE972035CF8F002A6546 /* JSONString.swift */; };
 		38E8FE992035CF8F002A6546 /* JSONString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E8FE972035CF8F002A6546 /* JSONString.swift */; };
+		65A5322325C831770087180E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A5321F25C831710087180E /* Reachability.swift */; };
 		AA24F017201F22B5002F242F /* ParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24F016201F22B5002F242F /* ParseTests.swift */; };
 		AA41EFA02019F6140038B1A9 /* Prism.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA41EF9E2019F6130038B1A9 /* Prism.generated.swift */; };
 		AA41EFA12019F6140038B1A9 /* Prism.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA41EF9E2019F6130038B1A9 /* Prism.generated.swift */; };
@@ -121,6 +122,7 @@
 		38E8FE912035AC22002A6546 /* Match.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.generated.swift; sourceTree = "<group>"; };
 		38E8FE942035C2D5002A6546 /* Equatable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equatable.generated.swift; sourceTree = "<group>"; };
 		38E8FE972035CF8F002A6546 /* JSONString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONString.swift; sourceTree = "<group>"; };
+		65A5321F25C831710087180E /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		AA24F016201F22B5002F242F /* ParseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseTests.swift; sourceTree = "<group>"; };
 		AA41EF942019F1840038B1A9 /* Optics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Optics.framework; path = Carthage/Build/Mac/Optics.framework; sourceTree = "<group>"; };
 		AA41EF9A2019F2F80038B1A9 /* Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Templates; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 				AAE4AD6C2015DDA200070EC4 /* Parsing.swift */,
 				AAE4AD6B2015DDA200070EC4 /* Serialization.swift */,
 				38AB1A54203AE8D000B32592 /* SerializationError.swift */,
+				65A5321F25C831710087180E /* Reachability.swift */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -458,7 +461,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = Facile.it;
 				TargetAttributes = {
 					AA54A1A22011F25100FE4478 = {
@@ -473,7 +476,7 @@
 					};
 					AA91B4A920122DFA00603E3C = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1230;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -586,6 +589,7 @@
 				AAE4AD602015D7AF00070EC4 /* JSONObjectExtensions.swift in Sources */,
 				38E8FE922035AC22002A6546 /* Match.generated.swift in Sources */,
 				AAE4AD772015DDA300070EC4 /* Equatables.swift in Sources */,
+				65A5322325C831770087180E /* Reachability.swift in Sources */,
 				AA41EFA22019F6140038B1A9 /* Lens.generated.swift in Sources */,
 				AAE4AD712015DDA300070EC4 /* HTTP.swift in Sources */,
 				38E8FE982035CF8F002A6546 /* JSONString.swift in Sources */,
@@ -634,6 +638,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -698,6 +703,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -841,7 +847,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -868,7 +874,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
