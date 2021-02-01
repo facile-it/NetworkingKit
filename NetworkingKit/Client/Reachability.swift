@@ -1,7 +1,7 @@
 import Foundation
 import SystemConfiguration
 
-class Reachability {
+public class Reachability {
 
     private var isRunning = false
     private var isReachableOnWWAN: Bool
