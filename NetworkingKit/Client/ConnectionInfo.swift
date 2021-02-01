@@ -54,6 +54,8 @@ extension ConnectionInfo: Monoid {
 }
 
 extension ConnectionInfo: JSONObjectConvertible {
+    
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	public var toJSONObject: JSONObject {
 		let connName: JSONObject? = connectionName.map(JSONObject.string)
 
@@ -80,6 +82,8 @@ extension ConnectionInfo.Request: Monoid {
 }
 
 extension ConnectionInfo.Request: JSONObjectConvertible {
+    
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	public var toJSONObject: JSONObject {
 		let val1 = Product.init("Request URL Scheme",
 								urlComponents.flatMap { $0.scheme }.map(JSONObject.string))
@@ -127,6 +131,8 @@ extension ConnectionInfo.Response: Monoid {
 }
 
 extension ConnectionInfo.Response: JSONObjectConvertible {
+    
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	public var toJSONObject: JSONObject {
 		let val1 = Product("Connection Error",
 						   connectionError.map { JSONObject.dict([
@@ -163,6 +169,8 @@ extension ConnectionInfo.Response: JSONObjectConvertible {
 // MARK: - Private
 
 private extension ConnectionInfo.Request {
+    
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	func requestBodyStringRepresentation(bodyStringRepresentation: String?, originalRequest: URLRequest?) -> JSONObject? {
 		let bodyString1 = bodyStringRepresentation.map(JSONObject.string)
 		let bodyString2 = (originalRequest?.httpBody).flatMap { (try? JSONSerialization.jsonObject(with: $0, options: .allowFragments))

@@ -3,6 +3,7 @@ import Foundation
 // sourcery: equatable
 // sourcery: prism
 // sourcery: match
+@available(*, deprecated, message: "Use Codable protocol instead")
 public enum SerializationError {
 	case toJSON
 	case toFormURLEncoded
@@ -13,6 +14,7 @@ public enum SerializationError {
 // sourcery: equatable
 // sourcery: prism
 // sourcery: match
+@available(*, deprecated, message: "Use Codable protocol instead")
 public enum DeserializationError {
 	case toAny(NSError?)
 	case toAnyDict(NSError?)
@@ -25,6 +27,8 @@ public enum DeserializationError {
 // MARK: - Public
 
 public extension SerializationError {
+    
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	var getNSError: NSError {
 		switch self {
 		case .toJSON:
@@ -42,6 +46,8 @@ public extension SerializationError {
 }
 
 extension SerializationError: CustomStringConvertible {
+    
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	public var description: String {
 		switch self {
 		case .toJSON:
@@ -53,6 +59,8 @@ extension SerializationError: CustomStringConvertible {
 }
 
 public extension DeserializationError {
+    
+    @available(*, deprecated, message: "Use Codable protocol instead")
     var getNSError: NSError {
 		switch self {
 		case .toAny(let optionalError):
@@ -80,6 +88,8 @@ public extension DeserializationError {
 }
 
 extension DeserializationError: CustomStringConvertible {
+    
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	public var description: String {
 		switch self {
 		case .toAny:

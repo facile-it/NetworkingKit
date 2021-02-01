@@ -2,6 +2,7 @@ import Foundation
 
 // sourcery: init
 // sourcery: lens
+@available(*, deprecated, message: "Use Codable protocol instead")
 public struct PathTo<Target> {
 	let root: [String:Any]
 
@@ -20,6 +21,8 @@ public struct PathTo<Target> {
 // MARK: - Public
 
 public extension PathTo {
+    
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	func get(_ path: Path) -> PathResult<Target> {
 		guard path.keys.count > 0 else {
 			return PathResult.failure(PathError.emptyPath(
@@ -44,6 +47,8 @@ public extension PathTo {
 // MARK: - Internal
 
 extension PathTo {
+    
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	func getIntermediateDict(from dict: [String:Any], at key: String, with path: Path) -> PathResult<[String:Any]> {
 		guard let subdict = dict[key] as? [String:Any] else {
 			return .failure(PathError.noDictAtKey(
@@ -54,6 +59,7 @@ extension PathTo {
 		return .success(subdict)
 	}
 
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	func getTarget(from dict: [String:Any], at key: String, with path: Path) -> PathResult<Any> {
 		guard let target = dict[key] else {
 			return .failure(PathError.noTargetForLastKey(
@@ -64,6 +70,7 @@ extension PathTo {
 		return .success(target)
 	}
 
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	func getCorrectTarget(from target: Any, with path: Path) -> PathResult<Target> {
 		guard let correctTarget = target as? Target else {
 			return .failure(PathError.wrongTargetTypeForLastKey(

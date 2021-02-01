@@ -2,10 +2,12 @@ import Foundation
 import Abstract
 import FunctionalKit
 
+@available(*, deprecated, message: "Use Codable protocol instead")
 public typealias PathResult<T> = Result<T, PathError>
 
 // sourcery: prism
 // sourcery: match
+@available(*, deprecated, message: "Use Codable protocol instead")
 public enum PathError: Error {
 	case emptyPath(root: [String:Any], path: Path)
 	case noDictAtKey(root: [String:Any], path: Path, key: String)
@@ -18,6 +20,7 @@ public enum PathError: Error {
 // MARK: - Public
 
 public extension PathError {
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	var getNSError: NSError {
 		let domain = "Path"
 		switch self {
@@ -74,6 +77,7 @@ public extension PathError {
 		}
 	}
     
+    @available(*, deprecated, message: "Use Codable protocol instead")
     static func wrongDateFormat(root: [String: Any], path: Path, string: String) -> PathError {
         return PathError.wrongTargetContentForLastKey(
             root: root,
@@ -83,12 +87,15 @@ public extension PathError {
 }
 
 extension PathError: Equatable {
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	public static func == (left: PathError, right: PathError) -> Bool {
 		return left.debugDescription == right.debugDescription
 	}
 }
 
 extension PathError: CustomDebugStringConvertible {
+    
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	public var debugDescription: String {
 		switch self {
 		case .emptyPath(let root, let path):
@@ -110,10 +117,13 @@ extension PathError: CustomDebugStringConvertible {
 }
 
 extension PathError: Monoid {
+    
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	public static var empty: PathError {
 		return .multiple([])
 	}
 
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	public static func <> (left: PathError, right: PathError) -> PathError {
 		switch (left, right) {
 		case (.empty, _):

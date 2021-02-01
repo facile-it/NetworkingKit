@@ -13,7 +13,10 @@ public enum ClientError: Error {
 	case noResponse
 	case invalidHTTPCode(Int)
 	case invalidHeader(String)
+    
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	case noValueAtPath(PathError)
+    
 	case noValueInArray(index: Int)
 	case noResults
 	case invalidData(String)
@@ -21,9 +24,14 @@ public enum ClientError: Error {
 	case errorMessages([String])
 	case errorPlist([String:Any])
 	case unauthorized
-	case serialization(SerializationError)
+	
+    @available(*, deprecated, message: "Use Codable protocol instead")
+    case serialization(SerializationError)
+    
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	case deserialization(DeserializationError)
-	case undefined(Error)
+	
+    case undefined(Error)
 
 	public static let errorDomain = "Client"
 	public static let errorInfoKey = "ErrorInfo"

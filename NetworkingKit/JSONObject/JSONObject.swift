@@ -8,6 +8,7 @@ public protocol JSONNumber {
 
 // sourcery: prism
 // sourcery: match
+@available(*, deprecated, message: "Use Codable protocol instead")
 public enum JSONObject {
     case null
     case number(JSONNumber)
@@ -20,6 +21,7 @@ public enum JSONObject {
 // MARK: - Public
 
 public extension JSONObject {
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	static func with(_ object: Any) -> JSONResult<JSONObject> {
 		switch object {
 		case is NSNull:
@@ -57,6 +59,7 @@ public extension JSONObject {
 		}
 	}
 
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	static func optDict(key: String, value: Any?) -> JSONObject {
 		return value
 			.map(JSONObject.with)?
@@ -65,6 +68,7 @@ public extension JSONObject {
 			?? .null
 	}
 
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	var get: Any {
 		switch self {
 		case .null:
@@ -88,6 +92,7 @@ public extension JSONObject {
 		}
 	}
 
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	var getTopLevel: Any {
 		switch self {
 		case .null:
@@ -99,6 +104,7 @@ public extension JSONObject {
 		}
 	}
 
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	func isEqual(to other: JSONObject, numberPrecision: Double = 0.001) -> Bool {
 		switch (self, other) {
 		case (.null, .null):
@@ -120,16 +126,19 @@ public extension JSONObject {
 }
 
 extension JSONObject: Equatable {
+    @available(*, deprecated, message: "Use Codable protocol instead")
     public static func == (left: JSONObject, right: JSONObject) -> Bool {
         return left.isEqual(to: right)
     }
 }
 
 extension JSONObject: Monoid {
+    @available(*, deprecated, message: "Use Codable protocol instead")
     public static var empty: JSONObject {
         return .null
     }
     
+    @available(*, deprecated, message: "Use Codable protocol instead")
     public static func <> (_ left: JSONObject, _ right: JSONObject) -> JSONObject {
         switch (left,right) {
         case (.null,_):

@@ -1,6 +1,7 @@
 import Foundation
 
 enum JSONString {
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	static func from(_ object: Any) -> JSONStringResult {
 		guard JSONSerialization.isValidJSONObject(object) else {
 			return .failure(.invalidJSONObject)

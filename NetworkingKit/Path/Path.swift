@@ -4,6 +4,7 @@ import FunctionalKit
 
 // sourcery: lens
 // sourcery: equatable
+@available(*, deprecated, message: "Use Codable protocol instead")
 public struct Path {
 	public let keys: [String]
 
@@ -21,23 +22,32 @@ public struct Path {
 // MARK: - Public
 
 extension Path: CustomStringConvertible {
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	public var description: String {
 		return keys.reduce("") { $0 + " - " + $1 }
 	}
 }
 
 extension Path: ExpressibleByArrayLiteral {
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	public typealias Element = String
 
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	public init(arrayLiteral elements: String...) {
 		self.keys = elements
 	}
 }
 
 extension Path: ExpressibleByStringLiteral {
+    
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	public typealias UnicodeScalarLiteralType = String
+    
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	public typealias ExtendedGraphemeClusterLiteralType = String
-	public typealias StringLiteralType = String
+	
+    @available(*, deprecated, message: "Use Codable protocol instead")
+    public typealias StringLiteralType = String
 
 	public init(unicodeScalarLiteral value: String) {
 		self.keys = [value]
