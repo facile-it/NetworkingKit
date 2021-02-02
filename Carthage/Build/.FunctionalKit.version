@@ -1,7 +1,7 @@
 {
   "Mac" : [
     {
-      "hash" : "40d1b1cc356151e566a15566b210d35aacfcfdcf50fbec9f2825899cda86beb3",
+      "hash" : "507b592d47c7f7e1a3236b3f4652d69c6c0675e0a6cd5f03e64f5e496ca69cd5",
       "name" : "FunctionalKit",
       "linking" : "dynamic",
       "swiftToolchainVersion" : "5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)"
@@ -16,7 +16,7 @@
   "commitish" : "0.23.0",
   "iOS" : [
     {
-      "hash" : "e08a4e065b171e354a458561242cef9993eace48f61b3373f1612b549122532b",
+      "hash" : "09282ca0fbce08991b502eab41fc58bd102db06e318c932cd0381923b5a5e5ed",
       "name" : "FunctionalKit",
       "linking" : "dynamic",
       "swiftToolchainVersion" : "5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)"

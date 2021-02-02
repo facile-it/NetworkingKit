@@ -31,6 +31,7 @@ public struct HTTPRequest {
     }
 	// sourcery:end
 
+    @available(*, deprecated, message: "Please use correct version with paramenter 'queryStringParameters: [Pair<String,Any>]?'")
 	public init(identifier: String, configuration: ConnectionConfiguration, method: HTTPMethod, additionalHeaders: [String:String]?, path: String?, queryStringParameters: [String:Any]?, body: Data?) {
 		self.init(
 			identifier: identifier,
@@ -46,6 +47,22 @@ public struct HTTPRequest {
 			headers: configuration.defaultHeaders.get(or: [:]).merging(additionalHeaders.get(or: [:]), uniquingKeysWith: f.second),
 			body: body)
 	}
+    
+    public init(identifier: String, configuration: ConnectionConfiguration, method: HTTPMethod, additionalHeaders: [String:String]?, path: String?, queryString: [Pair<String,Any>]?, body: Data?) {
+        self.init(
+            identifier: identifier,
+            urlComponents: URLComponents()
+                .resetTo(
+                    scheme: configuration.scheme,
+                    host: configuration.host,
+                    port: configuration.port,
+                    rootPath: configuration.rootPath)
+                .append(path: path.get(or: ""))
+                .setQueryString(parameters: queryString ?? []),
+            method: method,
+            headers: configuration.defaultHeaders.get(or: [:]).merging(additionalHeaders.get(or: [:]), uniquingKeysWith: f.second),
+            body: body)
+    }
 
 	public func getURLRequestWriter(cachePolicy: URLRequest.CachePolicy = .reloadIgnoringLocalCacheData, timeoutInterval: TimeInterval = 20) -> ClientResult<Writer<ConnectionInfo,URLRequest>> {
 		guard let url = urlComponents.url else {

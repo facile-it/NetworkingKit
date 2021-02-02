@@ -3,7 +3,6 @@ import Foundation
 // sourcery: prism
 // sourcery: match
 // sourcery: equatable
-@available(*, deprecated, message: "Use Codable protocol instead")
 public enum JSONError: Error {
 	case serialization(NSError)
 	case invalidTopLevelObject
@@ -13,7 +12,6 @@ public enum JSONError: Error {
 // MARK: - Public
 
 extension JSONError: CustomStringConvertible {
-    @available(*, deprecated, message: "Use Codable protocol instead")
 	public var description: String {
 		switch self {
 		case .serialization(let error):
@@ -26,5 +24,4 @@ extension JSONError: CustomStringConvertible {
 	}
 }
 
-@available(*, deprecated, message: "Use Codable protocol instead")
 public typealias JSONResult<T> = Result<T, JSONError>
