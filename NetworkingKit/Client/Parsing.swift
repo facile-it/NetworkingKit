@@ -65,6 +65,7 @@ public enum Parse {
 			return check(at: f.identity, errorStrategy: errorStrategy)
 		}
 
+        @available(*, deprecated, message: "Use Codable protocol instead")
 		public static func getElement<T>(type: T.Type, at path: Path) -> ([String:Any]) -> ClientResult<T> {
 			return { PathTo<T>(root: $0).get(path).mapError(ClientError.noValueAtPath) }
 		}
@@ -109,6 +110,7 @@ public enum Parse {
 			}
 		}
 
+        @available(*, deprecated, message: "Use Codable protocol instead")
 		public static func messageForPath(_ errorPath: Path) -> ([String:Any]) -> ClientResult<[String:Any]> {
 			return { plist in
 				guard let errorMessage = PathTo<String>(root: plist).get(errorPath).toOptionalValue() else { return .success(plist) }

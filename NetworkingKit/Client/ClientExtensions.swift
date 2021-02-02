@@ -176,6 +176,8 @@ extension HTTPRequest {
 //: ------------------------
 
 extension Array where Element: ProductType, Element.FirstType == String, Element.SecondType == Optional<JSONObject> {
+    
+    @available(*, deprecated, message: "Use Codable protocol instead")
     public var toJSONDict: Array<JSONObject> {
         return self
             .map { $0.mapSecond { optJSON in optJSON.get(or: .null) }}

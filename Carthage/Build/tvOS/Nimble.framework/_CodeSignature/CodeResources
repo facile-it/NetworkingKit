@@ -4,17 +4,9 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Headers/CwlMachBadInstructionHandler.h</key>
-		<data>
-		v0/4fESeFseJ4f3UCREYwNQt42w=
-		</data>
-		<key>Headers/CwlPreconditionTesting.h</key>
-		<data>
-		C0Pjrxr0uyYaJVfbRh/dvJe+Yc8=
-		</data>
 		<key>Headers/DSL.h</key>
 		<data>
-		SOBfGtgRhnc4tVJG4EwkkPJii9g=
+		Bn+y/omUNiCkLmL3bCiW8ua3IgI=
 		</data>
 		<key>Headers/NMBExceptionCapture.h</key>
 		<data>
@@ -26,39 +18,47 @@
 		</data>
 		<key>Headers/Nimble-Swift.h</key>
 		<data>
-		SmM+OZ2BkvA6QWJ8jvxnpQN7o3Y=
+		r2i8RqxrBrONo6wEzmQBqx788gQ=
 		</data>
 		<key>Headers/Nimble.h</key>
 		<data>
-		wAOwkJlzKBKFSrzyxmzbvuaWB0I=
+		7p+AHtXhC3YbBG6O1EC/oU2pRu4=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Alc1CmQe9vpFsgCuoYzZN2vCtFk=
+		VkfJacZ9SQVueSooqLLX0qKleyo=
 		</data>
 		<key>Modules/Nimble.swiftmodule/Project/x86_64-apple-tvos-simulator.swiftsourceinfo</key>
 		<data>
-		5ObWlfOh9xYUUp2XTcQMjcWeHi8=
+		xB3KlgjPyuY26HxYs4njgcBsTvw=
 		</data>
 		<key>Modules/Nimble.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<data>
-		5ObWlfOh9xYUUp2XTcQMjcWeHi8=
+		xB3KlgjPyuY26HxYs4njgcBsTvw=
 		</data>
 		<key>Modules/Nimble.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<data>
-		JCE2ubIbxjXdcMM5Ov/IXx9lc7Y=
+		3Qq/9AON0ldFRsOPMC3StDSgsHE=
+		</data>
+		<key>Modules/Nimble.swiftmodule/x86_64-apple-tvos-simulator.swiftinterface</key>
+		<data>
+		epFQrc/Wwk6Hh7Be/vAuS69XPHI=
 		</data>
 		<key>Modules/Nimble.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		cSVcwvxteOBU4LI1rLyL/ZZgxOw=
+		QWsQVICt+5LBXF1A8HcgAK9hTAQ=
 		</data>
 		<key>Modules/Nimble.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		JCE2ubIbxjXdcMM5Ov/IXx9lc7Y=
+		3Qq/9AON0ldFRsOPMC3StDSgsHE=
+		</data>
+		<key>Modules/Nimble.swiftmodule/x86_64.swiftinterface</key>
+		<data>
+		epFQrc/Wwk6Hh7Be/vAuS69XPHI=
 		</data>
 		<key>Modules/Nimble.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		cSVcwvxteOBU4LI1rLyL/ZZgxOw=
+		QWsQVICt+5LBXF1A8HcgAK9hTAQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -67,37 +67,15 @@
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Headers/CwlMachBadInstructionHandler.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			v0/4fESeFseJ4f3UCREYwNQt42w=
-			</data>
-			<key>hash2</key>
-			<data>
-			1q6sq/s1mYM5dzNACMt9kNSIHYwgtMXc8Q5PQHaxvJs=
-			</data>
-		</dict>
-		<key>Headers/CwlPreconditionTesting.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			C0Pjrxr0uyYaJVfbRh/dvJe+Yc8=
-			</data>
-			<key>hash2</key>
-			<data>
-			WjUlMum0YDiRxXJZo5pjBSjQtPhofmhGbuscfSbONYA=
-			</data>
-		</dict>
 		<key>Headers/DSL.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			SOBfGtgRhnc4tVJG4EwkkPJii9g=
+			Bn+y/omUNiCkLmL3bCiW8ua3IgI=
 			</data>
 			<key>hash2</key>
 			<data>
-			NFDdRVJ1bTqyHbAUCpzIoHA7qFg19J7VsZTMaZ/dqM0=
+			tWn2sLmz8K6qlYDk1LjYLSYwo2EEDoKhhr7Lp5hBqIs=
 			</data>
 		</dict>
 		<key>Headers/NMBExceptionCapture.h</key>
@@ -126,88 +104,110 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			SmM+OZ2BkvA6QWJ8jvxnpQN7o3Y=
+			r2i8RqxrBrONo6wEzmQBqx788gQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			atCibkqbG+Z+BzNZ5H8LumPdWefcsOBdZMEMgKOLZqk=
+			IlOv5jwFeSDIrtIyYAqqKHGh+MigNgqHDetGWdFDpnA=
 			</data>
 		</dict>
 		<key>Headers/Nimble.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			wAOwkJlzKBKFSrzyxmzbvuaWB0I=
+			7p+AHtXhC3YbBG6O1EC/oU2pRu4=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZRSPdG0LbIgbRRwFmnppcjL3lgHflAMQjwi5flezj3A=
+			V2V3HW0h01qI0k7fhMliK2yCzItlYBKJB/J0OrYopCc=
 			</data>
 		</dict>
 		<key>Modules/Nimble.swiftmodule/Project/x86_64-apple-tvos-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5ObWlfOh9xYUUp2XTcQMjcWeHi8=
+			xB3KlgjPyuY26HxYs4njgcBsTvw=
 			</data>
 			<key>hash2</key>
 			<data>
-			zl6a+xxw+Ka/yCUUOqiY4yzjpWrQU/QN1x1goOKClM8=
+			EY5lAKMNoTbV22bLVjqVUDxHXtl7tdSLOzaoEdTYu6w=
 			</data>
 		</dict>
 		<key>Modules/Nimble.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5ObWlfOh9xYUUp2XTcQMjcWeHi8=
+			xB3KlgjPyuY26HxYs4njgcBsTvw=
 			</data>
 			<key>hash2</key>
 			<data>
-			zl6a+xxw+Ka/yCUUOqiY4yzjpWrQU/QN1x1goOKClM8=
+			EY5lAKMNoTbV22bLVjqVUDxHXtl7tdSLOzaoEdTYu6w=
 			</data>
 		</dict>
 		<key>Modules/Nimble.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			JCE2ubIbxjXdcMM5Ov/IXx9lc7Y=
+			3Qq/9AON0ldFRsOPMC3StDSgsHE=
 			</data>
 			<key>hash2</key>
 			<data>
-			Vhxvb8395k31II+ewcc9169a/i7hGFfIsBdl3h/5BZ4=
+			KSSSPCHFsaDDu7bpBP2DoX5IhCKlypMvX2slK2+Tmcc=
+			</data>
+		</dict>
+		<key>Modules/Nimble.swiftmodule/x86_64-apple-tvos-simulator.swiftinterface</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			epFQrc/Wwk6Hh7Be/vAuS69XPHI=
+			</data>
+			<key>hash2</key>
+			<data>
+			w39gZlJfPEab9ND3GIvheFEjKhA4iSJj+EDR/H737/8=
 			</data>
 		</dict>
 		<key>Modules/Nimble.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			cSVcwvxteOBU4LI1rLyL/ZZgxOw=
+			QWsQVICt+5LBXF1A8HcgAK9hTAQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			MGh8MD02nWf7PAIKhw0WivUQxEFwIyXLMZl+ngoRTNg=
+			cTiXMPKesVaoyjAO67+sCBi84gkdF7Bc/dwSC3oX24k=
 			</data>
 		</dict>
 		<key>Modules/Nimble.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			JCE2ubIbxjXdcMM5Ov/IXx9lc7Y=
+			3Qq/9AON0ldFRsOPMC3StDSgsHE=
 			</data>
 			<key>hash2</key>
 			<data>
-			Vhxvb8395k31II+ewcc9169a/i7hGFfIsBdl3h/5BZ4=
+			KSSSPCHFsaDDu7bpBP2DoX5IhCKlypMvX2slK2+Tmcc=
+			</data>
+		</dict>
+		<key>Modules/Nimble.swiftmodule/x86_64.swiftinterface</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			epFQrc/Wwk6Hh7Be/vAuS69XPHI=
+			</data>
+			<key>hash2</key>
+			<data>
+			w39gZlJfPEab9ND3GIvheFEjKhA4iSJj+EDR/H737/8=
 			</data>
 		</dict>
 		<key>Modules/Nimble.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			cSVcwvxteOBU4LI1rLyL/ZZgxOw=
+			QWsQVICt+5LBXF1A8HcgAK9hTAQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			MGh8MD02nWf7PAIKhw0WivUQxEFwIyXLMZl+ngoRTNg=
+			cTiXMPKesVaoyjAO67+sCBi84gkdF7Bc/dwSC3oX24k=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

@@ -1,9 +1,10 @@
 {
   "Mac" : [
     {
+      "hash" : "b414a93c5a4599f6dc4b4ab2e158c1f5073f49a18e3892cc956b58b983a7ad8c",
       "name" : "Nimble",
-      "hash" : "a1aa6fe2700fb813a42e8afb956eee8be97881afb8816097e0b79f2633fb4493",
-      "swiftToolchainVersion" : "5.2.2 (swiftlang-1103.0.32.6 clang-1103.0.32.51)"
+      "linking" : "dynamic",
+      "swiftToolchainVersion" : "5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)"
     }
   ],
   "watchOS" : [
@@ -11,17 +12,19 @@
   ],
   "tvOS" : [
     {
+      "hash" : "4a9c0b7313d5bc0da024385f1bc07253f550c76e70e8b9d95a8101af5cacdbce",
       "name" : "Nimble",
-      "hash" : "3c2aa206ed826cc4b23557622ec5155c1bd5e7c0c5b4fdba74e84e79d0438d58",
-      "swiftToolchainVersion" : "5.2.2 (swiftlang-1103.0.32.6 clang-1103.0.32.51)"
+      "linking" : "dynamic",
+      "swiftToolchainVersion" : "5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)"
     }
   ],
-  "commitish" : "v8.0.7",
+  "commitish" : "v9.0.0",
   "iOS" : [
     {
+      "hash" : "ec928252c4e08aa77c25d596529ab49ce5934d5c0e4cee88d95ff6fe4168e3d2",
       "name" : "Nimble",
-      "hash" : "e5268b2fdce346dfc8fb292f593de5898b0b680e0b0833bfaeeae2c091b4df8d",
-      "swiftToolchainVersion" : "5.2.2 (swiftlang-1103.0.32.6 clang-1103.0.32.51)"
+      "linking" : "dynamic",
+      "swiftToolchainVersion" : "5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)"
     }
   ]
 }

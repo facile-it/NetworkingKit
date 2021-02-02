@@ -1,14 +1,17 @@
 import Foundation
 import Abstract
 
+
 public enum Serialize {
 
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	public static func toJSON(_ object: Any) -> ClientResult<Data> {
 		return JSONObject.with(object)
 			.flatMap(JSONSerialization.data)
 			.mapError { _ in ClientError.serialization(.toJSON) }
 	}
 
+    @available(*, deprecated, message: "Use Codable protocol instead")
 	public static func fromJSONObject(_ object: JSONObject) -> ClientResult<Data> {
 		return JSONSerialization.data(with: object)
 			.mapError { _ in ClientError.serialization(.toJSON) }
@@ -51,6 +54,7 @@ private extension Serialize {
 }
 
 public enum Deserialize {
+    
 	public static func ignored(_ _: Data) -> ClientResult<()> {
 		return .success(())
 	}
@@ -76,7 +80,7 @@ public enum Deserialize {
 			return .failure(ClientError.deserialization(.toAnyDict(error)))
 		}
 	}
-
+    
 	public static func toAnyArrayJSON(_ data: Data) -> ClientResult<[Any]> {
 		do {
 			if let array = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [Any] {
