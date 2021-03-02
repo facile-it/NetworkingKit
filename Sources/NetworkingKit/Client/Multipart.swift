@@ -17,14 +17,14 @@ public struct Multipart {
 	var parts: [Part]
 
 	// sourcery:inline:Multipart.Init
-    public init(boundary: String, contentBoundary: String, lastContentBoundary: String, contentBoundaryData: Data, lastContentBoundaryData: Data, parts: [Multipart.Part]) {
-        self.boundary = boundary
-        self.contentBoundary = contentBoundary
-        self.lastContentBoundary = lastContentBoundary
-        self.contentBoundaryData = contentBoundaryData
-        self.lastContentBoundaryData = lastContentBoundaryData
-        self.parts = parts
-    }
+	    public init(boundary: String, contentBoundary: String, lastContentBoundary: String, contentBoundaryData: Data, lastContentBoundaryData: Data, parts: [Multipart.Part]) {
+	        self.boundary = boundary
+	        self.contentBoundary = contentBoundary
+	        self.lastContentBoundary = lastContentBoundary
+	        self.contentBoundaryData = contentBoundaryData
+	        self.lastContentBoundaryData = lastContentBoundaryData
+	        self.parts = parts
+	    }
 	// sourcery:end
 
 	public init(boundary: String, parts: [Part] = []) {

@@ -7,9 +7,9 @@ public struct PathTo<Target> {
 	let root: [String:Any]
 
 	// sourcery:inline:PathTo.Init
-    public init(root: [String: Any]) {
-        self.root = root
-    }
+	    public init(root: [String: Any]) {
+	        self.root = root
+	    }
 	// sourcery:end
 
 	@available(*, deprecated)

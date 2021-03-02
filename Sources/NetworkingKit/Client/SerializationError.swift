@@ -15,7 +15,7 @@ public enum SerializationError {
 // sourcery: prism
 // sourcery: match
 @available(*, deprecated, message: "Use Codable protocol instead")
-public enum DeserializationError {
+public enum DeserializationError: Equatable {
 	case toAny(NSError?)
 	case toAnyDict(NSError?)
 	case toArray(NSError?)

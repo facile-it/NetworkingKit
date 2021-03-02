@@ -1,6 +1,9 @@
 import Foundation
 import Abstract
 import FunctionalKit
+#if SWIFT_PACKAGE
+    import Operadics
+#endif
 
 @available(*, deprecated, message: "Use Codable protocol instead")
 public typealias PathResult<T> = Result<T, PathError>

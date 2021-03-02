@@ -3,3 +3,7 @@ NetworkingKit.xcodeproj/xcuserdata
 /Carthage/Checkouts
 .DS_Store
 *.bcsymbolmap
+Packages
+.build/
+xcuserdata
+DerivedData/

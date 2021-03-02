@@ -9,9 +9,9 @@ public struct Path {
 	public let keys: [String]
 
 	// sourcery:inline:Path.Init
-    public init(keys: [String]) {
-        self.keys = keys
-    }
+	    public init(keys: [String]) {
+	        self.keys = keys
+	    }
 	// sourcery:end
 
 	public init(_ keys: String...) {

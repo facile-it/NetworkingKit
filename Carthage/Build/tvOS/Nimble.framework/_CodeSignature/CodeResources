@@ -26,15 +26,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		VkfJacZ9SQVueSooqLLX0qKleyo=
+		S2H3HCpQPTV30g9jiEwIpAbgp3w=
 		</data>
 		<key>Modules/Nimble.swiftmodule/Project/x86_64-apple-tvos-simulator.swiftsourceinfo</key>
 		<data>
-		xB3KlgjPyuY26HxYs4njgcBsTvw=
+		TqxI8gdcL2qgrSme+40IZMDyNBY=
 		</data>
 		<key>Modules/Nimble.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<data>
-		xB3KlgjPyuY26HxYs4njgcBsTvw=
+		TqxI8gdcL2qgrSme+40IZMDyNBY=
 		</data>
 		<key>Modules/Nimble.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Modules/Nimble.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		QWsQVICt+5LBXF1A8HcgAK9hTAQ=
+		so1RHh0w7NGGJSXRKATiVR0T0gY=
 		</data>
 		<key>Modules/Nimble.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>Modules/Nimble.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		QWsQVICt+5LBXF1A8HcgAK9hTAQ=
+		so1RHh0w7NGGJSXRKATiVR0T0gY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -126,22 +126,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			xB3KlgjPyuY26HxYs4njgcBsTvw=
+			TqxI8gdcL2qgrSme+40IZMDyNBY=
 			</data>
 			<key>hash2</key>
 			<data>
-			EY5lAKMNoTbV22bLVjqVUDxHXtl7tdSLOzaoEdTYu6w=
+			zN+mgAvn45J3e51egiMrET7bvZZW22wJ+emv8Ptr1sM=
 			</data>
 		</dict>
 		<key>Modules/Nimble.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			xB3KlgjPyuY26HxYs4njgcBsTvw=
+			TqxI8gdcL2qgrSme+40IZMDyNBY=
 			</data>
 			<key>hash2</key>
 			<data>
-			EY5lAKMNoTbV22bLVjqVUDxHXtl7tdSLOzaoEdTYu6w=
+			zN+mgAvn45J3e51egiMrET7bvZZW22wJ+emv8Ptr1sM=
 			</data>
 		</dict>
 		<key>Modules/Nimble.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
@@ -170,11 +170,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			QWsQVICt+5LBXF1A8HcgAK9hTAQ=
+			so1RHh0w7NGGJSXRKATiVR0T0gY=
 			</data>
 			<key>hash2</key>
 			<data>
-			cTiXMPKesVaoyjAO67+sCBi84gkdF7Bc/dwSC3oX24k=
+			CsYDmpB6IyipIAtkHKoFwaXmMr7aAa2c3poly2G3XqA=
 			</data>
 		</dict>
 		<key>Modules/Nimble.swiftmodule/x86_64.swiftdoc</key>
@@ -203,11 +203,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			QWsQVICt+5LBXF1A8HcgAK9hTAQ=
+			so1RHh0w7NGGJSXRKATiVR0T0gY=
 			</data>
 			<key>hash2</key>
 			<data>
-			cTiXMPKesVaoyjAO67+sCBi84gkdF7Bc/dwSC3oX24k=
+			CsYDmpB6IyipIAtkHKoFwaXmMr7aAa2c3poly2G3XqA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

@@ -14,15 +14,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		JrlAdD2aHqVphIcYLyKr1w4IXpo=
+		SjDyHzAtiJvD1dbs9ZSHlZRHvtg=
 		</data>
 		<key>Modules/SwiftCheck.swiftmodule/Project/x86_64-apple-tvos-simulator.swiftsourceinfo</key>
 		<data>
-		l9XJEA8i4DsB4+Rr/SpO/QtnQGs=
+		xSU0YkJAM/lBs8dUZLMOInAUXG0=
 		</data>
 		<key>Modules/SwiftCheck.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<data>
-		l9XJEA8i4DsB4+Rr/SpO/QtnQGs=
+		xSU0YkJAM/lBs8dUZLMOInAUXG0=
 		</data>
 		<key>Modules/SwiftCheck.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/SwiftCheck.swiftmodule/x86_64-apple-tvos-simulator.swiftmodule</key>
 		<data>
-		UJygGzTlyGPX8Fsn4BPrzwPbZ1Q=
+		dhSN01tCj6MZWLBd8SqWI0I8geM=
 		</data>
 		<key>Modules/SwiftCheck.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Modules/SwiftCheck.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		UJygGzTlyGPX8Fsn4BPrzwPbZ1Q=
+		dhSN01tCj6MZWLBd8SqWI0I8geM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -73,22 +73,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			l9XJEA8i4DsB4+Rr/SpO/QtnQGs=
+			xSU0YkJAM/lBs8dUZLMOInAUXG0=
 			</data>
 			<key>hash2</key>
 			<data>
-			q9uRCH3QMAyTrRoMmkzfVt5OypWgAapg45bYjUm0+BQ=
+			tU/QrT+DTXKNRCLwQmABqpxP4WXp0vdzyg83FS0kzVU=
 			</data>
 		</dict>
 		<key>Modules/SwiftCheck.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			l9XJEA8i4DsB4+Rr/SpO/QtnQGs=
+			xSU0YkJAM/lBs8dUZLMOInAUXG0=
 			</data>
 			<key>hash2</key>
 			<data>
-			q9uRCH3QMAyTrRoMmkzfVt5OypWgAapg45bYjUm0+BQ=
+			tU/QrT+DTXKNRCLwQmABqpxP4WXp0vdzyg83FS0kzVU=
 			</data>
 		</dict>
 		<key>Modules/SwiftCheck.swiftmodule/x86_64-apple-tvos-simulator.swiftdoc</key>
@@ -106,11 +106,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			UJygGzTlyGPX8Fsn4BPrzwPbZ1Q=
+			dhSN01tCj6MZWLBd8SqWI0I8geM=
 			</data>
 			<key>hash2</key>
 			<data>
-			g4su41K+7wsndDcYpNNXZvDxKYiz/nE7d5OBcItfYPM=
+			DIZbzgUMp2nWQTo3hcvA+Ng5zsh0o6X/z1wq3RchKfI=
 			</data>
 		</dict>
 		<key>Modules/SwiftCheck.swiftmodule/x86_64.swiftdoc</key>
@@ -128,11 +128,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			UJygGzTlyGPX8Fsn4BPrzwPbZ1Q=
+			dhSN01tCj6MZWLBd8SqWI0I8geM=
 			</data>
 			<key>hash2</key>
 			<data>
-			g4su41K+7wsndDcYpNNXZvDxKYiz/nE7d5OBcItfYPM=
+			DIZbzgUMp2nWQTo3hcvA+Ng5zsh0o6X/z1wq3RchKfI=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

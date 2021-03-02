@@ -1,6 +1,9 @@
 import Foundation
 import Abstract
 import FunctionalKit
+#if SWIFT_PACKAGE
+    import Operadics
+#endif
 
 public protocol JSONNumber {
     var toNSNumber: NSNumber { get }
