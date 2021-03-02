@@ -83,10 +83,10 @@ private extension Reachability {
         reachabilityFlags = flags
     }
     
-    var isReachableViaWiFi: Bool { return isReachable && isRunningOnDevice && !isWWAN }
+    var isReachableViaWiFi: Bool { isReachable && isRunningOnDevice && !isWWAN }
     
     /// The specified node name or address can be reached using the current network configuration.
-    var isReachable: Bool { return flags?.contains(.reachable) == true }
+    var isReachable: Bool { flags?.contains(.reachable) == true }
     
     /// The specified node name or address can be reached via a cellular connection, such as EDGE or GPRS.
     var isWWAN: Bool {
@@ -100,7 +100,7 @@ private extension Reachability {
     /// The specified node name or address can be reached using the current network configuration, but a connection must first be established. If this flag is set
     /// The specified node name or address can be reached via a transient connection, such as PPP.
     var isConnectionRequiredAndTransientConnection: Bool {
-        return (flags?.intersection([.connectionRequired, .transientConnection]) == [.connectionRequired, .transientConnection]) == true
+        (flags?.intersection([.connectionRequired, .transientConnection]) == [.connectionRequired, .transientConnection]) == true
     }
 }
 
