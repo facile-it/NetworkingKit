@@ -97,10 +97,10 @@ public struct HTTPResponse<Output> {
 	public var output: Output
 
 	// sourcery:inline:HTTPResponse.Init
-    public init(URLResponse: HTTPURLResponse, output: Output) {
-        self.URLResponse = URLResponse
-        self.output = output
-    }
+	    public init(URLResponse: HTTPURLResponse, output: Output) {
+	        self.URLResponse = URLResponse
+	        self.output = output
+	    }
 	// sourcery:end
 
 	public var toWriter: Writer<ConnectionInfo,HTTPResponse> {

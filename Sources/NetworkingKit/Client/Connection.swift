@@ -45,13 +45,13 @@ public struct ConnectionConfiguration {
 	public let defaultHeaders: [String:String]?
 
 	// sourcery:inline:ConnectionConfiguration.Init
-    public init(scheme: String, host: String, port: Int?, rootPath: String?, defaultHeaders: [String: String]?) {
-        self.scheme = scheme
-        self.host = host
-        self.port = port
-        self.rootPath = rootPath
-        self.defaultHeaders = defaultHeaders
-    }
+	    public init(scheme: String, host: String, port: Int?, rootPath: String?, defaultHeaders: [String: String]?) {
+	        self.scheme = scheme
+	        self.host = host
+	        self.port = port
+	        self.rootPath = rootPath
+	        self.defaultHeaders = defaultHeaders
+	    }
 	// sourcery:end
 }
 

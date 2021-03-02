@@ -1,6 +1,9 @@
 import Foundation
 import FunctionalKit
 import Abstract
+#if SWIFT_PACKAGE
+    import Operadics
+#endif
 
 public enum Parse {
 

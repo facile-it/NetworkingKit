@@ -1,6 +1,6 @@
 sources:
-  - NetworkingKit
+  - Sources/NetworkingKit
 templates:
   - Templates
 output:
-  generated
+  Sources/NetworkingKit/generated

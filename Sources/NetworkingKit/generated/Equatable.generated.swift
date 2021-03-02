@@ -1,4 +1,4 @@
-// Generated using Sourcery 0.15.0 — https://github.com/krzysztofzablocki/Sourcery
+// Generated using Sourcery 1.0.2 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
 
@@ -85,30 +85,7 @@ extension Multipart.Part.Text: Equatable {
     }
 }
 
-extension Path: Equatable {
-    public  static func == (lhs: Path, rhs: Path) -> Bool {
-		guard lhs.keys == rhs.keys else { return false }
-        return true
-    }
-}
-
 // MARK: - Equatable for enums
-
-extension DeserializationError: Equatable {
-    public static func == (lhs: DeserializationError, rhs: DeserializationError) -> Bool {
-        switch (lhs,rhs) {
-            case (.toAny(let lhs), .toAny(let rhs)):
-				return lhs == rhs
-            case (.toAnyDict(let lhs), .toAnyDict(let rhs)):
-				return lhs == rhs
-            case (.toArray(let lhs), .toArray(let rhs)):
-				return lhs == rhs
-            case (.toString, .toString):
-                return true
-			default: return false
-        }
-    }
-}
 
 extension JSONError: Equatable {
     public static func == (lhs: JSONError, rhs: JSONError) -> Bool {
@@ -131,18 +108,6 @@ extension Multipart.Part: Equatable {
 				return lhs == rhs
             case (.file(let lhs), .file(let rhs)):
 				return lhs == rhs
-			default: return false
-        }
-    }
-}
-
-extension SerializationError: Equatable {
-    public static func == (lhs: SerializationError, rhs: SerializationError) -> Bool {
-        switch (lhs,rhs) {
-            case (.toJSON, .toJSON):
-                return true
-            case (.toFormURLEncoded, .toFormURLEncoded):
-                return true
 			default: return false
         }
     }
