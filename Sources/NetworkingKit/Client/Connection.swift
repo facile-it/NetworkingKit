@@ -35,9 +35,8 @@ public extension f {
 public typealias Response = (optData: Data?, optResponse: URLResponse?, optError: Error?)
 public typealias Connection = (URLRequest) -> ClientResourceInContext<Response>
 
-// sourcery: equatable
 // sourcery: lens
-public struct ConnectionConfiguration {
+public struct ConnectionConfiguration: Equatable {
 	public let scheme: String
 	public let host: String
 	public let port: Int?

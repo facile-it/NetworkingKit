@@ -12,9 +12,8 @@ public enum HTTPMethod: String {
 	case delete = "DELETE"
 }
 
-// sourcery: equatable
 // sourcery: lens
-public struct HTTPRequest {
+public struct HTTPRequest: Equatable {
 	public var identifier: String
 	public var urlComponents: URLComponents
 	public var method: HTTPMethod

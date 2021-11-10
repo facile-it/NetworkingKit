@@ -5,24 +5,21 @@ import FunctionalKit
     import Operadics
 #endif
 
-// sourcery: equatable
 // sourcery: lens
-public struct ConnectionInfo {
+public struct ConnectionInfo: Equatable {
 	public var connectionName: String?
 	public var request: Request
 	public var response: Response
 
-	// sourcery: equatable
 	// sourcery: lens
-	public struct Request {
+    public struct Request: Equatable {
 		public var urlComponents: URLComponents?
 		public var originalRequest: URLRequest?
 		public var bodyStringRepresentation: String?
 	}
 
-	// sourcery: equatable
 	// sourcery: lens
-	public struct Response {
+    public struct Response: Equatable {
 		public var connectionError: NSError?
 		public var serverResponse: HTTPURLResponse?
 		public var serverOutput: Data?

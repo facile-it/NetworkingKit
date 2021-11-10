@@ -2,8 +2,7 @@ import Foundation
 
 // sourcery: prism
 // sourcery: match
-// sourcery: equatable
-public enum JSONError: Error {
+public enum JSONError: Error, Equatable {
 	case serialization(NSError)
 	case invalidTopLevelObject
 	case nonJSONType

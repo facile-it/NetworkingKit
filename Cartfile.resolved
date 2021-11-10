@@ -1,5 +1,4 @@
-github "Quick/Nimble" "v9.0.0"
+github "Quick/Nimble" "v9.2.1"
 github "facile-it/FunctionalKit" "0.23.0"
 github "typelift/Abstract" "0.1.0"
-github "typelift/Operadics" "0.4.0"
-github "typelift/SwiftCheck" "0.12.0"
+github "typelift/SwiftCheck" "7494bedfa42972431004a5d478dbf1fc2655e1e6"

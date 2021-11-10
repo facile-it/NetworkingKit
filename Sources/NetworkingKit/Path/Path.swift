@@ -3,9 +3,8 @@ import Abstract
 import FunctionalKit
 
 // sourcery: lens
-// sourcery: equatable
 @available(*, deprecated, message: "Use Codable protocol instead")
-public struct Path {
+public struct Path: Equatable {
 	public let keys: [String]
 
 	// sourcery:inline:Path.Init
