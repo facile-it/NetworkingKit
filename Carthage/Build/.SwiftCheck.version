@@ -1,36 +1,11 @@
 {
-  "Mac" : [
-    {
-      "hash" : "96888c6286438e0d58d703f8bfee6b62fdd9b2cc14a08ac95e6d93f77c14f4bc",
-      "name" : "SwiftCheck",
-      "linking" : "dynamic",
-      "swiftToolchainVersion" : "5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)"
-    }
-  ],
-  "watchOS" : [
-
-  ],
-  "tvOS" : [
-    {
-      "hash" : "b98c15c2c1640a85250b5f48a69b13b34ac1e6fdaacfcfdfb053024b800d1b09",
-      "name" : "SwiftCheck",
-      "linking" : "dynamic",
-      "swiftToolchainVersion" : "5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)"
-    },
-    {
-      "hash" : "b98c15c2c1640a85250b5f48a69b13b34ac1e6fdaacfcfdfb053024b800d1b09",
-      "name" : "SwiftCheck",
-      "linking" : "dynamic",
-      "swiftToolchainVersion" : "5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)"
-    }
-  ],
-  "commitish" : "0.12.0",
+  "commitish" : "7494bedfa42972431004a5d478dbf1fc2655e1e6",
   "iOS" : [
     {
-      "hash" : "ca096ffa89c7a5aeb374f45ab95f5efe9ee0695f09865624786c17b5e9fc89f2",
+      "hash" : "2b88f98eae4de19874f32d7c93f63453da06f7369d17e2915c3e07cd9853cb00",
       "name" : "SwiftCheck",
       "linking" : "dynamic",
-      "swiftToolchainVersion" : "5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)"
+      "swiftToolchainVersion" : "5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)"
     }
   ]
 }

@@ -1,17 +1,15 @@
 import Foundation
 
-// sourcery: equatable
 // sourcery: prism
 // sourcery: match
 @available(*, deprecated, message: "Use Codable protocol instead")
-public enum SerializationError {
+public enum SerializationError: Equatable {
 	case toJSON
 	case toFormURLEncoded
 
 	public static let errorDomain = "Serialization"
 }
 
-// sourcery: equatable
 // sourcery: prism
 // sourcery: match
 @available(*, deprecated, message: "Use Codable protocol instead")

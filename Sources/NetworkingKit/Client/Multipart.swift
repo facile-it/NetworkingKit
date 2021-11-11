@@ -1,8 +1,7 @@
 import Foundation
 
-// sourcery: equatable
 // sourcery: lens
-public struct Multipart {
+public struct Multipart: Equatable {
 	public static let errorDomain = "Client.Multipart"
 	public static let newLineString = "\r\n"
 	public static let newLineData = newLineString.data(using: .utf8)!
@@ -39,15 +38,13 @@ public struct Multipart {
 			parts: parts)
 	}
 
-	// sourcery: equatable
     // sourcery: prism
-	public enum Part {
+    public enum Part: Equatable {
 		case text(Text)
 		case file(File)
 
-		// sourcery: equatable
 		// sourcery: lens
-		public struct Text {
+		public struct Text: Equatable {
 			public var name: String
 			public var content: String
 
@@ -57,9 +54,8 @@ public struct Multipart {
 			}
 		}
 
-		// sourcery: equatable
         // sourcery: lens
-		public struct File {
+		public struct File: Equatable {
 			public var contentType: String
 			public var name: String
 			public var filename: String

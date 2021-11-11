@@ -1,2 +1,2 @@
 github "Quick/Nimble"
-github "typelift/SwiftCheck"
+github "typelift/SwiftCheck" "7494bedfa42972431004a5d478dbf1fc2655e1e6"
